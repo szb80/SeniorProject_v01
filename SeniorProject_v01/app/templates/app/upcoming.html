@@ -1,0 +1,39 @@
+﻿{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+{% load truncatesmart %}
+
+{% block content %}
+
+<h2>Upcoming Events</h2>
+<h3>{{ message }}</h3>
+
+    {% if upcoming %}
+    <table>
+        <thead>
+            <td><h3>Title</h3></td>
+            <td><h3>Category</h3></td>
+            <td><h3>Description</h3></td>
+            <td><h3>Start Date</h3></td>
+            <td><h3>End Date</h3></td>
+            <td><h3>Location</h3></td>
+            <td><h3>Registration</h3></td>
+        </thead>
+    {% for event in upcoming %}
+        <tr>
+            <td><a href="/event/{{event.id}}">{{ event.name }}</a></td>
+            <td>{{ event.event_type }}</td>
+            <!-- NOT BUILDING CORRECT DETAIL URLS ########################################################## -->
+            <td>{{ event.description|truncatesmart:90 }}<a href="<a href="/event/{{event.id}}">" (more)</a></td>
+            <td>{{ event.date_start }}</td>
+            <td>{{ event.date_end }}</td>
+            <td>{{ event.street_address }}</td> <!-- #################################################3 -->
+            <td><a href="{{ event.payment_url }}">Registration Link</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
+
+{% endblock %}

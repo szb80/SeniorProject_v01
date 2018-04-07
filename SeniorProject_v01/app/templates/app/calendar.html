@@ -1,0 +1,32 @@
+﻿{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+
+    <!-- daypilot libraries and themes -->
+    <script src="{% static 'app/scripts/daypilot-all.min2.js' %}"></script>
+	<<link rel="stylesheet" type="text/css" href="{% static 'app/content/calendar_transparent.css' %}" />
+    <<link rel="stylesheet" type="text/css" href="{% static 'app/content/month_transparent.css' %}" />
+    <<link rel="stylesheet" type="text/css" href="{% static 'app/content/navigator_transparent.css' %}" />
+</head>
+
+<body>
+
+    <!-- check user authentication and display proper page -->
+    {% if user.is_authenticated %}
+        <!-- if user is logged in with admin roles, load RW (read-write) calendar -->
+        {% include "app/calendar-rw.html" %}
+
+        <!-- if user is logged in with facebook user creds, load RO (read only) calendar -->
+        {% else %}
+            {% include "app/calendar-rw.html" %} <!-- CHANGE TO RO WHEN FINISHED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+    {% endif %}
+    
+
+</body>
+</html>

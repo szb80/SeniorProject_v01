@@ -1,0 +1,15 @@
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<!-- load and display the calender -->
+{% include "app/calendar.html" %}
+
+{% endblock %}
