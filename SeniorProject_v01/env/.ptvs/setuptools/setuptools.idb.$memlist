@@ -1,4 +1,4 @@
-extern
+command
 _Command
 extension
 glob
@@ -23,7 +23,7 @@ ssl_support
 distutils
 py27compat
 Extension
-command
+extern
 fnmatchcase
 convert_path
 lib2to3_ex

@@ -86,3 +86,8 @@ class Event(models.Model):
     def __str__(self):
         return self.name;
 
+    def get_absolute_url(self):
+        url = '/event/' + str(self.id)
+        return u'<a href="%s">%s</a>' % (url, str(self.name))
+
+

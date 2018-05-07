@@ -53,6 +53,9 @@
     </Compile>
     <Compile Include="app\templatetags\__init__.py" />
     <Compile Include="app\tests.py" />
+    <Compile Include="app\utils.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
@@ -73,6 +76,7 @@
     <Folder Include="app\django-address-master\address\static\js\" />
     <Folder Include="app\django-address-master\address\tests\" />
     <Folder Include="app\migrations\" />
+    <Folder Include="app\templates\tempocal\" />
     <Folder Include="app\templatetags\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
@@ -103,12 +107,22 @@
     <Content Include="app\templates\app\calendar-ro.html" />
     <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\eventdetail.html" />
+    <Content Include="app\templates\app\events2.html" />
     <Content Include="app\templates\app\upcoming.html" />
     <Content Include="app\templates\app\eventlist.html" />
     <Content Include="app\templates\app\events.html" />
     <Content Include="app\templates\app\login-fb.html" />
     <Content Include="app\templates\app\login - Copy.html" />
     <Content Include="app\templates\app\test1.html" />
+    <Content Include="app\templates\tempocal\day.html" />
+    <Content Include="app\templates\tempocal\emptymonth.html" />
+    <Content Include="app\templates\tempocal\month.html" />
+    <Content Include="app\templates\tempocal\monthname.html" />
+    <Content Include="app\templates\tempocal\week.html" />
+    <Content Include="app\templates\tempocal\weekday.html" />
+    <Content Include="app\templates\tempocal\weekheader.html" />
+    <Content Include="app\templates\tempocal\year.html" />
+    <Content Include="app\templates\tempocal\yearpage.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

@@ -24,7 +24,7 @@
             <td><a href="/event/{{event.id}}">{{ event.name }}</a></td>
             <td>{{ event.event_type }}</td>
             <!-- NOT BUILDING CORRECT DETAIL URLS ########################################################## -->
-            <td>{{ event.description|truncatesmart:90 }}<a href="<a href="/event/{{event.id}}">" (more)</a></td>
+            <td>{{ event.description|truncatesmart:90 }} <a href="/event/{{event.id}}">(more)</a></td>
             <td>{{ event.date_start }}</td>
             <td>{{ event.date_end }}</td>
             <td>{{ event.street_address }}</td> <!-- #################################################3 -->

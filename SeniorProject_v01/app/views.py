@@ -4,12 +4,13 @@ Definition of views.
 
 
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import loader, RequestContext
 from django.views import generic
 from datetime import datetime
 
 from .models import Event
+from .utils import TemplatedCalendar, get_month_day_range
 
 def home(request):
     """Renders the home page."""
@@ -49,8 +50,8 @@ def about(request):
         }
     )
 
+""" OLD EVENTS WITH PACKAGE CALENDAR
 def events(request):
-    """Renders the about page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -61,6 +62,19 @@ def events(request):
             'year':datetime.now().year,
         }
     )
+    """
+
+def events(request):
+    assert isinstance(request, HttpRequest)
+
+    """ retrieve events for current month """
+    events = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
+
+    calendar = TemplatedCalendar()
+    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), events)
+
+    return render_to_response('app/events2.html', {'month_table': month_table, 'events': events})
+
 
 def upcoming(request):
     """Displays all upcoming Events after the current date"""

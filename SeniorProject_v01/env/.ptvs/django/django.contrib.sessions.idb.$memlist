@@ -1,7 +1,7 @@
-migrations
+management
 exceptions
 apps
-management
+migrations
 middleware
 backends
 serializers
