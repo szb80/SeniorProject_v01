@@ -5402,3 +5402,101 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-05-06T16:56:41: [ERROR] pip._vendor.distlib._backport.sysconfig._PROJECT_BASE: Unknown has no name
 2018-05-06T16:56:41: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\pip"
 2018-05-06T16:56:43: Deleting 0 files
+
+2018-05-06T18:27:56: Start analysis
+2018-05-06T18:27:57: IncludeModulesFromModulePath = win32com
+2018-05-06T18:27:58: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters because filters.filters needs updating
+2018-05-06T18:27:58: Deleting 0 files
+2018-05-06T18:27:58: astropy.CallDepth = 0
+2018-05-06T18:27:58: delphixpy.CallDepth = 0
+2018-05-06T18:27:58: matplotlib.CallDepth = 3
+2018-05-06T18:27:58: pandas.CallDepth = 0
+2018-05-06T18:27:58: sympy.CallDepth = 0
+2018-05-06T18:27:58: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters" with 3 files
+2018-05-06T18:27:59: [WARNING] File "filters.filters" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters\filters.py") contained parse errors
+2018-05-06T18:27:59: (191,25) - (191,28) ", variable" not allowed in 3.x - use "as variable" instead.
+(228,25) - (228,28) ", variable" not allowed in 3.x - use "as variable" instead.
+(229,19) - (229,31) invalid syntax
+(392,29) - (392,32) ", variable" not allowed in 3.x - use "as variable" instead.
+2018-05-06T18:27:59: Parsing complete
+2018-05-06T18:27:59: Analyzing "filters.filters" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters\filters.py")
+2018-05-06T18:27:59: Analyzing "filters.middleware" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters\middleware.py")
+2018-05-06T18:27:59: Analyzing "filters" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters\__init__.py")
+2018-05-06T18:27:59: Starting analysis of 3 modules
+2018-05-06T18:28:00: Analysis complete
+2018-05-06T18:28:00: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters"
+2018-05-06T18:28:00: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\filters"
+2018-05-06T18:28:02: Deleting 0 files
+
+2018-05-06T18:32:36: Start analysis
+2018-05-06T18:32:36: IncludeModulesFromModulePath = win32com
+2018-05-06T18:32:38: Deleting 3 files
+2018-05-06T18:32:38: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\filters\filters.filters.idb"
+2018-05-06T18:32:38: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\filters\filters.idb"
+2018-05-06T18:32:38: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\filters\filters.middleware.idb"
+
+2018-05-06T18:32:52: Start analysis
+2018-05-06T18:32:52: IncludeModulesFromModulePath = win32com
+2018-05-06T18:32:54: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address because address.__init__ needs updating
+2018-05-06T18:32:54: Deleting 8 files
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\address\address.admin.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\address\address.apps.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\address\address.forms.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\address\address.migrations.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\address\address.models.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\tempocal\tempocal.calendar.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\tempocal\tempocal.idb"
+2018-05-06T18:32:54: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env\.ptvs\tempocal\tempocal.views.idb"
+2018-05-06T18:32:54: astropy.CallDepth = 0
+2018-05-06T18:32:54: delphixpy.CallDepth = 0
+2018-05-06T18:32:54: matplotlib.CallDepth = 3
+2018-05-06T18:32:54: pandas.CallDepth = 0
+2018-05-06T18:32:54: sympy.CallDepth = 0
+2018-05-06T18:32:54: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address" with 6 files
+2018-05-06T18:32:54: Parsing complete
+2018-05-06T18:32:54: Analyzing "address.admin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address\admin.py")
+2018-05-06T18:32:54: Analyzing "address.apps" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address\apps.py")
+2018-05-06T18:32:54: Analyzing "address.forms" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address\forms.py")
+2018-05-06T18:32:54: Analyzing "address.models" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address\models.py")
+2018-05-06T18:32:54: Analyzing "address" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address\__init__.py")
+2018-05-06T18:32:54: Analyzing "address.migrations" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address\migrations\__init__.py")
+2018-05-06T18:32:54: Starting analysis of 6 modules
+2018-05-06T18:32:55: Analysis complete
+2018-05-06T18:32:55: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address"
+2018-05-06T18:32:55: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_address-0.1.6-py3.6.egg\address"
+2018-05-06T18:32:57: Deleting 0 files
+
+2018-05-06T18:33:23: Start analysis
+2018-05-06T18:33:24: IncludeModulesFromModulePath = win32com
+2018-05-06T18:33:25: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters because django_filters.compat needs updating
+2018-05-06T18:33:25: Deleting 0 files
+2018-05-06T18:33:25: astropy.CallDepth = 0
+2018-05-06T18:33:25: delphixpy.CallDepth = 0
+2018-05-06T18:33:25: matplotlib.CallDepth = 3
+2018-05-06T18:33:25: pandas.CallDepth = 0
+2018-05-06T18:33:25: sympy.CallDepth = 0
+2018-05-06T18:33:25: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters" with 16 files
+2018-05-06T18:33:26: Parsing complete
+2018-05-06T18:33:26: Analyzing "django_filters.compat" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\compat.py")
+2018-05-06T18:33:26: Analyzing "django_filters.conf" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\conf.py")
+2018-05-06T18:33:26: Analyzing "django_filters.constants" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\constants.py")
+2018-05-06T18:33:26: Analyzing "django_filters.exceptions" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\exceptions.py")
+2018-05-06T18:33:26: Analyzing "django_filters.fields" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\fields.py")
+2018-05-06T18:33:26: Analyzing "django_filters.filters" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\filters.py")
+2018-05-06T18:33:26: Analyzing "django_filters.filterset" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\filterset.py")
+2018-05-06T18:33:26: Analyzing "django_filters.models" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\models.py")
+2018-05-06T18:33:26: Analyzing "django_filters.utils" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\utils.py")
+2018-05-06T18:33:26: Analyzing "django_filters.views" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\views.py")
+2018-05-06T18:33:26: Analyzing "django_filters.widgets" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\widgets.py")
+2018-05-06T18:33:26: Analyzing "django_filters" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\__init__.py")
+2018-05-06T18:33:26: Analyzing "django_filters.rest_framework.backends" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\rest_framework\backends.py")
+2018-05-06T18:33:26: Analyzing "django_filters.rest_framework.filters" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\rest_framework\filters.py")
+2018-05-06T18:33:26: Analyzing "django_filters.rest_framework.filterset" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\rest_framework\filterset.py")
+2018-05-06T18:33:26: Analyzing "django_filters.rest_framework" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters\rest_framework\__init__.py")
+2018-05-06T18:33:26: Starting analysis of 16 modules
+2018-05-06T18:33:27: Analysis complete
+2018-05-06T18:33:27: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters"
+2018-05-06T18:33:27: [ERROR] django_filters.widgets.BaseCSVWidget.BaseCSVWidget: Unknown has no name
+2018-05-06T18:33:27: [ERROR] django_filters.widgets.LinkWidget.LinkWidget: Unknown has no name
+2018-05-06T18:33:27: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\django_filters"
+2018-05-06T18:33:29: Deleting 0 files

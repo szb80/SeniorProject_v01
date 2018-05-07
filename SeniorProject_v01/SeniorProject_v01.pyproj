@@ -43,6 +43,9 @@
     <Compile Include="app\django-address-master\address\tests\__init__.py" />
     <Compile Include="app\django-address-master\address\__init__.py" />
     <Compile Include="app\django-address-master\setup.py" />
+    <Compile Include="app\filters.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\admin.py">
@@ -102,12 +105,12 @@
     <Content Include="app\static\app\img\fb1.png" />
     <Content Include="app\static\app\img\tlusa_homepage_cover.jpg" />
     <Content Include="app\static\app\scripts\daypilot-all.min2.js" />
-    <Content Include="app\templates\app\calendar - Copy.html" />
     <Content Include="app\templates\app\calendar-rw.html" />
     <Content Include="app\templates\app\calendar-ro.html" />
     <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\eventdetail.html" />
     <Content Include="app\templates\app\events2.html" />
+    <Content Include="app\templates\app\search.html" />
     <Content Include="app\templates\app\upcoming.html" />
     <Content Include="app\templates\app\eventlist.html" />
     <Content Include="app\templates\app\events.html" />

@@ -11,6 +11,7 @@ from datetime import datetime
 
 from .models import Event
 from .utils import TemplatedCalendar, get_month_day_range
+from .filters import EventFilter
 
 def home(request):
     """Renders the home page."""
@@ -23,6 +24,7 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
 
 def loginfb(request):
     """Renders the contact page."""
@@ -37,6 +39,7 @@ def loginfb(request):
         }
     )
 
+
 def about(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
@@ -49,6 +52,7 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+
 
 """ OLD EVENTS WITH PACKAGE CALENDAR
 def events(request):
@@ -65,6 +69,8 @@ def events(request):
     """
 
 def events(request):
+    """ defaults to current month """
+
     assert isinstance(request, HttpRequest)
 
     """ retrieve events for current month """
@@ -73,15 +79,37 @@ def events(request):
     calendar = TemplatedCalendar()
     month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), events)
 
-    return render_to_response('app/events2.html', {'month_table': month_table, 'events': events})
+    return render_to_response(
+        'app/events2.html', 
+        {
+            'title': 'Events',
+            'month_table': month_table, 
+            'events': events}
+        )
 
 
 def upcoming(request):
     """Displays all upcoming Events after the current date"""
-    upcoming = Event.objects.order_by('date_start')
+    upcoming = Event.objects.filter(date_start__gte=datetime.now()).order_by('date_start')
     template = loader.get_template('app/upcoming.html')
     context = { 'upcoming': upcoming, }
     return HttpResponse(template.render(context, request))
+
+
+def search(request):
+    """Renders the filter events page."""
+    assert isinstance(request, HttpRequest)
+    event_list = Event.objects.all()
+    event_filter = EventFilter(request.GET, queryset=event_list)
+    return render(
+        request, 
+        'app/search.html', 
+        {
+            'title':'Search Events',
+            'filter': event_filter,
+        }
+    )
+
 
 def eventlist(request):
     """Displays all Events after the current date"""
@@ -90,44 +118,8 @@ def eventlist(request):
     context = { 'eventlist': eventlist, }
     return HttpResponse(template.render(context, request))
 
+
 def eventdetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'app/eventdetail.html', {'event': event, })
 
-def backend_events(request, start, end):
-    # set SQL statement
-    # bind post parameter to local variables
-    # execute the saved SQL statement
-    # save the result to a local variable
-    # make an Event class array
-    # split the result line items and create new Event objects, add to array
-    # JSON the result array back
-
-    result = Event.objects.filter(date_start__gte=start, date_end__lte=end)
-    
-    context = { 'result': result, }
-
-    template = loader.get_template('app/eventlist.html')
-
-    return HttpResponse(template.render(context, request))
-
-
-
-
-    #    $.post(
-    #    // URL to POST to
-    #    "backend_events.php",
-    #    // {} data set to send in request
-    #    {
-    #        start: start.toString()
-    #        , end: end.toString()
-    #    },
-    #    // function to perform once data is received back
-    #    function(data) {
-    #        //console.log(data);
-    #        // send received data to dp receiver
-    #        dp.events.list = data;
-    #        // run calendar update
-    #        dp.update();
-    #    }
-    #)
