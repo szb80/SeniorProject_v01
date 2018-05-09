@@ -40,9 +40,14 @@ class TemplatedCalendar(HTMLCalendar):
             css_class = self.cssclasses[weekday]
             
         events_str = ''
-        for event in events:
-            if str(event.date_start.day) == str(day):
-                events_str += event.get_absolute_url()
+
+        # test for valid argument and make empty dict if not
+        if not events:
+            events = {}
+        else:
+            for event in events:
+                if str(event.date_start.day) == str(day):
+                    events_str += event.get_absolute_url()
 
         return render_to_string(
             self.templates['day'],

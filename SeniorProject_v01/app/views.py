@@ -84,7 +84,8 @@ def events(request):
         {
             'title': 'Events',
             'month_table': month_table, 
-            'events': events}
+            'events': events
+        }
         )
 
 
@@ -101,12 +102,20 @@ def search(request):
     assert isinstance(request, HttpRequest)
     event_list = Event.objects.all()
     event_filter = EventFilter(request.GET, queryset=event_list)
+
+
+
+    calendar = TemplatedCalendar()
+    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
+
     return render(
         request, 
         'app/search.html', 
         {
             'title':'Search Events',
             'filter': event_filter,
+            'month_table': month_table, 
+            'event_list': event_list,
         }
     )
 
