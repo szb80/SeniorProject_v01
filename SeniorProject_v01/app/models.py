@@ -41,14 +41,13 @@ class Person(models.Model):
         return self.first_name + " " + self.last_name;
 
 class Region(models.Model):
-    region_name = models.TextField(default = '');
-    state_name = models.ForeignKey(State);
+    region_name = models.CharField(max_length=255, default = '');
 
     def __str__(self):
         return self.region_name;
 
 class District(models.Model):
-    district_name = models.CharField(max_length=255);
+    district_name = models.CharField(max_length=255, default = '');
     pointman_ID = models.ForeignKey(Person);
     region_ID = models.ForeignKey(Region);
 
@@ -73,6 +72,7 @@ class Event(models.Model):
     """ state_ID = models.ForeignKey(State); --------------------------------------------- """
     zipcode = models.IntegerField(default = '');
     """ address = AddressField(); ---------------------------------------------------------------- """
+    district = models.ForeignKey(District);
     payment_url = models.URLField(default = '');
     primary_contact_ID = models.ForeignKey(Person);
     creation_date = models.DateTimeField(default = datetime.now);

@@ -103,6 +103,15 @@ def search(request):
     event_list = Event.objects.all()
     event_filter = EventFilter(request.GET, queryset=event_list)
 
+    
+    #if event_filter:
+    #    event_short = [
+    #        {
+    #            'id': event_filter.id,
+    #            'name': event_filter.name
+    #        }
+    #        for event in event_filter
+    #    ]
 
 
     calendar = TemplatedCalendar()
@@ -116,6 +125,7 @@ def search(request):
             'filter': event_filter,
             'month_table': month_table, 
             'event_list': event_list,
+            'event_filter': event_filter,
         }
     )
 
