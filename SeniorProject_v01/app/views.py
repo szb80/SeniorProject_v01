@@ -2,7 +2,7 @@
 Definition of views.
 """
 
-
+from django.views.generic.base import View
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import loader, RequestContext
@@ -54,20 +54,6 @@ def about(request):
     )
 
 
-""" OLD EVENTS WITH PACKAGE CALENDAR
-def events(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/events.html',
-        {
-            'title':'Events',
-            'message':'Your application description page.',
-            'year':datetime.now().year,
-        }
-    )
-    """
-
 def events(request):
     """ defaults to current month """
 
@@ -77,7 +63,9 @@ def events(request):
     events = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
 
     calendar = TemplatedCalendar()
+    calendar.setfirstweekday(6)
     month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), events)
+    
 
     return render_to_response(
         'app/events2.html', 
@@ -103,7 +91,7 @@ def search(request):
     event_list = Event.objects.all()
     event_filter = EventFilter(request.GET, queryset=event_list)
 
-    
+
     #if event_filter:
     #    event_short = [
     #        {
@@ -128,6 +116,9 @@ def search(request):
             'event_filter': event_filter,
         }
     )
+
+
+
 
 
 def eventlist(request):

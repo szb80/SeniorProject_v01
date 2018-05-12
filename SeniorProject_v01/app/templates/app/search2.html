@@ -1,0 +1,58 @@
+﻿{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+{% load truncatesmart %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h1>Search Events</h1>
+    </div>
+
+    <form id="form" role="form" action="{% url 'search-submit' %}" method="post">
+	{% csrf_token %}
+	<input name="search"
+	       id="search"
+	       type="search"
+	       placeholder="Start typing here"
+	       ic-post-to="{% url 'search-ajax-submit' %}"
+	       ic-trigger-on="keyup changed"
+	       ic-trigger-delay="300ms"
+	       ic-target="#search-result-container" />
+	<button type="submit">Search</button>
+</form>
+<span id="search-result-container"></span>
+
+    <!--
+    {# DISPLAY RESULTS FROM SEARCH ----------------------------------------- #}
+    <h1>Results</h1>
+    <table class="striped highlight">
+        <thead>
+            <tr>
+                <td>Category</td>
+                <td>Name</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for event in filter.qs %}
+                <tr>
+                    <td>{{ event.category }}</td>
+                    <td><a href="/event/{{event.id}}">{{ event.name }}</a></td>
+                    <td>{{ event.description|truncatesmart:90 }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <h1>Calendar with filtered events</h1>
+    <p></p>
+
+    {{ month_table }}
+</div>
+        -->
+{% endblock %}

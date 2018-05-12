@@ -18,7 +18,7 @@ urlpatterns = [
     # Examples:
     url(r'^$', app.views.home, name='home'),
     url(r'^events$', app.views.events, name='events'),
-    url(r'^search', app.views.search, name='search'),
+    url(r'^search$', app.views.search, name='search'),
     url(r'^upcoming$', app.views.upcoming, name='upcoming events'),
 
 

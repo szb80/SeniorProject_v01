@@ -62,48 +62,40 @@ input[type="checkbox"].input-validation-error {
     border-radius: 10px;
 }
 
-
-
     .oafcal thead {
         text-transform: uppercase;
         font-size: 1.5em;
         font-weight: bold;
-        
     }
 
-    /********MONTH TITLE CSS********/
+/********MONTH TITLE CSS********/
 .oafcalMonth {
     max-width: 100%;
-    height: 80px;
     text-align: center;
     margin: 0 auto;
-    font-family: Montserrat;
-    font-weight: 100;
 }
-    
-    /********************/
 
+/********************/
 
+.oafcal tbody {
+    display: grid;
+    grid-auto-rows: 100px;
+    border-top: 1px solid #e1e1e1;
+    font-size: 1.0em;
+    font-weight: bold;
+}
 
-    .oafcal tbody {
-        display: grid;
-        grid-auto-rows: 100px;
-        border-top: 1px solid #e1e1e1;
-        font-size: 1.0em;
-        font-weight: bold;
-    }
-
-    .oafcal tr {
-        display: grid;
-        grid-template-columns: repeat(7, 7fr);
-    }
+.oafcal tr {
+    display: grid;
+    grid-template-columns: repeat(7, 7fr);
+}
 
 .oafcal td {
     border-right: 1px solid #e1e1e1;
     border-top: 1px solid #e1e1e1;
 }
 
-.oafcal th{
+.oafcal th {
     text-align: center;
 }
 
