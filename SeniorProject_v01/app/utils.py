@@ -1,5 +1,3 @@
-
-
 import sys
 import datetime, calendar
 from django.template.loader import render_to_string
