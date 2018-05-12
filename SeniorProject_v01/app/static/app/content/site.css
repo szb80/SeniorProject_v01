@@ -53,4 +53,43 @@ input[type="checkbox"].input-validation-error {
 .jumbotron {
 }
 
-/*Testing comments*/
+/*CALENDAR TABLES CSS*/
+
+.oafcal {
+    color: #A8B2B9;
+    display: grid;
+    border: 1px solid #e1e1e1;
+}
+
+
+
+    .oafcal thead {
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-weight: bold;
+        
+    }
+
+    .oafcal thead tr th {
+        text-align:center;
+    }
+        .oafcal tbody {
+        display: grid;
+        grid-auto-rows: 100px;
+        border-right: 1px solid #e1e1e1;
+        border-top: 1px solid #e1e1e1;
+    }
+
+    .oafcal tr {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+.oafcal td{
+    border-right: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+}
+
+.oafcal th{
+    text-align: center;
+}
