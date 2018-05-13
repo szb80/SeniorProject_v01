@@ -91,7 +91,6 @@ input[type="checkbox"].input-validation-error {
 }
 
 .oafcal td {
-    border-right: 1px solid #e1e1e1;
     border-top: 1px solid #e1e1e1;
 }
 
@@ -100,4 +99,5 @@ input[type="checkbox"].input-validation-error {
 }
 
 .border-right {
+    border-right: 1px solid #e1e1e1;
 }
