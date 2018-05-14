@@ -8,8 +8,9 @@ from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import loader, RequestContext
 from django.views import generic
 from datetime import datetime
+from django.db.models import Q
 
-from .models import Event
+from .models import Event, District
 from .utils import TemplatedCalendar, get_month_day_range
 from .filters import EventFilter
 
@@ -76,13 +77,9 @@ def events(request):
         }
         )
 
-
-def upcoming(request):
-    """Displays all upcoming Events after the current date"""
-    upcoming = Event.objects.filter(date_start__gte=datetime.now()).order_by('date_start')
-    template = loader.get_template('app/upcoming.html')
-    context = { 'upcoming': upcoming, }
-    return HttpResponse(template.render(context, request))
+def eventdetail(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    return render(request, 'app/eventdetail.html', {'event': event, })
 
 
 def search(request):
@@ -118,7 +115,36 @@ def search(request):
     )
 
 
+###############################################################################
+# TEST VIEWS                                                                  #
+###############################################################################
 
+
+def search2(request):
+    """Renders the filter events page."""
+    assert isinstance(request, HttpRequest)
+
+
+    results = BlogPost.objects.filter(Q(title__icontains=your_search_query) | Q(intro__icontains=your_search_query) | Q(content__icontains=your_search_query))
+
+
+
+
+
+    calendar = TemplatedCalendar()
+    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
+
+    return render(
+        request, 
+        'app/search2.html', 
+        {
+            'title':'Search Events',
+            'filter': event_filter,
+            'month_table': month_table, 
+            'event_list': event_list,
+            'event_filter': event_filter,
+        }
+    )
 
 
 def eventlist(request):
@@ -129,7 +155,11 @@ def eventlist(request):
     return HttpResponse(template.render(context, request))
 
 
-def eventdetail(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
-    return render(request, 'app/eventdetail.html', {'event': event, })
+def upcoming(request):
+    """Displays all upcoming Events after the current date"""
+    upcoming = Event.objects.filter(date_start__gte=datetime.now()).order_by('date_start')
+    template = loader.get_template('app/upcoming.html')
+    context = { 'upcoming': upcoming, }
+    return HttpResponse(template.render(context, request))
+
 
