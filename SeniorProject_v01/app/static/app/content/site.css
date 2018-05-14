@@ -56,10 +56,11 @@ input[type="checkbox"].input-validation-error {
 /*CALENDAR TABLES CSS*/
 
 .oafcal {
-    color: #A8B2B9;
+    color:;
     display: grid;
     border: 1px solid #e1e1e1;
     border-radius: 10px;
+    box-shadow: 2px 2px 10px #867dab;
 }
 
     .oafcal thead {
@@ -100,4 +101,17 @@ input[type="checkbox"].input-validation-error {
 }
 
 .border-right {
+}
+
+/**Calendar day Styling **/
+.highlighted {
+    background-color: lightblue;
+    box-shadow: 1px 2px 5px #867dab;
+}
+
+.highlighted p {
+        width: 25px;
+        border-radius: 50px;
+        font-size: larger;
+        background-color: #ffffff;
 }

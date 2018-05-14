@@ -38,6 +38,12 @@ class TemplatedCalendar(HTMLCalendar):
             css_class = self.cssclasses[weekday]
             
         events_str = ''
+       
+       # Apply CSS to calendar to highlight current day
+       
+
+        if day == datetime.datetime.now().day:
+            css_class += ' highlighted'
 
         # test for valid argument and make empty dict if not
         if not events:
@@ -46,6 +52,9 @@ class TemplatedCalendar(HTMLCalendar):
             for event in events:
                 if str(event.date_start.day) == str(day):
                     events_str += event.get_absolute_url()
+
+        
+        
 
         return render_to_string(
             self.templates['day'],
@@ -190,3 +199,9 @@ def get_month_day_range(date):
     first_day = date.replace(day = 1)
     last_day = date.replace(day = calendar.monthrange(date.year, date.month)[1])
     return first_day, last_day
+
+def date():
+    date = datetime.datetime.now()
+    day = date.day 
+
+    return day

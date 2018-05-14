@@ -1,7 +1,10 @@
+
 {% autoescape off %}
+
 <td class="{{ css_class }}">
-    {{ day|default:"&nbsp;" }}
+    <p class="day">{{ day|default:"&nbsp;" }}</p>
     <br />
     {{ events_str }}
+     
 </td>
 {% endautoescape %}
