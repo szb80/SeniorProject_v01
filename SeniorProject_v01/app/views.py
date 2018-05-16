@@ -225,7 +225,6 @@ def search3(request):
     """
     results = BlogPost.objects.filter(Q(title__icontains=your_search_query) | Q(intro__icontains=your_search_query) | Q(content__icontains=your_search_query))
     """
-
     return render(
         request, 
         'app/search2.html', 
