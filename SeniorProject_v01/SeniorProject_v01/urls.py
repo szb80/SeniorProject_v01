@@ -34,6 +34,7 @@ urlpatterns = [
 
     url(r'^loginfb$', app.views.loginfb, name='loginfb'),
     #url(r'^about', app.views.about, name='about'),
+    url(r'^accounts/', include('allauth.urls')),# <--Delete after testing
     url(r'^login/$',
         django.contrib.auth.views.login,
         {
@@ -52,6 +53,8 @@ urlpatterns = [
             'next_page': '/',
         },
         name='logout'),
+
+    
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
