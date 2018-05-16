@@ -7887,3 +7887,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-05-12T11:00:09: [ERROR] setuptools.command.setopt.config_file: Unknown has no name
 2018-05-12T11:00:09: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\setuptools"
 2018-05-12T11:00:11: Deleting 0 files
+
+2018-05-15T16:58:01: Start analysis
+2018-05-15T16:58:02: IncludeModulesFromModulePath = win32com
+2018-05-15T16:58:02: Deleting 2526 files

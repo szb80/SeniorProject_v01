@@ -8,11 +8,12 @@ from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import loader, RequestContext
 from django.views import generic
 from datetime import datetime
+from django.utils.timezone import get_current_timezone
 from django.db.models import Q
 
-from .models import Event, District
+from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
-from .filters import EventFilter
+from app.forms import searchform
 
 def home(request):
     """Renders the home page."""
@@ -36,6 +37,19 @@ def loginfb(request):
         {
             'title':'Facebook Login',
             'message':'Login using your Facebook account.',
+            'year':datetime.now().year,
+        }
+    )
+
+
+def error(request):
+    """Renders the home page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/error.html',
+        {
+            'title':'Error Page',
             'year':datetime.now().year,
         }
     )
@@ -75,7 +89,23 @@ def events(request):
             'month_table': month_table, 
             'events': events
         }
-        )
+    )
+
+
+def buildCalendar(event_list=None):
+    """ generates a calendar object with the passed event dictionary """
+
+    calendar = TemplatedCalendar()
+    calendar.setfirstweekday(6)
+
+    """ if event_list variable is empty, set events to current month """
+    if event_list is not None:
+        month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
+    else:
+        month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), Event.objects.all())
+
+    return month_table
+
 
 def eventdetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
@@ -87,17 +117,6 @@ def search(request):
     assert isinstance(request, HttpRequest)
     event_list = Event.objects.all()
     event_filter = EventFilter(request.GET, queryset=event_list)
-
-
-    #if event_filter:
-    #    event_short = [
-    #        {
-    #            'id': event_filter.id,
-    #            'name': event_filter.name
-    #        }
-    #        for event in event_filter
-    #    ]
-
 
     calendar = TemplatedCalendar()
     month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
@@ -115,24 +134,97 @@ def search(request):
     )
 
 
-###############################################################################
-# TEST VIEWS                                                                  #
-###############################################################################
-
-
 def search2(request):
     """Renders the filter events page."""
+
+    if request.method == "POST":
+        params = searchform(request.POST)
+        if params.is_valid():
+
+            if 'district' in request.POST and request.POST['district']:  # REQUIRED FIELD
+                q = request.POST['district']
+                event_list = Event.objects.filter(district__exact=q)
+
+            if 'event_type' in request.POST and request.POST['event_type']:
+                q = request.POST['event_type']
+                event_list = event_list.filter(event_type__exact=q)
+
+            if 'date_start' in request.POST and request.POST['date_start']: #################################################################
+                q = request.POST['date_start']
+                event_list = event_list.filter(date_start__exact=q)
+
+            if 'name' in request.POST and request.POST['name']:
+                q = request.POST['name']
+                event_list = event_list.filter(name__icontains=q)
+
+            if 'description' in request.POST and request.POST['description']:
+                q = request.POST['description']
+                event_list = event_list.filter(description__icontains=q)
+
+
+            month_table = buildCalendar(event_list)
+
+            return render(
+                request, 
+                'app/search2.html', 
+                {
+                    'title':'Search Events',
+                    'filter': event_list,
+                    'month_table': month_table, 
+                }
+            )
+
+        else:
+            return HttpResponseRedirect('/error')
+
+    elif request.method == "GET":
+        params = searchform()
+        month_table = buildCalendar(Event.objects.all())
+        return render(
+            request, 
+            'app/search2.html', 
+            {
+                'title':'Search Events',
+                'filter': params,
+                'month_table': month_table,
+            }
+        )
+
+
+
+"""
+###############################################################################
+TEST VIEWS                                                                  
+###############################################################################
+"""
+
+def search3(request):
     assert isinstance(request, HttpRequest)
+    event_list = Event.objects.all()
+    event_filter = EventFilter(request.GET, queryset=event_list)
 
+    event_list = Event.objects.all()
+    event_filter = EventFilter(request.GET, queryset=event_list)
+    event_selection = {}
 
+    for event in event_filter.qs:
+        {event.ID: event.name}
+
+    """
+    {% for doc in filter.qs %}
+    <tr>
+        <td>{{ doc.department }}</td>
+        <td><a href="{{ doc.source_file.url }}" target="_blank">{{ doc.title }}</a></td>
+        <td>{{ doc.description }}</td>
+    </tr>
+    {% endfor %}
+    """
+
+    month_table = buildCalendar(request, event_filter)
+
+    """
     results = BlogPost.objects.filter(Q(title__icontains=your_search_query) | Q(intro__icontains=your_search_query) | Q(content__icontains=your_search_query))
-
-
-
-
-
-    calendar = TemplatedCalendar()
-    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
+    """
 
     return render(
         request, 
@@ -141,11 +233,8 @@ def search2(request):
             'title':'Search Events',
             'filter': event_filter,
             'month_table': month_table, 
-            'event_list': event_list,
-            'event_filter': event_filter,
         }
     )
-
 
 def eventlist(request):
     """Displays all Events after the current date"""

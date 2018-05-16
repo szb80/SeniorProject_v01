@@ -17,6 +17,7 @@ class State(models.Model):
     def __str__(self):
         return self.state_name;
 
+
 class Troop(models.Model):
     troop_number = models.IntegerField(default = 0);
     """ district_ID = models.ForeignKey(District);
@@ -25,6 +26,7 @@ class Troop(models.Model):
 
     def __str__(self):
         return str(self.troop_number);
+
 
 class Person(models.Model):
     first_name = models.CharField(max_length = 255, default = 'John');
@@ -40,11 +42,13 @@ class Person(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name;
 
+
 class Region(models.Model):
     region_name = models.CharField(max_length=255, default = '');
 
     def __str__(self):
         return self.region_name;
+
 
 class District(models.Model):
     district_name = models.CharField(max_length=255, default = '');
@@ -54,12 +58,14 @@ class District(models.Model):
     def __str__(self):
         return self.district_name;
 
+
 class EventType(models.Model):
     name = models.CharField(max_length = 255, default = '');
     description = models.TextField(default = '');
     
     def __str__(self):
         return self.name;
+
 
 class Event(models.Model):
     name = models.CharField(max_length = 255);
@@ -91,3 +97,22 @@ class Event(models.Model):
         return u'<a href="%s">%s</a>' % (url, str(self.name))
 
 
+class EventQuerySet(models.QuerySet):
+    def district(self, district):
+        return self.filter(district__eq=district)
+
+
+class EventManager(models.Manager):
+    def get_queryset(self):
+        return DocumentQuerySet(self.model, using=self._db)  # Important!
+
+    def district(self, district):
+        return self.get_queryset().district(district)
+
+class SearchEvent(models.Model):
+    name = models.CharField(max_length = 255, blank=True, null=True);
+    description = models.TextField(default = '', blank=True, null=True);
+    event_type = models.ForeignKey(EventType, blank=True, null=True);
+    date_start = models.DateField(blank=True, null=True);
+    district = models.ForeignKey(District, blank=False);
+    primary_contact_ID = models.ForeignKey(Person, blank=True, null=True);
