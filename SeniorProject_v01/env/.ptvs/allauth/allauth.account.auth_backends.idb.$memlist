@@ -1,0 +1,9 @@
+get_user_model
+AuthenticationMethod
+app_settings
+_stash
+filter_users_by_username
+AuthenticationBackend
+local
+ModelBackend
+filter_users_by_email

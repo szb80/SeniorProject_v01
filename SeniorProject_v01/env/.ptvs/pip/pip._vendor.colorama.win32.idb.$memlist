@@ -13,13 +13,14 @@ GetConsoleScreenBufferInfo
 _FillConsoleOutputAttribute
 SetConsoleTextAttribute
 STDERR
-SetConsoleTitle
+_winapi_test
 SetConsoleCursorPosition
 LibraryLoader
 windll
 wintypes
 STDOUT
 CONSOLE_SCREEN_BUFFER_INFO
+SetConsoleTitle
 _FillConsoleOutputCharacterA
 FillConsoleOutputCharacter
 _SetConsoleTitleW

@@ -1,0 +1,8 @@
+YahooOAuth2
+BaseOAuth1
+handle_http_errors
+BaseOAuth2
+HTTPBasicAuth
+OpenIdAuth
+YahooOAuth
+YahooOpenId

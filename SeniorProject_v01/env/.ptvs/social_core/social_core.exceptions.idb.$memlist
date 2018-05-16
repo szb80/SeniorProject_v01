@@ -1,0 +1,17 @@
+AuthTokenError
+AuthStateMissing
+AuthTokenRevoked
+AuthStateForbidden
+AuthCanceled
+AuthException
+WrongBackend
+AuthMissingParameter
+InvalidEmail
+NotAllowedToDisconnect
+AuthFailed
+AuthAlreadyAssociated
+AuthUnknownError
+AuthUnreachableProvider
+AuthForbidden
+SocialAuthBaseException
+MissingBackend

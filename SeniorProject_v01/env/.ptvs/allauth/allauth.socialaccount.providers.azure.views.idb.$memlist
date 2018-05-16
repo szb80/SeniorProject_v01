@@ -1,0 +1,11 @@
+OAuth2LoginView
+oauth2_login
+requests
+AzureOAuth2Adapter
+unicode_literals
+OAuth2Adapter
+oauth2_callback
+LOGIN_URL
+GRAPH_URL
+AzureProvider
+OAuth2CallbackView

@@ -5,7 +5,7 @@ FloatOperation
 ROUND_HALF_DOWN
 threading
 DivisionUndefined
-ROUND_CEILING
+Underflow
 __decimal_context__
 BasicContext
 DivisionByZero
@@ -17,9 +17,9 @@ ExtendedContext
 ConversionSyntax
 DivisionImpossible
 MAX_PREC
-Inexact
+DecimalException
 InvalidContext
-ROUND_DOWN
+Overflow
 local
 Rounded
 ROUND_05UP
@@ -28,7 +28,7 @@ re
 Context
 __doc__
 MAX_EMAX
-Underflow
+ROUND_CEILING
 MIN_EMIN
 ROUND_HALF_UP
 sys
@@ -38,8 +38,8 @@ DecimalTuple
 ROUND_HALF_EVEN
 InvalidOperation
 ROUND_UP
-DecimalException
-Overflow
+Inexact
+ROUND_DOWN
 __version__
 ImportError
 getcontext

@@ -1,0 +1,10 @@
+AuthException
+social_uid
+social_user
+social_details
+AuthAlreadyAssociated
+associate_user
+load_extra_data
+associate_by_email
+auth_allowed
+AuthForbidden

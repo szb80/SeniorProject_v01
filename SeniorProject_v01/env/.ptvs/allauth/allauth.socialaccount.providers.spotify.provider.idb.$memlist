@@ -1,0 +1,6 @@
+app_settings
+ProviderAccount
+SpotifyAccount
+OAuth2Provider
+SpotifyOAuth2Provider
+provider_classes

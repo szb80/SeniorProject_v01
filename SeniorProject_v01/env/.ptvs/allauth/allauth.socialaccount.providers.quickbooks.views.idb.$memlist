@@ -1,0 +1,9 @@
+oauth2_login
+requests
+QuickBooksOAuth2Provider
+OAuth2CallbackView
+json
+OAuth2LoginView
+oauth2_callback
+OAuth2Adapter
+QuickBooksOAuth2Adapter

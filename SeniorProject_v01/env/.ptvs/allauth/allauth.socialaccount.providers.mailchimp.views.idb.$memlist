@@ -1,0 +1,8 @@
+oauth2_login
+requests
+MailChimpOAuth2Adapter
+OAuth2Adapter
+OAuth2LoginView
+oauth2_callback
+OAuth2CallbackView
+MailChimpProvider

@@ -1,0 +1,9 @@
+MicrosoftGraphProvider
+oauth2_login
+requests
+MicrosoftGraphOAuth2Adapter
+unicode_literals
+OAuth2Adapter
+OAuth2LoginView
+oauth2_callback
+OAuth2CallbackView

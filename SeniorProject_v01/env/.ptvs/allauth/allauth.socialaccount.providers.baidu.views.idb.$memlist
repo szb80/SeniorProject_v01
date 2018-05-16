@@ -1,0 +1,8 @@
+oauth2_login
+requests
+BaiduProvider
+OAuth2Adapter
+OAuth2LoginView
+oauth2_callback
+BaiduOAuth2Adapter
+OAuth2CallbackView

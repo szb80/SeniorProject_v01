@@ -1,9 +1,9 @@
 signals
 postgresql_psycopg2
-dummy
+mysql
 sqlite3
 postgresql
+dummy
 oracle
-mysql
 base
 utils

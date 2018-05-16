@@ -1,0 +1,10 @@
+GithubOrganizationOAuth2FailTest
+GithubOrganizationOAuth2Test
+GithubOAuth2NoEmailTest
+GithubTeamOAuth2FailTest
+json
+GithubOAuth2Test
+GithubTeamOAuth2Test
+HTTPretty
+OAuth2Test
+AuthFailed

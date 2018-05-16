@@ -15,7 +15,7 @@ MetadataInvalidError
 __all__
 _version2fieldlist
 _LINE_PREFIX_PRE_1_2
-_PREDICATE_FIELDS
+_314_MARKERS
 MetadataConflictError
 _345_FIELDS
 interpret
@@ -39,13 +39,15 @@ _get_name_and_version
 EXTRA_RE
 logging
 _FILESAFE
-_314_MARKERS
+_PREDICATE_FIELDS
 get_scheme
+_566_FIELDS
 DistlibException
 PKG_INFO_ENCODING
 PEP440_VERSION_RE
 _241_FIELDS
 get_extras
+_566_MARKERS
 __version__
 StringIO
 json

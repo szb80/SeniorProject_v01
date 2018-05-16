@@ -1,0 +1,9 @@
+requests
+complete_social_login
+app_settings
+PersonaProvider
+render_authentication_error
+SocialLogin
+persona_login
+providers
+ImproperlyConfigured

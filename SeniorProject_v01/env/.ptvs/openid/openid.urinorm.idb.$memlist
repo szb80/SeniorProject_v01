@@ -1,0 +1,15 @@
+remove_dot_segments
+urinorm
+_
+uri_pattern
+pct_encoded_pattern
+codecutil
+authority_re
+_pct_encoded_replace_unreserved
+_unreserved
+uri_re
+authority_pattern
+pct_encoded_re
+uri_illegal_char_re
+re
+_pct_encoded_replace

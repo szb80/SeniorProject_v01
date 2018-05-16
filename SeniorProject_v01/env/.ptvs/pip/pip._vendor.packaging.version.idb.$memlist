@@ -1,3 +1,4 @@
+_local_version_separators
 _legacy_version_replacement_map
 print_function
 _parse_version_parts
@@ -6,7 +7,6 @@ Infinity
 re
 collections
 _parse_local_version
-_cmpkey
 _BaseVersion
 itertools
 VERSION_PATTERN
@@ -19,5 +19,5 @@ parse
 _Version
 LegacyVersion
 _legacy_version_component_re
-_local_version_seperators
+_cmpkey
 _legacy_cmpkey

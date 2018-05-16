@@ -1,0 +1,11 @@
+views
+override_settings
+patch
+TestCase
+consumer
+SocialAccount
+AXAttribute
+get_user_model
+Mock
+OpenIDTests
+reverse

@@ -1,0 +1,14 @@
+rootAuthority
+providerIsAuthoritative
+iriToURI
+_escape_xref
+codecutil
+identifierScheme
+XRI_AUTHORITIES
+XRI
+toIRINormal
+escapeForIRI
+toURINormal
+_xref_re
+re
+reduce

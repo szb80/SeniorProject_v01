@@ -1,0 +1,9 @@
+do_auth
+do_complete
+setting_url
+do_disconnect
+partial_pipeline_data
+user_is_authenticated
+quote
+user_is_active
+sanitize_redirect

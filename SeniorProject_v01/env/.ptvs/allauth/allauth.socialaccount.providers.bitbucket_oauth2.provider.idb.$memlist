@@ -1,0 +1,5 @@
+BitbucketOAuth2Account
+ProviderAccount
+provider_classes
+OAuth2Provider
+BitbucketOAuth2Provider

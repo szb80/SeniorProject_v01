@@ -1,0 +1,10 @@
+oauth2_callback
+oauth2_login
+requests
+UntappdOAuth2Client
+OAuth2Adapter
+UntappdProvider
+OAuth2LoginView
+UntappdOAuth2Adapter
+UntappdOAuth2CallbackView
+OAuth2CallbackView

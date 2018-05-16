@@ -1,0 +1,8 @@
+create_oauth2_tests
+SalesforceTests
+registry
+absolute_import
+unicode_literals
+SalesforceProvider
+USERINFO_RESPONSE
+MockedResponse

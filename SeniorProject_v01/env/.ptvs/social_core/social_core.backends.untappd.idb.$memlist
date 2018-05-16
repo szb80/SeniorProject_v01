@@ -1,0 +1,5 @@
+requests
+AuthFailed
+BaseOAuth2
+UntappdOAuth2
+handle_http_errors

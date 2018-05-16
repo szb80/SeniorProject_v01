@@ -4,6 +4,7 @@ PEP440_VERSION_RE
 _pep_440_key
 Version
 _REPLACEMENTS
+_SEMVER_RE
 _NUMERIC_PREFIX
 _semantic_key
 re
@@ -21,7 +22,7 @@ logging
 _match_prefix
 _normalized_key
 _VERSION_PART
-_SEMVER_RE
+parse_requirement
 _SCHEMES
 get_scheme
 LegacyVersion

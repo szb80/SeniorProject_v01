@@ -9,7 +9,6 @@ namespaces
 specialElements
 DataLossWarning
 replacementCharacters
-ReparseException
 voidElements
 adjustMathMLAttributes
 absolute_import
@@ -31,6 +30,7 @@ scopingElements
 string
 adjustForeignAttributes
 mathmlTextIntegrationPointElements
+_ReparseException
 asciiLetters
 E
 headingElements

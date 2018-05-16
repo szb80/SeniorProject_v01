@@ -1,0 +1,8 @@
+oauth2_login
+requests
+OAuth2CallbackView
+OAuth2Adapter
+OAuth2LoginView
+oauth2_callback
+AmazonOAuth2Adapter
+AmazonProvider

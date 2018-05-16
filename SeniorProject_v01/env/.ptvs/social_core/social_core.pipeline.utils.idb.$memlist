@@ -1,0 +1,6 @@
+is_dict_type
+partial_prepare
+partial_load
+partial_store
+SERIALIZABLE_TYPES
+six

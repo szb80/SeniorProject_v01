@@ -1,0 +1,13 @@
+xri
+services
+__all__
+accept
+discover
+xrires
+filters
+parsehtml
+etxrd
+manager
+version_info
+constants
+__version__

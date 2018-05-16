@@ -1,0 +1,9 @@
+struct
+binary_type
+bytes_from_int
+hmac
+constant_time_compare
+text_type
+PY3
+string_types
+sys
