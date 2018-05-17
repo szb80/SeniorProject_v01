@@ -16,8 +16,8 @@ admin.autodiscover()
 
 urlpatterns = [
     # Examples:
-    url(r'^$', app.views.home, name='home'),
-    url(r'^events$', app.views.events, name='events'),
+   
+    url(r'^events/$', app.views.events, name='events'),
     url(r'^search$', app.views.search, name='search'),
     url(r'^event/(?P<event_id>[0-9]+)/$', app.views.eventdetail, name='event detail'),
 
@@ -33,11 +33,10 @@ urlpatterns = [
 
     url(r'^loginfb$', app.views.loginfb, name='loginfb'),
     #url(r'^about', app.views.about, name='about'),
-    url(r'^accounts/', include('allauth.urls')),# <--Delete after testing
-    url(r'^login/$',
+     url(r'^login/$',
         django.contrib.auth.views.login,
         {
-            'template_name': 'app/login.html',
+            'template_name': 'app/login.html', 
             'authentication_form': app.forms.BootstrapAuthenticationForm,
             'extra_context':
             {
@@ -52,8 +51,19 @@ urlpatterns = [
             'next_page': '/',
         },
         name='logout'),
-
+    url(r'^$', django.contrib.auth.views.login,
+        
+        {
+                    
+            'template_name': 'app/index.html', 
+            'authentication_form': app.forms.BootstrapAuthenticationForm,
+            },
+       
+        name='home'),
     
+
+    #url(r'^accounts/login/$', include(django.contrib.auth.views.login)),
+
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

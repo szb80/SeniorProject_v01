@@ -16730,3 +16730,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-05-15T08:36:35: [ERROR] sslserver.management.commands.runsslserver.default_ssl_files_dir: Unknown has no name
 2018-05-15T08:36:35: End of group "c:\users\hugo\source\repos\seniorproject_v01\seniorproject_v01\env\lib\site-packages\sslserver"
 2018-05-15T08:36:39: Deleting 0 files
+
+2018-05-16T12:01:18: Start analysis
+2018-05-16T12:01:19: IncludeModulesFromModulePath = win32com
+2018-05-16T12:01:22: Deleting 0 files

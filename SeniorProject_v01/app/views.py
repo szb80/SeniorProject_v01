@@ -9,20 +9,24 @@ from django.template import loader, RequestContext
 from django.views import generic
 from datetime import datetime
 from django.db.models import Q
-
+from django import forms
+from .forms import BootstrapAuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from .models import Event, District
 from .utils import TemplatedCalendar, get_month_day_range
 from .filters import EventFilter
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/index.html',
+        'app/index.html', 
         {
             'title':'Home Page',
             'year':datetime.now().year,
+            
         }
     )
 
@@ -54,6 +58,7 @@ def about(request):
         }
     )
 
+@login_required
 
 def events(request):
     """ defaults to current month """
