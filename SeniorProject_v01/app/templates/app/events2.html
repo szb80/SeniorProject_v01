@@ -3,11 +3,16 @@
 {% load staticfiles %}
 
 {% block content %}
+{% if not user.is_authenticated %}                    
+   
+        <h2>Event Calendar</h2>
 
-<h2>Event Calendar</h2>
+        <p>View upcoming events or <strong><a href="/search">filter results</a></strong>.</p>
 
-<p>View upcoming events or <strong><a href="/search">filter results</a></strong>.</p>
+        <!-- display the calender -->
+        {{ month_table }}
+{% else %}
+<h1>hello</h1>
 
-<!-- display the calender -->
-{{ month_table }}
+{% endif %}
 {% endblock %}

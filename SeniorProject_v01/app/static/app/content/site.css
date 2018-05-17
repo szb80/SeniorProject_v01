@@ -1,10 +1,17 @@
 html {
     font-family: 'Open Sans', sans-serif;
+    
+
 }
 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -58,9 +65,10 @@ input[type="checkbox"].input-validation-error {
 .oafcal {
     color: black;
     display: grid;
-    border: 1px solid #e1e1e1;
+    border: 5px solid #e1e1e1;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px lightblue;
+    box-shadow: -2px 3px 5px 2px lightblue;
+    background: rgba(201, 208, 208, 0.60);
 }
 
     .oafcal thead {
@@ -73,7 +81,7 @@ input[type="checkbox"].input-validation-error {
 .oafcalMonth {
     max-width: 100%;
     text-align: center;
-    margin: 0 auto;
+    color: white;
 }
 
 /********************/
@@ -94,6 +102,9 @@ input[type="checkbox"].input-validation-error {
 .oafcal td {
     border-right: 1px solid #e1e1e1;
     border-top: 1px solid #e1e1e1;
+}
+.oafcal td a{
+    color: black;
 }
 
 .oafcal th {
@@ -116,3 +127,14 @@ input[type="checkbox"].input-validation-error {
         width: 28px;
         box-shadow: 1px 2px 5px #99999a;
     }
+
+
+
+    /**********HEADER LOGIN FORM**************/
+
+#loginForm {
+    background-color: white;
+    width: 500px;
+    float:right;
+}
+
