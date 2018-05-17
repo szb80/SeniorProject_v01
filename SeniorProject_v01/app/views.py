@@ -68,7 +68,6 @@ def about(request):
         }
     )
 
-
 def events(request):
     """ defaults to current month """
 
