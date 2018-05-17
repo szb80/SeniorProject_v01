@@ -150,7 +150,7 @@ def search2(request):
                 event_list = event_list.filter(event_type__exact=q)
 
             if 'date_start' in request.POST and request.POST['date_start']: #################################################################
-                q = request.POST['date_start']
+                q = form.cleaned_data.get('date_start')
                 event_list = event_list.filter(date_start__exact=q)
 
             if 'name' in request.POST and request.POST['name']:

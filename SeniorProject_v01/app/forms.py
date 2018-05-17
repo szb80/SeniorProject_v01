@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 """ import GoogleMaps address object from package: """
 from address.models import AddressField
 from app.models import Event, SearchEvent
+import datetime
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
