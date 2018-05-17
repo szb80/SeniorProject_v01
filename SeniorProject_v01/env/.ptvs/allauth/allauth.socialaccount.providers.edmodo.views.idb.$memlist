@@ -1,8 +1,0 @@
-oauth2_login
-requests
-OAuth2CallbackView
-OAuth2Adapter
-EdmodoProvider
-OAuth2LoginView
-oauth2_callback
-EdmodoOAuth2Adapter

@@ -1,8 +1,0 @@
-oauth2_login
-requests
-OAuth2Adapter
-AngelListOAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-AngelListProvider
-OAuth2CallbackView

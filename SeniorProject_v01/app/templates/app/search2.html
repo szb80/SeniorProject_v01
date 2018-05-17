@@ -15,12 +15,44 @@
         <h1>Search Events</h1>
     </div>
 
-
-    <form id="searchform" action="{% url 'search2' %}" method="get" accept-charset="utf-8">
-      <button class="searchbutton" type="submit">
-        <i class="material-icons">search</i>
-      </button>
-      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+    <form method="POST">
+        {% csrf_token %}
+        {{ filter.as_p }}
+        <button class="searchbutton" type="submit">
+            <i class="material-icons">search</i>
+        </button>
     </form>
+
+</div>
+
+<div class="container">
+    <h1>List of events</h1>
+
+    <table class="striped highlight">
+        <thead>
+            <tr>
+                <td>Category</td>
+                <td>Name</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for event in filter %}
+                <tr>
+                    <td>{{ event.category }}</td>
+                    <td><a href="/event/{{event.id}}">{{ event.name }}</a></td>
+                    <td>{{ event.description|truncatesmart:90 }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Calendar with filtered events</h1>
+    <p></p>
+
+    <!-- display the calender -->
+    {{ month_table }}
+</div>
 
 {% endblock %}

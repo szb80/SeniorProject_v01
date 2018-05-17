@@ -1,9 +1,0 @@
-oauth2_login
-requests
-app_settings
-OAuth2Adapter
-GitHubOAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-OAuth2CallbackView
-GitHubProvider

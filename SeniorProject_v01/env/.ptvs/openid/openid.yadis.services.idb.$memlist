@@ -1,8 +1,0 @@
-mkFilter
-iterServices
-parseXRDS
-discover
-applyFilter
-DiscoveryFailure
-XRDSError
-getServiceEndpoints

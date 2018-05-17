@@ -1,8 +1,0 @@
-oauth2_login
-requests
-InstagramProvider
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-InstagramOAuth2Adapter
-OAuth2CallbackView

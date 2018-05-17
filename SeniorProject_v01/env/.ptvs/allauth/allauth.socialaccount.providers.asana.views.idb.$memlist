@@ -1,8 +1,0 @@
-oauth2_login
-requests
-AsanaOAuth2Adapter
-AsanaProvider
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-OAuth2CallbackView

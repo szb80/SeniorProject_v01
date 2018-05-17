@@ -1,8 +1,0 @@
-BoxOAuth2Adapter
-oauth_login
-requests
-BoxOAuth2Provider
-oauth_callback
-OAuth2Adapter
-OAuth2LoginView
-OAuth2CallbackView

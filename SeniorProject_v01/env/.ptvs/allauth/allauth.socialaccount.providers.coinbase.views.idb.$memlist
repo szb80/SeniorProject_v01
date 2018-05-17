@@ -1,8 +1,0 @@
-oauth2_login
-requests
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-CoinbaseProvider
-OAuth2CallbackView
-CoinbaseOAuth2Adapter

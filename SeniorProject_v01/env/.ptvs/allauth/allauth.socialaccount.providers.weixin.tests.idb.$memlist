@@ -1,6 +1,0 @@
-registry
-WeixinProvider
-unicode_literals
-MockedResponse
-WeixinTests
-create_oauth2_tests

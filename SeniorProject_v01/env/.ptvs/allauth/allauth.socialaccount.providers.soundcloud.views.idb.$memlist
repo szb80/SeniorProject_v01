@@ -1,8 +1,0 @@
-oauth2_login
-requests
-SoundCloudProvider
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-OAuth2CallbackView
-SoundCloudOAuth2Adapter

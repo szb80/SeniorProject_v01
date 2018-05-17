@@ -1,9 +1,0 @@
-MailRuOAuth2Adapter
-oauth2_login
-requests
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-md5
-OAuth2CallbackView
-MailRuProvider

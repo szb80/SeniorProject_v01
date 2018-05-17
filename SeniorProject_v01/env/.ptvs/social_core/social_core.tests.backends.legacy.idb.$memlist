@@ -1,5 +1,0 @@
-requests
-BaseLegacyTest
-parse_qs
-HTTPretty
-BaseBackendTest

@@ -1,8 +1,0 @@
-set_password
-remove_user
-set_slug
-ask_for_slug
-partial
-set_user_from_args
-set_user_from_kwargs
-ask_for_password

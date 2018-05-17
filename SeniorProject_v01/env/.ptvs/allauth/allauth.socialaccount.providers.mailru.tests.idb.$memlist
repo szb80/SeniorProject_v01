@@ -1,7 +1,0 @@
-MockedResponse
-absolute_import
-unicode_literals
-TestCase
-OAuth2TestsMixin
-MailRuTests
-MailRuProvider

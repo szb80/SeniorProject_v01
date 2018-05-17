@@ -109,12 +109,11 @@
     <Content Include="app\templates\app\calendar-rw.html" />
     <Content Include="app\templates\app\calendar-ro.html" />
     <Content Include="app\templates\app\calendar.html" />
+    <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />
     <Content Include="app\templates\app\events2.html" />
     <Content Include="app\templates\app\search2.html" />
     <Content Include="app\templates\app\search.html" />
-    <Content Include="app\templates\app\search_results.html" />
-    <Content Include="app\templates\app\search_submit.html" />
     <Content Include="app\templates\app\upcoming.html" />
     <Content Include="app\templates\app\eventlist.html" />
     <Content Include="app\templates\app\events.html" />

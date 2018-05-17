@@ -1,8 +1,0 @@
-oauth2_login
-requests
-MeetupProvider
-OAuth2Adapter
-MeetupOAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-OAuth2CallbackView

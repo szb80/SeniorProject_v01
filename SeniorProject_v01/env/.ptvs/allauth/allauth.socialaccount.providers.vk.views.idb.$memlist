@@ -1,9 +1,0 @@
-VKOAuth2Adapter
-oauth2_login
-requests
-VKProvider
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-OAuth2CallbackView
-USER_FIELDS

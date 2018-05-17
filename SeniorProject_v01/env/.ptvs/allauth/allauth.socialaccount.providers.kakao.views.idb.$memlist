@@ -1,8 +1,0 @@
-oauth2_login
-requests
-KakaoProvider
-OAuth2Adapter
-OAuth2LoginView
-oauth2_callback
-KakaoOAuth2Adapter
-OAuth2CallbackView

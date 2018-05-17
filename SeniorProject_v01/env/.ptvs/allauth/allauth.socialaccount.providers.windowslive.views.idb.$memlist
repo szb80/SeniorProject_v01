@@ -1,9 +1,0 @@
-OAuth2LoginView
-WindowsLiveOAuth2Adapter
-requests
-unicode_literals
-OAuth2Adapter
-oauth2_login
-WindowsLiveProvider
-oauth2_callback
-OAuth2CallbackView

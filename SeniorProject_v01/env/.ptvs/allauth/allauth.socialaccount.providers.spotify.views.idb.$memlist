@@ -1,8 +1,0 @@
-oauth_login
-requests
-oauth_callback
-OAuth2CallbackView
-OAuth2Adapter
-SpotifyOAuth2Adapter
-OAuth2LoginView
-SpotifyOAuth2Provider

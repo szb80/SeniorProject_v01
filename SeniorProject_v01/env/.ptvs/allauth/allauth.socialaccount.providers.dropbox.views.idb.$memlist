@@ -1,8 +1,0 @@
-oauth_login
-requests
-oauth_callback
-OAuth2Adapter
-DropboxOAuth2Adapter
-DropboxOAuth2Provider
-OAuth2LoginView
-OAuth2CallbackView

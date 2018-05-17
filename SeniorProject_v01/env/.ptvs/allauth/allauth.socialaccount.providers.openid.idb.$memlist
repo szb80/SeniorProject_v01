@@ -1,9 +1,0 @@
-provider
-views
-admin
-forms
-tests
-models
-migrations
-urls
-utils

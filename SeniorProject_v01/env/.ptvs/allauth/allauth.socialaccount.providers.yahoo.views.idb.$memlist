@@ -1,9 +1,0 @@
-oauth2_callback
-oauth2_login
-requests
-YahooOAuth2Adapter
-unicode_literals
-OAuth2Adapter
-OAuth2LoginView
-YahooProvider
-OAuth2CallbackView
