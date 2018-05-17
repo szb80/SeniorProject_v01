@@ -1,4 +1,5 @@
 {% extends "app/layout.html" %}
+{% load staticfiles %}
 
 {% block content %}
 
@@ -38,13 +39,5 @@
         <section id="socialLoginForm"></section>
     </div>
 </div>
-
-{% endblock %}
-
-
-{% block scripts %}
-
-    {% load staticfiles %}
-<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
 
 {% endblock %}

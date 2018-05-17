@@ -32,9 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "sslserver",
     'app',
-
     'address',
     # Add your apps here to enable them
     'django.contrib.admin',
@@ -57,8 +55,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-
 ]
 
 ROOT_URLCONF = 'SeniorProject_v01.urls'
@@ -81,8 +77,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/events'
 WSGI_APPLICATION = 'SeniorProject_v01.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

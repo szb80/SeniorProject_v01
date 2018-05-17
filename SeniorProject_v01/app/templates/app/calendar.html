@@ -9,10 +9,9 @@
         <!-- if user is logged in with admin roles, load RW (read-write) calendar -->
         {% include "app/calendar-rw.html" %}
 
-        <!-- if user is logged in with facebook user creds, load RO (read only) calendar -->
-        {% else %}
-            {% include "app/calendar-rw.html" %} <!-- CHANGE TO RO WHEN FINISHED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-
+    <!-- if user is logged in with facebook user creds, load RO (read only) calendar -->
+    {% else %}
+        {% include "app/error.html" %}
     {% endif %}
     
 

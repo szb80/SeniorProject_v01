@@ -10,6 +10,8 @@ from django.views import generic
 from datetime import datetime
 from django.utils.timezone import get_current_timezone
 from django.db.models import Q
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
@@ -23,20 +25,6 @@ def home(request):
         'app/index.html',
         {
             'title':'Home Page',
-            'year':datetime.now().year,
-        }
-    )
-
-
-def loginfb(request):
-    """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/login-fb.html',
-        {
-            'title':'Facebook Login',
-            'message':'Login using your Facebook account.',
             'year':datetime.now().year,
         }
     )
@@ -70,38 +58,38 @@ def about(request):
 
 def events(request):
     """ defaults to current month """
-
     assert isinstance(request, HttpRequest)
-
-    """ retrieve events for current month """
-    events = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
-
-    calendar = TemplatedCalendar()
-    calendar.setfirstweekday(6)
-    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), events)
     
-
-    return render_to_response(
-        'app/events2.html', 
+    return render(request,
+        'app/events.html', 
         {
             'title': 'Events',
-            'month_table': month_table, 
-            'events': events
+            'month_table': buildCalendar(), 
+            'events': events,
         }
     )
 
 
 def buildCalendar(event_list=None):
-    """ generates a calendar object with the passed event dictionary """
+    # generates a calendar object with the passed event dictionary
+    # accepts a queryset of events
+    # returns an instance of TemplatedCalendar() HTMLCalendar
 
     calendar = TemplatedCalendar()
     calendar.setfirstweekday(6)
 
-    """ if event_list variable is empty, set events to current month """
-    if event_list is not None:
-        month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
-    else:
-        month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), Event.objects.all())
+    # if event_list variable is empty, set events to current month
+    if event_list is not None:  # passed list of events
+        month_table = calendar.formatmonth(
+            int(datetime.now().year),
+            int(datetime.now().month), event_list
+            )
+    else: # no events passed, default to pull all events for current month
+        month_table = calendar.formatmonth(
+            int(datetime.now().year),
+            int(datetime.now().month),
+            Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
+            )
 
     return month_table
 
@@ -112,29 +100,8 @@ def eventdetail(request, event_id):
 
 
 def search(request):
-    """Renders the filter events page."""
+    # Renders the filter events page
     assert isinstance(request, HttpRequest)
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset=event_list)
-
-    calendar = TemplatedCalendar()
-    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
-
-    return render(
-        request, 
-        'app/search.html', 
-        {
-            'title':'Search Events',
-            'filter': event_filter,
-            'month_table': month_table, 
-            'event_list': event_list,
-            'event_filter': event_filter,
-        }
-    )
-
-
-def search2(request):
-    """Renders the filter events page."""
 
     if request.method == "POST":
         params = searchform(request.POST)
@@ -149,8 +116,14 @@ def search2(request):
                 event_list = event_list.filter(event_type__exact=q)
 
             if 'date_start' in request.POST and request.POST['date_start']: #################################################################
-                q = request.POST['date_start']
-                event_list = event_list.filter(date_start__exact=q)
+                if request.POST.get('date_start_month') is not '0' and request.POST.get(date_start_day) is not '0' and request.POST.get(date_start_year) is not '0':
+                    m = request.POST.get('date_start_month')
+                    d = request.POST.get('date_start_day')
+                    y = request.POST.get('date_start_year')
+                
+                    search_date = datetime.date(y, m, d)
+
+                    event_list = event_list.filter(search_date__exact=q)
 
             if 'name' in request.POST and request.POST['name']:
                 q = request.POST['name']
@@ -160,16 +133,16 @@ def search2(request):
                 q = request.POST['description']
                 event_list = event_list.filter(description__icontains=q)
 
-
             month_table = buildCalendar(event_list)
 
             return render(
                 request, 
-                'app/search2.html', 
+                'app/search.html', 
                 {
                     'title':'Search Events',
                     'filter': event_list,
-                    'month_table': month_table, 
+                    'month_table': month_table,
+                    #'date': search_date,
                 }
             )
 
@@ -178,10 +151,10 @@ def search2(request):
 
     elif request.method == "GET":
         params = searchform()
-        month_table = buildCalendar(Event.objects.all())
+        month_table = buildCalendar()
         return render(
             request, 
-            'app/search2.html', 
+            'app/search.html', 
             {
                 'title':'Search Events',
                 'filter': params,
@@ -189,50 +162,22 @@ def search2(request):
             }
         )
 
-
-
-"""
-###############################################################################
-TEST VIEWS                                                                  
-###############################################################################
-"""
-
-def search3(request):
+def register(request):
+    """Renders the home page."""
     assert isinstance(request, HttpRequest)
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset=event_list)
-
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset=event_list)
-    event_selection = {}
-
-    for event in event_filter.qs:
-        {event.ID: event.name}
-
-    """
-    {% for doc in filter.qs %}
-    <tr>
-        <td>{{ doc.department }}</td>
-        <td><a href="{{ doc.source_file.url }}" target="_blank">{{ doc.title }}</a></td>
-        <td>{{ doc.description }}</td>
-    </tr>
-    {% endfor %}
-    """
-
-    month_table = buildCalendar(request, event_filter)
-
-    """
-    results = BlogPost.objects.filter(Q(title__icontains=your_search_query) | Q(intro__icontains=your_search_query) | Q(content__icontains=your_search_query))
-    """
     return render(
-        request, 
-        'app/search2.html', 
+        request,
+        'app/index.html',
         {
-            'title':'Search Events',
-            'filter': event_filter,
-            'month_table': month_table, 
+            'title':'Register a new account',
+            'year':datetime.now().year,
         }
     )
+
+
+###############################################################################
+# TEST VIEWS
+###############################################################################
 
 def eventlist(request):
     """Displays all Events after the current date"""
@@ -249,4 +194,29 @@ def upcoming(request):
     context = { 'upcoming': upcoming, }
     return HttpResponse(template.render(context, request))
 
+def loginfb(request):
+    """Renders the contact page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/login-fb.html',
+        {
+            'title':'Facebook Login',
+            'message':'Login using your Facebook account.',
+            'year':datetime.now().year,
+        }
+    )
 
+def login(request):
+    assert isinstance(request, HttpRequest)
+
+    if request.method == 'POST':
+        username = request.POST.get('id_username','')
+        password = request.POST.get('id_password','')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                request.session.set_expiry(86400) #sets the exp. value of the session 
+                login(request, user) #the user is now logged in
+
+        return HttpResponseRedirect('/events')

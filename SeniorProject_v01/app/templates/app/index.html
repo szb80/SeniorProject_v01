@@ -3,32 +3,31 @@
 
 {% block content %}
 
+<div class="jumbotron">
+    <h1>Welcome to the Trail Life USA<br />Online Adventure Finder</h1>
+    {% if request.user.is_authenticated %}
+        <h2>Welcome back, {{ request.user.username }}</h2>
+    {% else %}
+        <p>You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
+    {% endif %}
+</div>
 
-
-
-<!--  PREFAB THREE BUTTON CONTENT
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Django gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://www.djangobook.com/en/2.0/index.html">Learn more &raquo;</a></p>
+<div class="card-deck">
+    <div class="card">
+        <i class="fa fa-calendar-alt fa-fw fa-10x card-img-top"></i>
+        <div class="card-body">
+            <h5 class="card-title">View Calender</h5>
+            <p class="card-text">See upcoming events for the current month. Events are listed by date.</p>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.org/">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+    <div class="card">
+        <i class="fas fa-search fa-fw fa-10x card-img-top"></i>
+        <div class="card-body">
+            <h5 class="card-title">Search Events</h5>
+            <p class="card-text">Looking for something in particular? Search for a specific event or filter by region, category, or date.</p>
+        </div>
     </div>
 </div>
 
--->
 
 {% endblock %}
