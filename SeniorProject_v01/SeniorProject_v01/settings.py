@@ -81,8 +81,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/events'
 WSGI_APPLICATION = 'SeniorProject_v01.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

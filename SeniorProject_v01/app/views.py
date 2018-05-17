@@ -81,28 +81,36 @@ def events(request):
     calendar.setfirstweekday(6)
     month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), events)
     
-
     return render_to_response(
         'app/events2.html', 
         {
             'title': 'Events',
             'month_table': month_table, 
-            'events': events
+            'events': events,
         }
     )
 
 
 def buildCalendar(event_list=None):
-    """ generates a calendar object with the passed event dictionary """
+    # generates a calendar object with the passed event dictionary
+    # accepts a queryset of events
+    # returns an instance of TemplatedCalendar() HTMLCalendar
 
     calendar = TemplatedCalendar()
     calendar.setfirstweekday(6)
 
-    """ if event_list variable is empty, set events to current month """
-    if event_list is not None:
-        month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
-    else:
-        month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), Event.objects.all())
+    # if event_list variable is empty, set events to current month
+    if event_list is not None:  # passed list of events
+        month_table = calendar.formatmonth(
+            int(datetime.now().year),
+            int(datetime.now().month), event_list
+            )
+    else: # no events passed, default to pull all events for current month
+        month_table = calendar.formatmonth(
+            int(datetime.now().year),
+            int(datetime.now().month),
+            Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
+            )
 
     return month_table
 
@@ -113,29 +121,8 @@ def eventdetail(request, event_id):
 
 
 def search(request):
-    """Renders the filter events page."""
+    # Renders the filter events page
     assert isinstance(request, HttpRequest)
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset=event_list)
-
-    calendar = TemplatedCalendar()
-    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), event_list)
-
-    return render(
-        request, 
-        'app/search.html', 
-        {
-            'title':'Search Events',
-            'filter': event_filter,
-            'month_table': month_table, 
-            'event_list': event_list,
-            'event_filter': event_filter,
-        }
-    )
-
-
-def search2(request):
-    """Renders the filter events page."""
 
     if request.method == "POST":
         params = searchform(request.POST)
@@ -166,11 +153,12 @@ def search2(request):
 
             return render(
                 request, 
-                'app/search2.html', 
+                'app/search.html', 
                 {
                     'title':'Search Events',
                     'filter': event_list,
-                    'month_table': month_table, 
+                    'month_table': month_table,
+                    'search_date': request.POST['date_start'],
                 }
             )
 
@@ -179,10 +167,10 @@ def search2(request):
 
     elif request.method == "GET":
         params = searchform()
-        month_table = buildCalendar(Event.objects.all())
+        month_table = buildCalendar()
         return render(
             request, 
-            'app/search2.html', 
+            'app/search.html', 
             {
                 'title':'Search Events',
                 'filter': params,
@@ -190,50 +178,22 @@ def search2(request):
             }
         )
 
-
-
-"""
-###############################################################################
-TEST VIEWS                                                                  
-###############################################################################
-"""
-
-def search3(request):
+def register(request):
+    """Renders the home page."""
     assert isinstance(request, HttpRequest)
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset=event_list)
-
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset=event_list)
-    event_selection = {}
-
-    for event in event_filter.qs:
-        {event.ID: event.name}
-
-    """
-    {% for doc in filter.qs %}
-    <tr>
-        <td>{{ doc.department }}</td>
-        <td><a href="{{ doc.source_file.url }}" target="_blank">{{ doc.title }}</a></td>
-        <td>{{ doc.description }}</td>
-    </tr>
-    {% endfor %}
-    """
-
-    month_table = buildCalendar(request, event_filter)
-
-    """
-    results = BlogPost.objects.filter(Q(title__icontains=your_search_query) | Q(intro__icontains=your_search_query) | Q(content__icontains=your_search_query))
-    """
     return render(
-        request, 
-        'app/search2.html', 
+        request,
+        'app/index.html',
         {
-            'title':'Search Events',
-            'filter': event_filter,
-            'month_table': month_table, 
+            'title':'Register a new account',
+            'year':datetime.now().year,
         }
     )
+
+
+###############################################################################
+# TEST VIEWS
+###############################################################################
 
 def eventlist(request):
     """Displays all Events after the current date"""

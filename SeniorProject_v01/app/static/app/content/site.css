@@ -1,7 +1,5 @@
 html {
     font-family: 'Open Sans', sans-serif;
-    
-
 }
 
 body {
@@ -52,12 +50,13 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-.jumbotron-wrapper {
-    background-image: url('../img/tlusa_homepage_cover.jpg');
-    background-size: cover;
+.jumbotron {
+    background-color: transparent;
+    padding: 0;
 }
 
-.jumbotron {
+.container .jumbotron {
+    padding: 0;
 }
 
 /*CALENDAR TABLES CSS*/
@@ -103,9 +102,10 @@ input[type="checkbox"].input-validation-error {
     border-right: 1px solid #e1e1e1;
     border-top: 1px solid #e1e1e1;
 }
-.oafcal td a{
-    color: black;
-}
+
+    .oafcal td a {
+        color: black;
+    }
 
 .oafcal th {
     text-align: center;
@@ -119,22 +119,23 @@ input[type="checkbox"].input-validation-error {
     background-color: lightblue;
     box-shadow: 1px 2px 5px #99999a;
 }
+
     .highlighted p {
         background-color: #009bff;
         border-radius: 20px;
-        margin-top:5px;
+        margin-top: 5px;
         font-size: 20px;
         width: 28px;
         box-shadow: 1px 2px 5px #99999a;
     }
 
-
-
-    /**********HEADER LOGIN FORM**************/
-
+/**********HEADER LOGIN FORM**************/
 #loginForm {
     background-color: white;
     width: 500px;
-    float:right;
+    float: right;
 }
 
+.navbar-right {
+    margin-top: 0;
+}
