@@ -4,24 +4,26 @@
 {% load truncatesmart %}
 
 {% block content %}
-
-<div class="container">
     <div class="row">
         <h1>Search Events</h1>
     </div>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ filter.as_p }}
-        <button class="searchbutton" type="submit">
-            <i class="material-icons">search</i>
-        </button>
-    </form>
-</div>
+    {% if user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ filter.as_p }}
+            <button class="searchbutton" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
 
-<div class="container">
-    <!-- display the calender -->
-    {{ month_table }}
-</div>
+        <!-- display the calender -->
+        <p>{{ date }}</p>
+        {{ month_table }}
+
+    <!-- else display error -->
+    {% else %}
+        {% include "app/authentication_error.html" %}
+    {% endif %}
 
 {% endblock %}

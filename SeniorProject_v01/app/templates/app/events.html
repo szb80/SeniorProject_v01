@@ -3,13 +3,14 @@
 {% load staticfiles %}
 
 {% block content %}
+    <!-- check user authentication and display proper page -->
+    {% if request.user.is_authenticated %}
+        <!-- if user is logged in, load calendar -->
+        {{ month_table }}
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
-
-<p>Use this area to provide additional information.</p>
-
-<!-- load and display the calender -->
-{% include "app/calendar.html" %}
+    <!-- else display error -->
+    {% else %}
+        {% include "app/authentication_error.html" %}
+    {% endif %}
 
 {% endblock %}

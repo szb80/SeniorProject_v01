@@ -2,9 +2,32 @@
 {% load staticfiles %}
 
 {% block content %}
+
 <div class="jumbotron">
     <h1>Welcome to the Trail Life USA<br />Online Adventure Finder</h1>
-    <p>You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
+    {% if request.user.is_authenticated %}
+        <h2>Welcome back, {{ request.user.username }}</h2>
+    {% else %}
+        <p>You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
+    {% endif %}
 </div>
+
+<div class="card-deck">
+    <div class="card">
+        <i class="fa fa-calendar-alt fa-fw fa-10x card-img-top"></i>
+        <div class="card-body">
+            <h5 class="card-title">View Calender</h5>
+            <p class="card-text">See upcoming events for the current month. Events are listed by date.</p>
+        </div>
+    </div>
+    <div class="card">
+        <i class="fas fa-search fa-fw fa-10x card-img-top"></i>
+        <div class="card-body">
+            <h5 class="card-title">Search Events</h5>
+            <p class="card-text">Looking for something in particular? Search for a specific event or filter by region, category, or date.</p>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

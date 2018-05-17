@@ -10,6 +10,8 @@ from django.views import generic
 from datetime import datetime
 from django.utils.timezone import get_current_timezone
 from django.db.models import Q
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
@@ -23,20 +25,6 @@ def home(request):
         'app/index.html',
         {
             'title':'Home Page',
-            'year':datetime.now().year,
-        }
-    )
-
-
-def loginfb(request):
-    """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/login-fb.html',
-        {
-            'title':'Facebook Login',
-            'message':'Login using your Facebook account.',
             'year':datetime.now().year,
         }
     )
@@ -71,21 +59,13 @@ def about(request):
 
 def events(request):
     """ defaults to current month """
-
     assert isinstance(request, HttpRequest)
-
-    """ retrieve events for current month """
-    events = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
-
-    calendar = TemplatedCalendar()
-    calendar.setfirstweekday(6)
-    month_table = calendar.formatmonth(int(datetime.now().year), int(datetime.now().month), events)
     
-    return render_to_response(
-        'app/events2.html', 
+    return render(request,
+        'app/events.html', 
         {
             'title': 'Events',
-            'month_table': month_table, 
+            'month_table': buildCalendar(), 
             'events': events,
         }
     )
@@ -137,8 +117,14 @@ def search(request):
                 event_list = event_list.filter(event_type__exact=q)
 
             if 'date_start' in request.POST and request.POST['date_start']: #################################################################
-                q = form.cleaned_data.get('date_start')
-                event_list = event_list.filter(date_start__exact=q)
+                if request.POST.get('date_start_month') is not '0' and request.POST.get(date_start_day) is not '0' and request.POST.get(date_start_year) is not '0':
+                    m = request.POST.get('date_start_month')
+                    d = request.POST.get('date_start_day')
+                    y = request.POST.get('date_start_year')
+                
+                    search_date = datetime.date(y, m, d)
+
+                    event_list = event_list.filter(search_date__exact=q)
 
             if 'name' in request.POST and request.POST['name']:
                 q = request.POST['name']
@@ -147,7 +133,6 @@ def search(request):
             if 'description' in request.POST and request.POST['description']:
                 q = request.POST['description']
                 event_list = event_list.filter(description__icontains=q)
-
 
             month_table = buildCalendar(event_list)
 
@@ -158,7 +143,7 @@ def search(request):
                     'title':'Search Events',
                     'filter': event_list,
                     'month_table': month_table,
-                    'search_date': request.POST['date_start'],
+                    #'date': search_date,
                 }
             )
 
@@ -210,4 +195,29 @@ def upcoming(request):
     context = { 'upcoming': upcoming, }
     return HttpResponse(template.render(context, request))
 
+def loginfb(request):
+    """Renders the contact page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/login-fb.html',
+        {
+            'title':'Facebook Login',
+            'message':'Login using your Facebook account.',
+            'year':datetime.now().year,
+        }
+    )
 
+def login(request):
+    assert isinstance(request, HttpRequest)
+
+    if request.method == 'POST':
+        username = request.POST.get('id_username','')
+        password = request.POST.get('id_password','')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                request.session.set_expiry(86400) #sets the exp. value of the session 
+                login(request, user) #the user is now logged in
+
+        return HttpResponseRedirect('/events')
