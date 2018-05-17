@@ -1,6 +1,11 @@
 body {
     background: url('../img/tlusa_homepage_cover2.jpg');
-    padding: 50px;
+    padding: 70px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
 }
 
 #login-dp {

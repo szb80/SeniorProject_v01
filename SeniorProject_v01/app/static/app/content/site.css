@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 20px;
     background-size: cover;
     background-attachment: fixed;
@@ -11,6 +11,8 @@ body {
     background-position: center center;
     color: black;
 }
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -84,7 +86,7 @@ input[type="checkbox"].input-validation-error {
 .oafcalMonth {
     max-width: 100%;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 /********************/
