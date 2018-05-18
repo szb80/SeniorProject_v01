@@ -1,71 +1,68 @@
-body {
-    background: url('../img/tlusa_homepage_cover2.jpg');
-    padding: 70px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-}
+.login-form {
+    width: 385px;
+    margin: 30px auto;
 }
 
-#login-dp {
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow: hidden;
-    background-color: rgba(255,255,255,.8);
+    
+
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+
+.form-control, .login-btn {
+    min-height: 38px;
+    border-radius: 2px;
 }
 
-    #login-dp .help-block {
-        font-size: 12px
-    }
-
-    #login-dp .bottom {
-        background-color: rgba(255,255,255,.8);
-        border-top: 1px solid #ddd;
-        clear: both;
-        padding: 14px;
-    }
-
-    #login-dp .social-buttons {
-        margin: 12px 0
-    }
-
-        #login-dp .social-buttons a {
-            width: 49%;
-        }
-
-    #login-dp .form-group {
-        margin-bottom: 10px;
-    }
-
-.btn-fb {
-    color: #fff;
-    background-color: #3b5998;
+.input-group-addon .fa {
+    font-size: 18px;
 }
 
-    .btn-fb:hover {
-        color: #fff;
-        background-color: #496ebc
-    }
-
-.btn-tw {
-    color: #fff;
-    background-color: #55acee;
+.login-btn {
+    font-size: 15px;
+    font-weight: bold;
 }
 
-    .btn-tw:hover {
-        color: #fff;
-        background-color: #59b5fa;
+.social-btn .btn {
+    border: none;
+    margin: 10px 3px 0;
+    opacity: 1;
+}
+
+    .social-btn .btn:hover {
+        opacity: 0.9;
     }
 
-@media(max-width:768px) {
-    #login-dp {
-        background-color: inherit;
-        color: #fff;
+.social-btn .btn-primary {
+    background: #507cc0;
+}
+
+.social-btn .btn-info {
+    background: #64ccf1;
+}
+
+.social-btn .btn-danger {
+    background: #df4930;
+}
+
+.or-seperator {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+
+    .or-seperator i {
+        padding: 0 10px;
+        background: #f7f7f7;
+        position: relative;
+        top: -11px;
+        z-index: 1;
     }
 
-        #login-dp .bottom {
-            background-color: inherit;
-            border-top: 0 none;
-        }
+.login-form form {
+    margin-bottom: 15px;
+    /*background: #f7f7f7;*/
+    background: rgba(240, 240, 240, 0.60);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
 }
