@@ -41,7 +41,7 @@ class TemplatedCalendar(HTMLCalendar):
        
        # Apply CSS to calendar to highlight current day
         if day == datetime.datetime.now().day:
-            css_class += ' highlighted'
+            css_class += ' highlighted' 
 
         for event in events:
             if str(event.date_start.day) == str(day):

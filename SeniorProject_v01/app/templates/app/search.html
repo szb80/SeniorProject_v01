@@ -4,6 +4,7 @@
 {% load truncatesmart %}
 
 {% block content %}
+<div class="col-xs-6 col-md-4">
     <div class="row">
         <h1>Search Events</h1>
     </div>
@@ -16,7 +17,8 @@
                 <i class="fas fa-search"></i>
             </button>
         </form>
-
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
         <!-- display the calender -->
         {{ month_table }}
 
@@ -24,5 +26,5 @@
     {% else %}
         {% include "app/authentication_error.html" %}
     {% endif %}
-
+</div>
 {% endblock %}
