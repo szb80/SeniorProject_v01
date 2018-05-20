@@ -7,7 +7,7 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import loader, RequestContext
 from django.views import generic
-from datetime import datetime
+from datetime import datetime, date
 from django.utils.timezone import get_current_timezone
 from django.db.models import Q
 from django.contrib.auth.models import User
@@ -115,15 +115,12 @@ def search(request):
                 q = request.POST['event_type']
                 event_list = event_list.filter(event_type__exact=q)
 
-            if 'date_start' in request.POST and request.POST['date_start']: #################################################################
-                if request.POST.get('date_start_month') is not '0' and request.POST.get(date_start_day) is not '0' and request.POST.get(date_start_year) is not '0':
-                    m = request.POST.get('date_start_month')
-                    d = request.POST.get('date_start_day')
-                    y = request.POST.get('date_start_year')
-                
-                    search_date = datetime.date(y, m, d)
-
-                    event_list = event_list.filter(search_date__exact=q)
+            if 'date_start_month' in request.POST and request.POST['date_start_month']: #################################################################
+                if request.POST.get('date_start_month') is not '0':
+                    search_date = date(int(request.POST.get('date_start_year')), 
+                                       int(request.POST.get('date_start_month')),
+                                       int(request.POST.get('date_start_day')))
+                    event_list = Event.objects.filter(date_start__contains=search_date)
 
             if 'name' in request.POST and request.POST['name']:
                 q = request.POST['name']
@@ -142,14 +139,13 @@ def search(request):
                     'title':'Search Events',
                     'filter': event_list,
                     'month_table': month_table,
-                    #'date': search_date,
                 }
             )
 
         else:
             return HttpResponseRedirect('/error')
 
-    elif request.method == "GET":
+    else:
         params = searchform()
         month_table = buildCalendar()
         return render(
