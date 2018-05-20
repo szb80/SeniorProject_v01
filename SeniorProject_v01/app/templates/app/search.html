@@ -10,7 +10,7 @@
     </div>
 
     {% if user.is_authenticated %}
-        <form method="POST">
+        <form method="GET">
             {% csrf_token %}
             {{ filter.as_p }}
             <button class="searchbutton" type="submit">

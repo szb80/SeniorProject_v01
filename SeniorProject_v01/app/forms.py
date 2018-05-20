@@ -25,5 +25,5 @@ class BootstrapAuthenticationForm(AuthenticationForm):
 class searchform(forms.ModelForm):
     class Meta:
         model = SearchEvent
-        fields = ['name', 'description', 'event_type', 'date_start', 'district']
+        fields = ['name', 'description', 'event_type', 'date_start', 'district', ]
         widgets = {'date_start': SelectDateWidget()}
