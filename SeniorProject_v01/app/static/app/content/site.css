@@ -1,5 +1,4 @@
 html {
-    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -11,6 +10,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     color: black;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -57,7 +57,7 @@ input[type="checkbox"].input-validation-error {
     padding: 2rem 0;
 }
 
-/*CALENDAR TABLES CSS*/
+/* CALENDAR CSS */
 
 .oafcal {
     width: 100%
@@ -90,8 +90,6 @@ input[type="checkbox"].input-validation-error {
         box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
     }
 
-/********MONTH HEADER TITLE CSS********/
-
 .oafcalMonth {
     max-width: 100%;
     display: table-row-group;
@@ -105,8 +103,6 @@ input[type="checkbox"].input-validation-error {
     border-color: inherit;
     width: 128px;
 }
-
-/********************/
 
 .oafcal td {
     display: table-cell;
@@ -156,13 +152,13 @@ input[type="checkbox"].input-validation-error {
     font-weight: 500 !important;
 }
 
-/********CALEDAR HEADER*************/
+/* CALEDAR HEADER */
 
 .calHeader {
     width: 100%;
     background-color: rgba(131, 124, 128, 0.2);
     background: rgba(131, 124, 128, 0.2);
-    color: rgba(131, 124, 128, 0.2);
+    color: #000;
     border-radius: 6px 6px 0 0;
     border-radius: 6px;
     box-shadow: 0 1px 2px #C3C3C3;
@@ -256,6 +252,7 @@ input[type="checkbox"].input-validation-error {
     .header-center month {
         text-align: center;
     }
+
 /******CALENDAR CELLS**********/
 .day-number {
     float: right;

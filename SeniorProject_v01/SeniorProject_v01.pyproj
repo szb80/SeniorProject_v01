@@ -102,9 +102,14 @@
     <Content Include="app\static\app\content\bootstrap.4.css" />
     <Content Include="app\static\app\content\bootstrap.min.4.css" />
     <Content Include="app\static\app\content\headerlogin.css" />
+    <Content Include="app\static\app\img\calendar_01.jpg" />
+    <Content Include="app\static\app\img\calendar_02.jpg" />
     <Content Include="app\static\app\img\fb1.png" />
+    <Content Include="app\static\app\img\search_01.jpg" />
+    <Content Include="app\static\app\img\search_02.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover2.jpg" />
+    <Content Include="app\static\app\scripts\bootstrap.min.4.js" />
     <Content Include="app\static\app\scripts\daypilot-all.min2.js" />
     <Content Include="app\templates\app\authentication_error.html" />
     <Content Include="app\templates\app\calendar-rw.html" />
