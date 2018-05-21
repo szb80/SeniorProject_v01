@@ -10,13 +10,12 @@
     {% if eventlist %}
     <ul>
     {% for event in eventlist %}
-        <li><a href="/event/{{event.id}}"
-               >{{ event.name }}</a></li>
+        <li><a href="/event/{{event.id}}">{{ event.name }}</a></li>
     {% endfor %}
     </ul>
-{% else %}
+    {% else %}
     <p>No events are available.</p>
-{% endif %}
+    {% endif %}
 
 
 

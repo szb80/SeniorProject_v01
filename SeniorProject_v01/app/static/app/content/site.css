@@ -131,7 +131,7 @@ input[type="checkbox"].input-validation-error {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    line-height: 15px;
+    line-height: 16px;
     font-family: 'Roboto', sans-serif;
     background: #03a9f3 !important;
     color: #FFF !important;
@@ -275,12 +275,15 @@ input[type="checkbox"].input-validation-error {
 }
 
 .highlighted {
-    
-    box-shadow: 1px 2px 5px #99999a;
+    /*box-shadow: 1px 2px 5px #0047ff;*/
+    box-shadow: 0 1px 2px #C3C3C3;
+    -webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+    -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+    box-shadow: 0px 0px 21px 2px #9171c7;
 }
 
     .highlighted day-number {
-        background-color: #ff3b30;
+        background-color: #0047ff;
         color: #FFFFFF;
         border-radius: 50%
     }
@@ -297,3 +300,92 @@ input[type="checkbox"].input-validation-error {
 }
 
 
+/*********Event Details Page*******************/
+
+.event-list {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+
+.event-list > li {
+    position: relative; 
+    display: block; 
+    width: 100%; 
+    height: auto; 
+    padding: 0px;
+}
+
+.event-list > li {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgb(51, 51, 51);
+    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+    padding: 0px;
+    margin: 0px 0px 20px;
+}
+
+    .event-list > li > time, .event-list > li > img {
+        float: left;
+        width: 120px;
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+.info {
+    position: relative;
+    height: auto;
+    text-align: left;
+    padding-right: 40px;
+    padding-left: 10px;
+    background-color: rgb(245, 245, 245);
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 10px;
+    font-size: 80%;
+}
+
+.glyphicon-size {
+    font-size: 110px;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 13px;
+    padding-bottom: 20px;
+}
+.eventDate-one {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 30px;
+    padding-top: -10px;
+    font-size: 80%
+}
+.eventDate-two {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-size: 80%
+}
+.time {
+    
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+}

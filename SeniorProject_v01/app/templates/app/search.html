@@ -13,6 +13,7 @@
         <form method="POST">
             {% csrf_token %}
             {{ filter.as_p }}
+            {{ filter.id_name}}
             <button class="searchbutton" type="submit">
                 <i class="fas fa-search"></i>
             </button>

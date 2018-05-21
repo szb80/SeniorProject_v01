@@ -4,21 +4,39 @@
 
 {% block content %}
 
-    <h1>{{ event.name }}</h1>
+<div class="col-9">
+    <ul class="event-list">
+        <li>
+            <time>
+            <span class="glyphicon-size glyphicon-calendar glyphicon-size"></span>
+                <p><strong>start Date: </strong>
+            <div class="eventDate-one"><p>{{ event.date_start}}</p></div>
+            <div class="eventDate-two"><p>{{ event.date_end }}</p></div>
+                
+                    
     
-    <!-- IMAGE TO MATCH EVENT TYPE ###################################################
-        <img src="{{ event.event_type_image }}"
+                    <!-- IMAGE TO MATCH EVENT TYPE ###################################################
+                        <img src="{{ event.event_type_image }}"
 
-        -->
+                        -->
 
-    <p><strong>Description: </strong>{{ event.description }}</p>
-    <p><strong>Category: </strong>{{ event.event_type}}</p>
-    <p><strong>Start Date: </strong>{{ event.date_start}}</p>
-    <p><strong>End Date: </strong>{{ event.date_end }}</p>
-    <p><strong>Address: </strong>ADDRESS DATA HERE</p>
-        <!-- PAYMENT LINK NOT SHOWING ############################################################### -->
-    <p><strong>District: </strong>{{ event.district}}</p>
-    <p><strong>Payment: </strong><a href="{{ event.payment_link}}">{{ event.payment_link }}</a></p>
-    <p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p>
-
+                    
+            </time>
+            <div class="info">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h4><strong>{{ event.name }}</strong></h4>
+                    </div>
+                </div>
+                <div class="row"><p><strong>Description: </strong>{{ event.description }}</p></div>
+                <div class="row"><p><strong>Category: </strong>{{ event.event_type}}</p></div>
+                <div class="row"> <p><strong>District: </strong>{{ event.district}}</p></div>
+                <div class="row"><p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p></div>
+                <div class="row"><p><strong>Payment: </strong><a href="{{ event.payment_link}}">{{ event.payment_link }}</a></p></div>
+                <div class="row"><p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p></div>
+            </div>
+        </li>
+    </ul>
+</div>
 {% endblock %}
+                   
