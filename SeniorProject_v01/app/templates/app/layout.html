@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.4.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/headerlogin.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
-
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -27,29 +26,29 @@
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <div class="container">
 
-            <a class="navbar-brand" href="home">Online Adventure Finder</a>
+            <a class="navbar-brand" href="/">Online Adventure Finder</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-link"><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="nav-link"><a href="{% url 'events' %}"><i class="fas fa-calendar-alt"></i> Events</a></li>
-                    <li class="nav-link"><a href="{% url 'search' %}"><i class="fas fa-search"></i> Search</a></li>
+                    <li class="nav-link"><a href="/"><i class="fas fa-home navbar-fas"></i>Home</a></li>
+                    <li class="nav-link"><a href="{% url 'events' %}"><i class="fas fa-calendar-alt navbar-fas"></i>Events</a></li>
+                    <li class="nav-link"><a href="{% url 'search' %}"><i class="fas fa-search navbar-fas"></i>Search</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
 			    {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, {{ user.username }}!</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, {{ request.user.username.capitalize }}!</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
                         </div>
                     </li>
 			    {% else %}
-			        <li class="nav-link"><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></liclass="nav-link">
-			        <li class="nav-link"><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+			        <li class="nav-link"><a href="{% url 'register' %}"><i class="fas fa-user-plus navbar-fas"></i>Sign Up</a></liclass="nav-link">
+			        <li class="nav-link"><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt navbar-fas"></i>Login</a></li>
                 {% endif %}
                 </ul>
             </div>

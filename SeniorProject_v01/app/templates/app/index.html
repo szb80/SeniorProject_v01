@@ -7,10 +7,10 @@
     <h1>Welcome to the Trail Life USA<br />Online Adventure Finder</h1>
     {% if request.user.is_authenticated %}
         <p></p>
-        <h3>Welcome back, {{ request.user.username }}!</h3>
+        <h3 class="centered">Welcome back, {{ request.user.username.capitalize }}!</h3>
     {% else %}
         <p></p>
-        <p>You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
+        <p class="centered">You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
     {% endif %}
 </div>
 
@@ -19,19 +19,19 @@
     <div class="col">
         <div class="card-deck">
             <div class="card text-center">
-                <img class="card-img-top" src="{% static "app/img/calendar_01.jpg" %}" alt="Calendar">
+                <a href="events"><img class="card-img-top" src="{% static "app/img/calendar_01.jpg" %}" alt="Calendar"></a>
                 <div class="card-body">
                 <h5 class="card-title">Calendar</h5>
                 <p class="card-text">See upcoming events for the current month. Events are listed by date.</p>
-                <a href="#" class="btn btn-primary">View Calendar</a>
+                <a href="events" class="btn btn-primary">View Calendar</a>
                 </div>
             </div>
             <div class="card text-center">
-                <img class="card-img-top" src="{% static "app/img/search_01.jpg" %}" alt="Search">
+                <a href="search"><img class="card-img-top" src="{% static "app/img/search_01.jpg" %}" alt="Search"></a>
                 <div class="card-body">
                 <h5 class="card-title">Find an Event</h5>
                 <p class="card-text">Looking for something in particular? Search for a specific event or filter by region, category, or date.</p>
-                <a href="#" class="btn btn-primary">Search </a>
+                <a href="search" class="btn btn-primary">Search </a>
                 </div>
             </div>
         </div>

@@ -81,7 +81,7 @@ def error(request):
     )
 
 
-def events(request):
+def events(request, event_list=None):
     """ displays a calendar of events and defaults to current month """
     assert isinstance(request, HttpRequest)
     
@@ -128,42 +128,40 @@ def search(request):
     # Renders the filter events page
     assert isinstance(request, HttpRequest)
 
-    params = searchform(request.GET)
+    params = searchform()
     month_table = buildCalendar()  # default current month
+    event_list = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
 
-    #if request.method == "GET":
-    if params.is_valid():
-        if 'district' in request.GET and request.GET['district']:  # REQUIRED FIELD
-            q = request.GET['district']
-            event_list = Event.objects.filter(district__exact=q)
+    if request.method == "GET":
+        params = searchform(request.GET)
+        if params.is_valid():
+            if 'district' in request.GET and request.GET['district']:  # REQUIRED FIELD
+                q = request.GET['district']
+                event_list = Event.objects.filter(district__exact=q)
 
-        if 'event_type' in request.GET and request.GET['event_type']:
-            q = request.GET['event_type']
-            event_list = event_list.filter(event_type__exact=q)
+            if 'event_type' in request.GET and request.GET['event_type']:
+                q = request.GET['event_type']
+                event_list = event_list.filter(event_type__exact=q)
 
-        if 'date_start_month' in request.GET and request.GET['date_start_month']:
-            if request.GET.get('date_start_month') is not '0':
-                search_date = date(int(request.GET.get('date_start_year')), 
-                                    int(request.GET.get('date_start_month')),
-                                    int(request.GET.get('date_start_day')))
-                event_list = Event.objects.filter(date_start__contains=search_date)
+            if 'date_start_month' in request.GET and request.GET['date_start_month']:
+                if request.GET.get('date_start_month') is not '0':
+                    search_date = date(int(request.GET.get('date_start_year')), 
+                                        int(request.GET.get('date_start_month')),
+                                        int(request.GET.get('date_start_day')))
+                    event_list = Event.objects.filter(date_start__contains=search_date)
 
-        if 'name' in request.GET and request.GET['name']:
-            q = request.GET['name']
-            event_list = event_list.filter(name__icontains=q)
+            if 'name' in request.GET and request.GET['name']:
+                q = request.GET['name']
+                event_list = event_list.filter(name__icontains=q)
 
-        if 'description' in request.GET and request.GET['description']:
-            q = request.GET['description']
-            event_list = event_list.filter(description__icontains=q)
+            if 'description' in request.GET and request.GET['description']:
+                q = request.GET['description']
+                event_list = event_list.filter(description__icontains=q)
 
         month_table = buildCalendar(event_list)
 
         #else: # searchform is invalid
             #return HttpResponseRedirect('/error')
-
-    #else:
-    #    params = searchform()
-    #    month_table = buildCalendar()  # default current month
 
     return render(
         request, 

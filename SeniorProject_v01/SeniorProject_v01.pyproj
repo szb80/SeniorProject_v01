@@ -112,8 +112,6 @@
     <Content Include="app\static\app\scripts\bootstrap.min.4.js" />
     <Content Include="app\static\app\scripts\daypilot-all.min2.js" />
     <Content Include="app\templates\app\authentication_error.html" />
-    <Content Include="app\templates\app\calendar-rw.html" />
-    <Content Include="app\templates\app\calendar-ro.html" />
     <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />
@@ -123,7 +121,6 @@
     <Content Include="app\templates\app\events.html" />
     <Content Include="app\templates\app\login-fb.html" />
     <Content Include="app\templates\app\login - Copy.html" />
-    <Content Include="app\templates\app\test1.html" />
     <Content Include="app\templates\tempocal\day.html" />
     <Content Include="app\templates\tempocal\emptymonth.html" />
     <Content Include="app\templates\tempocal\month.html" />
@@ -157,7 +154,6 @@
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
-    <Content Include="app\templates\app\about.html" />
     <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />

@@ -13,6 +13,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -53,12 +61,24 @@ input[type="checkbox"].input-validation-error {
     padding: 0;
 }
 
+/* BOOTSTRAP OVERRIDES */
 .alert-box {
     padding: 2rem 0;
 }
 
-/* CALENDAR CSS */
+.centered {
+    text-align: center;
+}
 
+.errorlist {
+    color: red;
+}
+
+.navbar-fas {
+    margin-right: 0.35rem;
+}
+
+/* CALENDAR CSS */
 .oafcal {
     width: 100%
 }
