@@ -8,7 +8,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 """ import GoogleMaps address object from package: """
 from address.models import AddressField
-from app.models import Event, SearchEvent
+from app.models import Event, SearchEvent, District
 import datetime
 
 class BootstrapAuthenticationForm(AuthenticationForm):
@@ -25,5 +25,6 @@ class BootstrapAuthenticationForm(AuthenticationForm):
 class searchform(forms.ModelForm):
     class Meta:
         model = SearchEvent
-        fields = ['name', 'description', 'event_type', 'date_start', 'district']
+        fields = ['name', 'description', 'event_type', 'date_start', 'district', ]
         widgets = {'date_start': SelectDateWidget()}
+         

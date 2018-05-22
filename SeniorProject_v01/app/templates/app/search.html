@@ -4,29 +4,34 @@
 {% load truncatesmart %}
 
 {% block content %}
-<div class="col-xs-6 col-md-4">
-    <div class="row">
-        <h1>Search Events</h1>
-    </div>
 
-    {% if user.is_authenticated %}
-        <form method="POST">
+<div class="row">
+    <h1>Search</h1>
+</div>
+
+<div class="row">
+    {% if request.user.is_authenticated %}
+    <div class="col-sm-4">
+        <form method="GET">
             {% csrf_token %}
             {{ filter.as_p }}
-            {{ filter.id_name}}
-            <button class="searchbutton" type="submit">
-                <i class="fas fa-search"></i>
+            <p>{{ form.fieldname.errors.as_text }}</p>
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search navbar-fas"></i>Search
             </button>
         </form>
-</div>
-<div class="col-xs-12 col-sm-6 col-md-8">
+        <a href="search" class="btn btn-primary"><i class="fas fa-times-circle navbar-fas"></i>Reset Filters</a>
+    </div>
+    <div class="col">
         <!-- display the calender -->
-        <p>{{ date }}</p>
         {{ month_table }}
-
-    <!-- else display error -->
-    {% else %}
-        {% include "app/authentication_error.html" %}
-    {% endif %}
+    </div>
 </div>
+    <!-- default login display error -->
+    {% else %}
+    <div class="row">
+        {% include "app/authentication_error.html" %}
+    </div>
+    {% endif %}
+
 {% endblock %}

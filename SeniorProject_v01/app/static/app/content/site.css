@@ -1,5 +1,4 @@
 html {
-    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -11,21 +10,21 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     color: black;
+    font-family: 'Open Sans', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
 
+footer {
+    text-align: center;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
 }
 
 /* styles for validation helpers */
@@ -62,16 +61,26 @@ input[type="checkbox"].input-validation-error {
     padding: 0;
 }
 
+/* BOOTSTRAP OVERRIDES */
 .alert-box {
     padding: 2rem 0;
 }
 
-/*CALENDAR TABLES CSS*/
+.centered {
+    text-align: center;
+}
 
+.errorlist {
+    color: red;
+}
+
+.navbar-fas {
+    margin-right: 0.35rem;
+}
+
+/* CALENDAR CSS */
 .oafcal {
-   
-    width:100%
-    
+    width: 100%
 }
 
     .oafcal thead {
@@ -80,11 +89,13 @@ input[type="checkbox"].input-validation-error {
         border-color: inherit;
         background-color: #9675ce;
     }
+
         .oafcal thead tr {
             display: table-row;
             vertical-align: inherit;
             border-color: inherit;
         }
+
     .oafcal tbody {
         display: table-row-group;
         vertical-align: middle;
@@ -98,9 +109,6 @@ input[type="checkbox"].input-validation-error {
         -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
         box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
     }
-
-/********MONTH HEADER TITLE CSS********/
-
 
 .oafcalMonth {
     max-width: 100%;
@@ -116,30 +124,16 @@ input[type="checkbox"].input-validation-error {
     width: 128px;
 }
 
-/********************/
-
-
-
 .oafcal td {
-   
     display: table-cell;
-    width:128px;
-    
+    width: 128px;
 }
 
 .event-inner {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    line-height: 16px;
-    font-family: 'Roboto', sans-serif;
-    background: #03a9f3 !important;
-    color: #FFF !important;
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    padding: 5px 0px !important;
-}
-.eventTitle a{
+    line-height: 15px;
     font-family: 'Roboto', sans-serif;
     background: #03a9f3 !important;
     color: #FFF !important;
@@ -148,8 +142,14 @@ input[type="checkbox"].input-validation-error {
     padding: 5px 0px !important;
 }
 
-
-
+.eventTitle a {
+    font-family: 'Roboto', sans-serif;
+    background: #03a9f3 !important;
+    color: #FFF !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 5px 0px !important;
+}
 
 .tr {
     display: table-row;
@@ -157,14 +157,10 @@ input[type="checkbox"].input-validation-error {
     border-color: inherit;
 }
 
-
-
-
 .td {
     display: table-cell;
     vertical-align: inherit;
     width: 128px;
-   
 }
 
 .oafcal th {
@@ -176,13 +172,13 @@ input[type="checkbox"].input-validation-error {
     font-weight: 500 !important;
 }
 
-/********CALEDAR HEADER*************/
+/* CALEDAR HEADER */
 
 .calHeader {
     width: 100%;
     background-color: rgba(131, 124, 128, 0.2);
     background: rgba(131, 124, 128, 0.2);
-    color: rgba(131, 124, 128, 0.2);
+    color: #000;
     border-radius: 6px 6px 0 0;
     border-radius: 6px;
     box-shadow: 0 1px 2px #C3C3C3;
@@ -190,31 +186,37 @@ input[type="checkbox"].input-validation-error {
     -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
     box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
 }
+
     .calHeader tbody {
         display: table-row-group;
         vertical-align: middle;
         border-color: inherit;
     }
+
     .calHeader tr {
         display: table-row;
         vertical-align: inherit;
         border-color: inherit;
     }
+
     .calHeader td {
         white-space: nowrap;
         padding: 15px 10px 0px
     }
+
 .header-title h2 {
     white-space: nowrap;
     font-size: 32px;
     font-weight: 100;
     margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
-    color:black;
+    color: black;
 }
+
 .default {
     border: 1px solid;
 }
+
 .button {
     position: relative;
     display: inline-block;
@@ -225,17 +227,20 @@ input[type="checkbox"].input-validation-error {
     white-space: nowrap;
     cursor: pointer;
 }
-.button-prev{
 
+.button-prev {
 }
+
 .corner-left {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
+
 .corner-right {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
+
 .left-arrow {
     margin: 0 .2em;
     font-size: 1em;
@@ -249,41 +254,42 @@ input[type="checkbox"].input-validation-error {
     line-height: 23px;
     vertical-align: baseline;
 }
+
 .header-right {
     opacity: 0.9;
     width: 25%;
     text-align: right;
 }
+
 .header-left {
-    
     text-align: left;
 }
+
 .header-center {
     text-align: center;
 }
-.header-center month{
-    text-align:center;
-}
-    /******CALENDAR CELLS**********/
+
+    .header-center month {
+        text-align: center;
+    }
+
+/******CALENDAR CELLS**********/
 .day-number {
     float: right;
-    color:#333;
+    color: #333;
 }
+
 .day-content {
     clear: both;
     padding: 2px 2px 1px;
 }
 
 .highlighted {
-    /*box-shadow: 1px 2px 5px #0047ff;*/
-    box-shadow: 0 1px 2px #C3C3C3;
-    -webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
-    -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
-    box-shadow: 0px 0px 21px 2px #9171c7;
+    box-shadow: 1px 2px 5px #99999a;
 }
 
     .highlighted day-number {
-        background-color: #0047ff;
+        background-color: #ff3b30;
         color: #FFFFFF;
         border-radius: 50%
     }
@@ -297,95 +303,4 @@ input[type="checkbox"].input-validation-error {
 
 .navbar-right {
     margin-top: 0;
-}
-
-
-/*********Event Details Page*******************/
-
-.event-list {
-    list-style: none;
-    font-family: 'Lato', sans-serif;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-}
-
-
-.event-list > li {
-    position: relative; 
-    display: block; 
-    width: 100%; 
-    height: auto; 
-    padding: 0px;
-}
-
-.event-list > li {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 5px rgb(51, 51, 51);
-    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
-    padding: 0px;
-    margin: 0px 0px 20px;
-}
-
-    .event-list > li > time, .event-list > li > img {
-        float: left;
-        width: 120px;
-        height: 100%;
-        padding: 0px;
-        margin: 0px;
-    }
-
-.info {
-    position: relative;
-    height: auto;
-    text-align: left;
-    padding-right: 40px;
-    padding-left: 10px;
-    background-color: rgb(245, 245, 245);
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
-.row {
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-left: 10px;
-    font-size: 80%;
-}
-
-.glyphicon-size {
-    font-size: 110px;
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 13px;
-    padding-bottom: 20px;
-}
-.eventDate-one {
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-left: 30px;
-    padding-top: -10px;
-    font-size: 80%
-}
-.eventDate-two {
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-left: 30px;
-    padding-top: 10px;
-    font-size: 80%
-}
-.time {
-    
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: 0px;
 }

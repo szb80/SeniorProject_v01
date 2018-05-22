@@ -111,7 +111,7 @@ class EventManager(models.Manager):
 
 class SearchEvent(models.Model):
     name = models.CharField(max_length = 255, blank=True, null=True);
-    description = models.TextField(default = '', blank=True, null=True);
+    description = models.CharField(max_length=255, default = '', blank=True, null=True);
     event_type = models.ForeignKey(EventType, blank=True, null=True);
     date_start = models.DateField(blank=True, null=True);
     district = models.ForeignKey(District, blank=False);
