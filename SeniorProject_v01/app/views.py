@@ -15,7 +15,7 @@ from django.contrib.auth import authenticate, login
 
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
-from app.forms import searchform
+from app.forms import searchform, createform
 
 
 ###############################################################################
@@ -184,7 +184,6 @@ def create(request):
         form = createform(request.POST)
         if form.is_valid():
             form = form.save(commit=False)
-            form.created = timezone.now()
             form.save()
             return HttpResponseRedirect('/events')
         else:
@@ -192,7 +191,7 @@ def create(request):
 
     elif request.method == "GET":
         form = createform()
-        return render(request, "/create", {'form': form})
+        return render(request, "app/create.html", {'form': form})
 
 
 def register(request):
