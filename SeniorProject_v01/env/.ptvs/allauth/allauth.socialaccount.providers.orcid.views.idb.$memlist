@@ -1,0 +1,9 @@
+oauth2_login
+requests
+app_settings
+OrcidOAuth2Adapter
+OAuth2Adapter
+OAuth2LoginView
+oauth2_callback
+OrcidProvider
+OAuth2CallbackView

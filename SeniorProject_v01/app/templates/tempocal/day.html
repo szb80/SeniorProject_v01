@@ -1,10 +1,11 @@
 
 {% autoescape off %}
-
 <td class="{{ css_class }}">
-    <div style="min-height:106px;">
+   <div style="min-height:106px;">
+            <div class="day-header">
+                <div class="{{ css_class }} day-number">{{ day|default:"&nbsp;" }}</div>
+            </div>
                 
-                <div class="day-number">{{ day|default:"&nbsp;" }}</div>
                 <div class="day-content">
                     {% if events_str %}
                         <div class="event-inner">
@@ -17,4 +18,5 @@
                 </div> 
     </div>
 </td>
+
 {% endautoescape %}

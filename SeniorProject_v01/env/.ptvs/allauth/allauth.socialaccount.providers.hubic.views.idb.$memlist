@@ -1,0 +1,8 @@
+oauth2_callback
+oauth2_login
+requests
+OAuth2Adapter
+HubicOAuth2Adapter
+OAuth2LoginView
+HubicProvider
+OAuth2CallbackView

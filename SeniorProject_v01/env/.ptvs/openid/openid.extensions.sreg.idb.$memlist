@@ -1,0 +1,17 @@
+SRegRequest
+e
+NamespaceAliasRegistrationError
+SRegNamespaceError
+data_fields
+ns_uri_1_1
+SRegResponse
+Extension
+__all__
+logging
+registerNamespaceAlias
+getSRegNS
+ns_uri_1_0
+checkFieldName
+str
+ns_uri
+supportsSReg

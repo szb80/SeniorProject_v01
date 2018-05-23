@@ -1,0 +1,5 @@
+MockedResponse
+InstagramTests
+OAuth2TestsMixin
+InstagramProvider
+TestCase

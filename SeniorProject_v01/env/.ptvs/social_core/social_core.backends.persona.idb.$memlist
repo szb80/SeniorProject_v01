@@ -1,0 +1,5 @@
+handle_http_errors
+AuthFailed
+PersonaAuth
+AuthMissingParameter
+BaseAuth

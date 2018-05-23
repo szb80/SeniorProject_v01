@@ -4,34 +4,37 @@
 {% load truncatesmart %}
 
 {% block content %}
-
 <div class="row">
-    <h1>Search</h1>
-</div>
+    <div class="col-md-2">
+        <div class="row">
+            <h1>Search</h1>
+        </div>
 
-<div class="row">
-    {% if request.user.is_authenticated %}
-    <div class="col-sm-4">
-        <form method="GET">
-            {% csrf_token %}
-            {{ filter.as_p }}
-            <p>{{ form.fieldname.errors.as_text }}</p>
-            <button class="btn btn-primary" type="submit">
-                <i class="fas fa-search navbar-fas"></i>Search
-            </button>
-        </form>
-        <a href="search" class="btn btn-primary"><i class="fas fa-times-circle navbar-fas"></i>Reset Filters</a>
+            {% if request.user.is_authenticated %}
+            <div class="col-sm-4">
+                <form method="GET">
+                    {% csrf_token %}
+                    {{ filter.as_p }}
+
+                        <p>{{ form.fieldname.errors.as_text }}</p>
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search navbar-fas"></i>Search
+                    </button>
+                </form>
+                <a href="search" class="btn btn-primary"><i class="fas fa-times-circle navbar-fas"></i>Reset Filters</a>
+            </div>
     </div>
-    <div class="col">
-        <!-- display the calender -->
-        {{ month_table }}
+    <div class="col-md-10">
+            <div class="col">
+                <!-- display the calender -->
+                {{ month_table }}
+            </div>
+            <!-- default login display error -->
+            {% else %}
+            <div class="row">
+                {% include "app/authentication_error.html" %}
+            </div>
+            {% endif %}
     </div>
 </div>
-    <!-- default login display error -->
-    {% else %}
-    <div class="row">
-        {% include "app/authentication_error.html" %}
-    </div>
-    {% endif %}
-
 {% endblock %}

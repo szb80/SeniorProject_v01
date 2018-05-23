@@ -1,0 +1,9 @@
+oauth_login
+requests
+oauth_callback
+BitbucketOAuth2Provider
+OAuth2Adapter
+OAuth2LoginView
+app_settings
+BitbucketOAuth2Adapter
+OAuth2CallbackView

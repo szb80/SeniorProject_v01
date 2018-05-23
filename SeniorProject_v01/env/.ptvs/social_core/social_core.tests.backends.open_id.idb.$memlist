@@ -1,0 +1,17 @@
+sys
+TestAssociation
+requests
+HTTPretty
+FormHTMLParser
+oidutil
+HTMLParser
+TestStrategy
+BaseBackendTest
+TestNonce
+module_member
+User
+TestStorage
+parse_qs
+OpenIdTest
+TestUserSocialAuth
+load_backends

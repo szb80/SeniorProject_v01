@@ -1,0 +1,14 @@
+urlencode
+six
+requests
+force_unicode
+time
+b
+AuthException
+urlparse
+parse_qs
+OAuth1
+BaseOAuth1
+re
+jwt
+MediaWiki

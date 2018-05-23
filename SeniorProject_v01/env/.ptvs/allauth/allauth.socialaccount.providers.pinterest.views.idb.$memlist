@@ -1,0 +1,9 @@
+oauth2_callback
+oauth2_login
+requests
+app_settings
+PinterestProvider
+OAuth2Adapter
+OAuth2LoginView
+PinterestOAuth2Adapter
+OAuth2CallbackView

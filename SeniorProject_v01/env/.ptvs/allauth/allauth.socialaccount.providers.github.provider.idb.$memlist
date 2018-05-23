@@ -1,0 +1,6 @@
+app_settings
+ProviderAccount
+GitHubAccount
+OAuth2Provider
+provider_classes
+GitHubProvider

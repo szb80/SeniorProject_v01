@@ -1,0 +1,8 @@
+oauth2_login
+StripeOAuth2Adapter
+requests
+OAuth2Adapter
+oauth2_callback
+OAuth2LoginView
+StripeProvider
+OAuth2CallbackView

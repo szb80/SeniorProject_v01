@@ -1,0 +1,7 @@
+SOCIALACCOUNT_PROVIDERS
+override_settings
+patch
+TestCase
+get_user_model
+PersonaTests
+reverse

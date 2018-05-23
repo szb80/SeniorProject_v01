@@ -38,14 +38,17 @@ class TemplatedCalendar(HTMLCalendar):
             css_class = self.cssclasses[weekday]
             
         events_str = ''
+        
        
        # Apply CSS to calendar to highlight current day
         if day == datetime.datetime.now().day:
             css_class += ' highlighted' 
-
+        
         for event in events:
             if str(event.date_start.day) <= str(day) and str(event.date_end.day) >= str(day):
-                events_str += event.get_absolute_url()
+                events_str += event.get_absolute_url() 
+        
+                
 
         return render_to_string(
             self.templates['day'],

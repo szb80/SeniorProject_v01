@@ -1,0 +1,9 @@
+oauth2_login
+requests
+DataportenAdapter
+ProviderException
+OAuth2Adapter
+OAuth2LoginView
+oauth2_callback
+DataportenProvider
+OAuth2CallbackView

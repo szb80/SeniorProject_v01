@@ -1,0 +1,5 @@
+registry
+create_oauth2_tests
+MockedResponse
+MeetupTests
+MeetupProvider

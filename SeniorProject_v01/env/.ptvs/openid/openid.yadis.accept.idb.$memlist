@@ -1,0 +1,4 @@
+generateAcceptHeader
+matchTypes
+getAcceptable
+parseAcceptHeader

@@ -1,0 +1,15 @@
+WeixinOAuth2CallbackView
+WeixinOAuth2Client
+requests
+app_settings
+WeixinOAuth2LoginView
+OAuth2Adapter
+oauth2_callback
+oauth2_login
+OAuth2LoginView
+WeixinProvider
+WeixinOAuth2Adapter
+WeixinOAuth2ClientMixin
+OAuth2CallbackView
+reverse
+build_absolute_uri

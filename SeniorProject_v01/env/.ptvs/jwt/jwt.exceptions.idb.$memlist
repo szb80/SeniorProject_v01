@@ -1,0 +1,14 @@
+InvalidKeyError
+InvalidAudience
+InvalidIssuedAtError
+ExpiredSignature
+DecodeError
+InvalidIssuer
+ExpiredSignatureError
+InvalidSignatureError
+InvalidAudienceError
+InvalidAlgorithmError
+ImmatureSignatureError
+InvalidTokenError
+MissingRequiredClaimError
+InvalidIssuerError

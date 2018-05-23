@@ -1,0 +1,15 @@
+DummySAMLIdentityProvider
+BaseAuth
+OneLogin_Saml2_Auth
+OID_USERID
+AuthMissingParameter
+OID_EDU_PERSON_ENTITLEMENT
+OID_MAIL
+SAMLAuth
+OID_GIVEN_NAME
+OID_COMMON_NAME
+OneLogin_Saml2_Settings
+SAMLIdentityProvider
+OID_SURNAME
+AuthFailed
+OID_EDU_PERSON_PRINCIPAL_NAME

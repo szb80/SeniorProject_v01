@@ -1,0 +1,6 @@
+TestCase
+XingProvider
+unicode_literals
+MockedResponse
+OAuthTestsMixin
+XingTests

@@ -1,0 +1,15 @@
+TestUserSocialAuth
+load_backends
+requests
+HTTPretty
+BaseBackendTest
+TestStorage
+user_backends_data
+TestCode
+User
+parse_qs
+TestNonce
+TestStrategy
+module_member
+TestAssociation
+unittest

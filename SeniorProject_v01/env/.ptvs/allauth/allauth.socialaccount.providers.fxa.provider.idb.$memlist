@@ -1,0 +1,9 @@
+FXA_OAUTH_ENDPOINT
+FXA_PROFILE_ENDPOINT
+FirefoxAccountsAccount
+_FXA_SETTINGS
+provider_classes
+OAuth2Provider
+ProviderAccount
+FirefoxAccountsProvider
+settings

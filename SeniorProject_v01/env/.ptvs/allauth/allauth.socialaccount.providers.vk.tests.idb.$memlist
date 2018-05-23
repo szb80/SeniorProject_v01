@@ -1,0 +1,6 @@
+absolute_import
+VKTests
+OAuth2TestsMixin
+TestCase
+MockedResponse
+VKProvider

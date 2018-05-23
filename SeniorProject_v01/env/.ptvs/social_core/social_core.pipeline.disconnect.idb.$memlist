@@ -1,0 +1,5 @@
+allowed_to_disconnect
+get_entries
+revoke_tokens
+NotAllowedToDisconnect
+disconnect

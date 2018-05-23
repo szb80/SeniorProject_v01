@@ -1,0 +1,3 @@
+default_urlpatterns
+urlpatterns
+LinkedInOAuth2Provider
