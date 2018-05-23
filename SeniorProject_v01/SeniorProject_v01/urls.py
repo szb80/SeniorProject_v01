@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^events/$', app.views.events, name='events'),
     url(r'^search$', app.views.search, name='search'),
     url(r'^event/(?P<event_id>[0-9]+)/$', app.views.eventdetail, name='event detail'),
+    url(r'^create$', app.views.create, name='create'),
     url(r'^error$', app.views.error, name='error'),
 
     # TESTING URLS ###########################################################

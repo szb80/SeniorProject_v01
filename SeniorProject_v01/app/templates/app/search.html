@@ -1,17 +1,16 @@
 ﻿{% extends "app/layout.html" %}
 
 {% load staticfiles %}
-{% load truncatesmart %}
 
 {% block content %}
 
+{% if request.user.is_authenticated %}
 <div class="row">
     <h1>Search</h1>
 </div>
 
 <div class="row">
-    {% if request.user.is_authenticated %}
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
         <form method="GET">
             {% csrf_token %}
             {{ filter.as_p }}
@@ -27,11 +26,11 @@
         {{ month_table }}
     </div>
 </div>
-    <!-- default login display error -->
-    {% else %}
-    <div class="row">
-        {% include "app/authentication_error.html" %}
-    </div>
-    {% endif %}
+<!-- not logged in display error -->
+{% else %}
+<div class="col">
+    {% include "app/authentication_error.html" %}
+</div>
+{% endif %}
 
 {% endblock %}

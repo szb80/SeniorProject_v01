@@ -113,6 +113,7 @@
     <Content Include="app\static\app\scripts\daypilot-all.min2.js" />
     <Content Include="app\templates\app\authentication_error.html" />
     <Content Include="app\templates\app\calendar.html" />
+    <Content Include="app\templates\app\create.html" />
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />
     <Content Include="app\templates\app\search.html" />
