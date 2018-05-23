@@ -1,0 +1,46 @@
+﻿{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<h1>Create a New Event</h1>
+{% csrf_token %}
+{{ form }}
+
+<!-- 
+<form method="post">
+    {{ form.non_field_errors }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ form.name.errors }}
+            <label for=" {{ form.name.id_for_label }}">Pet Name</label>
+            {{ form.name }}
+        </div>
+
+        <div class="col-md-6">
+            {{ form.category.errors }}
+            <label for=" {{ form.category.id_for_label }}">Pet Category</label>
+            {{ form.category }}
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-6">
+            {{ form.size.errors }}
+            <label for=" {{ form.size.id_for_label }}">Pet Size</label>
+            {{ form.size }}
+        </div>
+
+        <div class="col-md-6">
+            {{ form.maintenance.errors }}
+            <label for=" {{ form.maintenance.id_for_label }}">Pet Maintenance (1-3)</label>
+            {{ form.maintenance }}
+        </div>
+    </div>
+        <div class="row">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    
+    </form>
+        -->
+
+{% endblock %}

@@ -15,7 +15,7 @@ from django.contrib.auth import authenticate, login
 
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
-from app.forms import searchform
+from app.forms import searchform, createform
 
 
 ###############################################################################
@@ -68,15 +68,20 @@ def home(request):
     )
 
 
-def error(request):
+def error(request, error_code=None):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
+
+    if not error_code:
+        error_code = ''
+
     return render(
         request,
         'app/error.html',
         {
             'title':'Error Page',
             'year':datetime.now().year,
+            'error_code': error_code,
         }
     )
 
@@ -161,7 +166,7 @@ def search(request):
         month_table = buildCalendar(event_list)
 
         #else: # searchform is invalid
-            #return HttpResponseRedirect('/error')
+            #return HttpResponseRedirect('/error')l
 
     return render(
         request, 
@@ -172,6 +177,22 @@ def search(request):
             'month_table': month_table,
         }
     )
+
+
+def create(request):
+    if request.method == "POST":
+        form = createform(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            return HttpResponseRedirect('/events')
+        else:
+            return HttpResponseRedirect('/error')
+
+    elif request.method == "GET":
+        form = createform()
+        return render(request, "app/create.html", {'form': form})
+
 
 def register(request):
     """Renders the home page."""

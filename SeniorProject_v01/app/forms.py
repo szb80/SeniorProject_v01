@@ -22,9 +22,24 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
 
+
 class searchform(forms.ModelForm):
     class Meta:
         model = SearchEvent
         fields = ['name', 'description', 'event_type', 'date_start', 'district', ]
         widgets = {'date_start': SelectDateWidget()}
-         
+
+
+class createform(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['name',
+                  'description',
+                  'event_type',
+                  'date_start',
+                  'date_end',
+                  'street_address',
+                  'city',
+                  'district',
+                  'payment_url',
+                  ]

@@ -4,20 +4,18 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col">
-        <!-- check user authentication and display proper page -->
-        {% if request.user.is_authenticated %}
-            <!-- if user is logged in, load calendar -->
-            {{ month_table }}
+<div class="col">
+    <!-- check user authentication and display proper page -->
+    {% if request.user.is_authenticated %}
+        <!-- if user is logged in, load calendar -->
+        {{ month_table }}
 
-        <!-- else display error -->
-        {% else %}
-            <div class="col-md-12">
-                {% include "app/authentication_error.html" %}
-            </div>
-        {% endif %}
-    </div>
+    <!-- else display error -->
+    {% else %}
+        <div class="col-md-12">
+            {% include "app/authentication_error.html" %}
+        </div>
+    {% endif %}
 </div>
 
 {% endblock %}

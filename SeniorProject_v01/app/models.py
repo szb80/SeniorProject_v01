@@ -77,7 +77,7 @@ class Event(models.Model):
     city = models.CharField(default = '', max_length = 255);
     """ state_ID = models.ForeignKey(State); --------------------------------------------- """
     zipcode = models.IntegerField(default = '');
-    """ address = AddressField(); ---------------------------------------------------------------- """
+    """ address = AddressField(blank=True, null=True); ---------------------------------------------------------------- """
     district = models.ForeignKey(District);
     payment_url = models.URLField(default = '');
     primary_contact_ID = models.ForeignKey(Person);
@@ -108,6 +108,7 @@ class EventManager(models.Manager):
 
     def district(self, district):
         return self.get_queryset().district(district)
+
 
 class SearchEvent(models.Model):
     name = models.CharField(max_length = 255, blank=True, null=True);
