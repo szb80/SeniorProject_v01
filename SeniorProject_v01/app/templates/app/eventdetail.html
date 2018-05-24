@@ -5,11 +5,15 @@
 {% block content %}
 
     <div class="row row-stripped color-bg">
+
         <div class="col-2 text-right">
-				<h1 class="display-4"><span class="badge badge-secondary">{{ event.date_start.day}}</span></h1>
-				<h2 class="uppercase"><span class="month-box">{{ event.date_start|date:"M" }}</span></h2>
+				        <time datetime="2018-10-29" class="time">
+							<span class="day">{{ event.date_start.day}}</span>
+							
+							<span class="month">{{ event.date_start|date:"M" }}</span>
+						</time>
 	    </div>
-			<div class="col-10">
+			<div class="col-md-10">
 				<div class="text-uppercase"><strong>{{ event.name }}</strong></div>
 				<ul class="list-inline">
 				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>

@@ -452,3 +452,52 @@ th.month {
     border-radius: .25rem .25rem 0 0;
     background-color: #ab0101;
 }
+
+
+
+
+.time {
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: #ab0101;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 120px;
+    /* height: 120px; */
+    padding: 0px;
+    margin: 0px;
+    /* float: left; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+span.day {
+    /* color: black; */
+    font-size: 70;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    display: block;
+}
+
+span {
+    background-color: black;
+    /* color: white; */
+    /* padding-bottom: 0; */
+    /* font-size: 2em; */
+    /* width: 120px; */
+}
+    span.month {
+        font-size: 20;
+        background-color: #ab0101;
+    }
+
+span {
+    background-color: black;
+    /* color: white; */
+    /* padding-bottom: 0; */
+    /* font-size: 2em; */
+    /* width: 120px; */
+}
