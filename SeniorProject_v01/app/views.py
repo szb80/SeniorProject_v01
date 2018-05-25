@@ -12,6 +12,7 @@ from django.utils.timezone import get_current_timezone
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
@@ -68,20 +69,24 @@ def home(request):
     )
 
 
-def error(request, error_code=None):
+def error(request, error_code=None, error_msg=None):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
 
     if not error_code:
-        error_code = ''
+        error_code = 'Error'
+
+    if not error_msg:
+        error_msg = "We can't make that work :("
 
     return render(
         request,
         'app/error.html',
         {
-            'title':'Error Page',
-            'year':datetime.now().year,
+            'title': 'Error Page',
+            'year': datetime.now().year,
             'error_code': error_code,
+            'error_msg': error_msg,
         }
     )
 
@@ -179,19 +184,33 @@ def search(request):
     )
 
 
+@login_required
 def create(request):
-    if request.method == "POST":
-        form = createform(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.save()
-            return HttpResponseRedirect('/events')
-        else:
-            return HttpResponseRedirect('/error')
+    if request.user.has_perm('app.event.add'):
+        if request.method == "POST":
+            form = createform(request.POST)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.save()
+                return HttpResponseRedirect('/events')
+            else:
+                return HttpResponseRedirect('/error')
 
-    elif request.method == "GET":
-        form = createform()
-        return render(request, "app/create.html", {'form': form})
+        elif request.method == "GET":
+            form = createform()
+            return render(request, "app/create.html", {'form': form})
+    else:
+        return render(
+            request,
+            'app/error.html',
+            {
+                'title': 'Error Page',
+                'year': datetime.now().year,
+                'error_code': 'Permission Denied',
+                'error_msg': 'You do not have permission to access this page.',
+            }
+        )
+
 
 
 def register(request):

@@ -51,6 +51,9 @@
     <Compile Include="app\admin.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\templatetags\in_group.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\templatetags\truncatesmart.py">
       <SubType>Code</SubType>
     </Compile>

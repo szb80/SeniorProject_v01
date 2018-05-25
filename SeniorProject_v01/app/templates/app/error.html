@@ -3,10 +3,9 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Error</h1>
-    <p>Sorry about that<br />We can't make that work :(</p>
-
-    <p>{{ error_code }}</p>
+    <h1 class="display-2 text-danger"><i class="fas fa-exclamation-triangle fa-sm text-danger"></i> {{ error_code }}</h1>
+    <p>&nbsp;</p>
+    <p class="text-center lead">Sorry about that!<br />{{ error_msg }}</p>
 </div>
 
 {% endblock %}

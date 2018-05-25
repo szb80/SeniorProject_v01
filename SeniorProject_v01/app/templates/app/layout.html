@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+﻿{% load staticfiles %}
+{% load in_group %}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {% load staticfiles %}
 
     <title>{{ title }} - OAF</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"  />    
@@ -23,9 +24,9 @@
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <div class="container">
-
             <a class="navbar-brand" href="/">Online Adventure Finder</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,12 @@
                     <li class="nav-link"><a href="{% url 'events' %}"><i class="fas fa-calendar-alt navbar-fas"></i>Events</a></li>
                     <li class="nav-link"><a href="{% url 'search' %}"><i class="fas fa-search navbar-fas"></i>Search</a></li>
 
-
+                    <!-- CHECK IF USER HAS PERMISSIONS BEFORE LINKING TO CREATE EVENT PAGE -->
+                    {% if user.is_authenticated %}
+                        {% if request.user|in_group:"DistrictAdmin" %} 
+                        <li class="nav-link"><a href="{% url 'create' %}"><i class="fas fa-plus-circle navbar-fas"></i>Create</a></li>
+                        {% endif %}
+                    {% endif %}
 
                 </ul>
 
@@ -56,17 +62,16 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> <!-- end navbar -->
 
-    <div class="container">
-
+    <div class="container wrapper-trans">
         <!-- MAIN CONTENT BLOCK HERE -->
         {% block content %}
         {% endblock %}
 
     </div>
 
-    <div class="container">
+    <div class="container wrapper-trans">
         <hr/>
         <footer>
             <p>Trail Life USA's Online Adventure Finder 1.0</p>

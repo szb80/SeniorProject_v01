@@ -8,8 +8,11 @@
 
         <div class="col-2 text-right">
 				        <time datetime="2018-10-29" class="time">
-							<span class="day">{{ event.date_start.day}}</span>
-							
+                            {% if event.date_start.day == event.date_end.day %}
+							    <span class="day align-middle">{{ event.date_start.day}}</span>
+                            {% else %}
+                                <span class="day-multiple align-middle">{{ event.date_start.day}} - {{ event.date_end.day}}</span>
+                            {% endif %}
 							<span class="month">{{ event.date_start|date:"M" }}</span>
 						</time>
 	    </div>

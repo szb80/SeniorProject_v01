@@ -2,7 +2,7 @@ html {
 }
 
 body {
-    background: url('../img/tlusa_homepage_cover2.jpg');
+    background: url('../img/tlusa_homepage_cover.jpg');
     padding-top: 70px;
     padding-bottom: 20px;
     background-size: cover;
@@ -12,6 +12,10 @@ body {
     color: black;
     font-family: 'Open Sans', sans-serif;
 }
+
+    body .wrapper-trans {
+        background-color: rgba(255,255,255,0.8);
+    }
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
@@ -72,7 +76,7 @@ input[type="checkbox"].input-validation-error {
 
 .errorlist {
     color: red;
-    width:150px;
+    list-style-type: none;
 }
 
 .navbar-fas {
@@ -80,6 +84,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 /* CALENDAR CSS */
+
 .oafcal {
     width: 100%
 }
@@ -116,9 +121,10 @@ input[type="checkbox"].input-validation-error {
     vertical-align: middle;
     border-color: inherit;
 }
-.day-number{
-    text-align:right;
-    padding-right:2px;
+
+.day-number {
+    text-align: right;
+    padding-right: 2px;
 }
 
 .oafcal thead tr {
@@ -144,7 +150,7 @@ input[type="checkbox"].input-validation-error {
     font-size: 12px !important;
     font-weight: 500 !important;
     padding: 5px 0px !important;
-    border-radius: 4px;
+    border-radius: 1rem;
     border-top: 1px solid #9acfea;
     border-bottom: 1px solid #9acfea;
     background-image: linear-gradient(to bottom, #00aaff 0px, #b9def0 100%);
@@ -188,8 +194,6 @@ input[type="checkbox"].input-validation-error {
     background-color: #f8f9fa !important;
     color: #000;
     border-radius: 6px 6px 0 0;
-
-    
     box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
 }
 
@@ -278,13 +282,12 @@ input[type="checkbox"].input-validation-error {
     .header-center month {
         text-align: center;
     }
+
 th.month {
     text-align: center;
     font-size: 25px;
- 
     font-family: 'Roboto', sans-serif;
     color: #333;
-    
 }
 
 .day-content {
@@ -294,17 +297,17 @@ th.month {
 
 .highlighted {
     color: #000;
-   
-    
     box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
 }
 
-.highlighted > day-number {
-    color: darkorange;
+    .highlighted > day-number {
+        color: darkorange;
+    }
+
+.highlighted {
+    color: #000;
 }
-.highlighted{
-    color:#000;
-}
+
 .day-header {
     width: 20px;
     /* text-align: right; */
@@ -315,9 +318,6 @@ th.month {
     top: 0px;
 }
 
-/**********HEADER LOGIN FORM**************/
-
-
 /*********Event Details Page*******************/
 
 .event-list {
@@ -327,7 +327,6 @@ th.month {
     padding: 0px;
     width: 100%;
 }
-
 
     .event-list > li {
         position: relative;
@@ -410,18 +409,15 @@ th.month {
     padding: 0px;
 }
 
-
-
 /*************Event Details Calendar**********************/
 .text-uppercase {
     display: block;
     font-size: 3em;
-    
     font-weight: bold;
     text-transform: uppercase !important;
 }
 
-.events-highlight day-content{
+.events-highlight day-content {
     background-color: black;
 }
 
@@ -431,6 +427,7 @@ th.month {
     font-weight: bold;
     text-transform: uppercase !important;
 }
+
 .display-4 {
     font-size: 3.5rem;
     font-weight: 300;
@@ -438,6 +435,7 @@ th.month {
     padding-top: 15px;
     margin-bottom: 0;
 }
+
 .color-bg {
     background-color: rgba(245, 242, 242, 0.85);
     border-top: 1px solid #ab0101;
@@ -446,15 +444,11 @@ th.month {
     border-left: 5px solid #ab0101;
 }
 
-
 .badge {
     width: 60%;
     border-radius: .25rem .25rem 0 0;
     background-color: #ab0101;
 }
-
-
-
 
 .time {
     display: inline-block;
@@ -475,10 +469,14 @@ th.month {
 
 span.day {
     /* color: black; */
-    font-size: 70;
-    padding-top: 0;
-    margin-top: 0;
-    padding-bottom: 0;
+    font-size: 5rem;
+    padding: 0 0;
+    display: block;
+}
+
+span.day-multiple {
+    /* color: black; */
+    font-size: 32;
     display: block;
 }
 
@@ -489,6 +487,7 @@ span {
     /* font-size: 2em; */
     /* width: 120px; */
 }
+
     span.month {
         font-size: 20;
         background-color: #ab0101;

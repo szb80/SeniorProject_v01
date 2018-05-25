@@ -1,7 +1,7 @@
 import sys
 import datetime, calendar
-from django.template.loader import render_to_string
 from calendar import HTMLCalendar, day_abbr, month_name, January
+from django.template.loader import render_to_string
 
 from app.models import Event
 
@@ -47,8 +47,6 @@ class TemplatedCalendar(HTMLCalendar):
         for event in events:
             if str(event.date_start.day) <= str(day) and str(event.date_end.day) >= str(day):
                 events_str += event.get_absolute_url() 
-        
-                
 
         return render_to_string(
             self.templates['day'],
@@ -172,9 +170,6 @@ class TemplatedCalendar(HTMLCalendar):
                 'year': self.formatyear(theyear, width),
             })
 
-
-
-
 def get_month_day_range(date):
     """ used from https://gist.github.com/waynemoore/1109153#gistcomment-1193720 """
     """
@@ -199,3 +194,5 @@ def date():
     day = date.day 
 
     return day
+
+

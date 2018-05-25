@@ -1,7 +1,3 @@
-"""
-Definition of urls for SeniorProject_v01.
-"""
-
 from datetime import datetime
 from django.conf.urls import include, url
 import django.contrib.auth.views
@@ -13,7 +9,6 @@ import app.views
 # Uncomment the next lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
-
 
 urlpatterns = [
     url(r'^$', app.views.home, name='home'),
