@@ -1,3 +1,5 @@
+{% load relative_url %}
+
 <table class="calHeader" style="width:100%">
     <tbody>
         <tr>
@@ -8,17 +10,22 @@
             <td class="header-center">
                     <h2>{{ month_name_row }}</h2>
             </td>
+            <!-- MONTH NAVIGATION LINKS IN HEADER CORNER -->
             <td class="header-right">
-                <a href="/">
+                {% with params=request.GET.urlencode %}
+                <!-- --------------------------- PREVIOUS MONTH -------------------------------- -->
+                <a href="?month={{ monthMM }}&year={{ yearMM }}">
                     <div class="button button-prev default corner-left" unselectable="on">
-                        <div class="left-arrow"><</div>
+                        <div class="left-arrow">Previous <</div>
                     </div>
                 </a>
-                <a href="/">
+                <!-- --------------------------- NEXT MONTH -------------------------------- -->
+                <a href="?month={{ monthPP }}&year={{ yearPP }}">
                     <div class="button button-next default corner-right" unselectable="on">
-                        <div class="right-arrow">></div>
+                        <div class="right-arrow">> Next</div>
                     </div>
                 </a>
+                {% endwith %}
             </td>
         </tr>
     </tbody>

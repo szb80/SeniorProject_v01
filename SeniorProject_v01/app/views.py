@@ -20,6 +20,53 @@ from app.forms import searchform, createform
 
 
 ###############################################################################
+# UTILITY FUNCTIONS
+###############################################################################
+
+def validateMonthYear(month, year):
+    # checks if a month and year are valid
+    # returns boolean True is they are valid
+    try:
+        # is month in a valid range?
+        if int(month) not in range(0, 13):
+            return False  # nope!
+        # is year in a valid range?
+        if int(year) not in range(2000, 2501):
+            return False  # nope!
+    except TypeError:  # catch non-int type exceptions
+        return False
+    return True  # passes all tests, is valid
+
+
+def setCurrentMonthYear():
+    # returns two variables 'month', 'year' as int
+    # with values of the current month and year
+    return int(datetime.now().month), int(datetime.now().year)
+
+
+def buildCalendar(request, month=None, year=None):
+    # generates a calendar object with the passed event dictionary
+    # accepts a queryset of events
+    # returns an instance of TemplatedCalendar() HTMLCalendar
+    assert isinstance(request, HttpRequest)
+
+    calendar = TemplatedCalendar()
+    calendar.setfirstweekday(6)
+
+    # if date range is not valid, set to current month #####################################################################
+    if not validateMonthYear(month, year):
+        month, year = setCurrentMonthYear()
+    
+    month_table = calendar.formatmonth(
+        int(year),
+        int(month), 
+        Event.objects.filter(date_start__range=(get_month_day_range(date(int(year), int(month), 1))))
+        )
+
+    return month_table
+
+
+###############################################################################
 # LOGIN VIEWS
 ###############################################################################
 
@@ -91,42 +138,25 @@ def error(request, error_code=None, error_msg=None):
     )
 
 
-def events(request, event_list=None):
+def events(request, month=None, year=None):
     """ displays a calendar of events and defaults to current month """
     assert isinstance(request, HttpRequest)
+
+    # if date range is not valid, set to current month
+    if not validateMonthYear(month, year):
+        month, year = setCurrentMonthYear()
+
+    month = request.GET.get('month')
+    year = request.GET.get('year')
     
     return render(request,
         'app/events.html', 
         {
             'title': 'Events',
-            'month_table': buildCalendar(), 
+            'month_table': buildCalendar(request, month, year), 
             'events': events,
         }
     )
-
-
-def buildCalendar(event_list=None):
-    # generates a calendar object with the passed event dictionary
-    # accepts a queryset of events
-    # returns an instance of TemplatedCalendar() HTMLCalendar
-
-    calendar = TemplatedCalendar()
-    calendar.setfirstweekday(6)
-
-    # if event_list variable is empty, set events to current month
-    if event_list is not None:  # passed list of events
-        month_table = calendar.formatmonth(
-            int(datetime.now().year),
-            int(datetime.now().month), event_list
-            )
-    else: # no events passed, default to pull events for current month
-        month_table = calendar.formatmonth(
-            int(datetime.now().year),
-            int(datetime.now().month),
-            Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
-            )
-
-    return month_table
 
 
 def eventdetail(request, event_id):
@@ -134,12 +164,12 @@ def eventdetail(request, event_id):
     return render(request, 'app/eventdetail.html', {'event': event, })
 
 
-def search(request):
+def search(request, month=None, year=None):
     # Renders the filter events page
     assert isinstance(request, HttpRequest)
 
     params = searchform()
-    month_table = buildCalendar()  # default current month
+    month_table = buildCalendar(request)  # default current month
     event_list = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
 
     if request.method == "GET":

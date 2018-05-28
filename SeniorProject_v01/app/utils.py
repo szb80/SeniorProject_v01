@@ -1,3 +1,5 @@
+""" Modified from https://github.com/anentropic/django-tempocal """
+
 import sys
 import datetime, calendar
 from calendar import HTMLCalendar, day_abbr, month_name, January
@@ -6,15 +8,6 @@ from django.template.loader import render_to_string
 from app.models import Event
 
 class TemplatedCalendar(HTMLCalendar):
-    """ Modified from https://github.com/anentropic/django-tempocal """
-
-    """
-    The same as HTMLCalendar but we override all the output methods with
-    templated versions.
-
-    To use, add `tempocal` to your Django INSTALLED_APPS. Of course, you can
-    override these templates like with any Django app.
-    """
 
     templates = {
         'day': 'tempocal/day.html',
@@ -27,6 +20,24 @@ class TemplatedCalendar(HTMLCalendar):
         'yearpage': 'tempocal/yearpage.html',
         'emptymonth': 'tempocal/emptymonth.html',
     }
+
+    def nextMonthYear(self, month, year):
+        # returns the next month and year for a given month/year pair as int
+        # increment month and return same year
+        if month < 12:
+            return month + 1, year
+        # reset month to 1 and increment year
+        elif month is 12:
+            return 1, year + 1
+
+    def prevMonthYear(self, month, year):
+        # returns the prev month and year for a given month/year pair as int
+        # decrement month and return same year
+        if month > 1:
+            return month - 1, year
+        # reset month to 1 and increment year
+        elif month is 1:
+            return 12, year - 1
 
     def formatday(self, day, weekday, events):
         """
@@ -103,13 +114,22 @@ class TemplatedCalendar(HTMLCalendar):
                 'month_name': s,
             })
 
+    # ------------ FORMATMONTH() FUNCTION ------------- #
     def formatmonth(self, theyear, themonth, events, withyear=True):
         """
         Return a formatted month as a table.
         """
+
+        monthPP, yearPP = self.nextMonthYear(themonth, theyear)
+        monthMM, yearMM = self.prevMonthYear(themonth, theyear)
+
         return render_to_string(
             self.templates['month'],
             {
+                'monthPP': monthPP,
+                'yearPP': yearPP,
+                'monthMM': monthMM,
+                'yearMM': yearMM,
                 'month_name_row': self.formatmonthname(
                     theyear, themonth, withyear=withyear
                 ),
@@ -169,6 +189,7 @@ class TemplatedCalendar(HTMLCalendar):
                 'theyear': theyear,
                 'year': self.formatyear(theyear, width),
             })
+
 
 def get_month_day_range(date):
     """ used from https://gist.github.com/waynemoore/1109153#gistcomment-1193720 """
