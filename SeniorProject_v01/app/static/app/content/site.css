@@ -83,6 +83,11 @@ input[type="checkbox"].input-validation-error {
     margin-right: 0.35rem;
 }
 
+.required {
+    font-weight: bold;
+    color: red;
+}
+
 /* CALENDAR CSS */
 
 .oafcal {

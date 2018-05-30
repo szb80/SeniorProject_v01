@@ -1,6 +1,6 @@
-base
-mysql
+oracle
+spatialite
 utils
 postgis
-spatialite
-oracle
+mysql
+base

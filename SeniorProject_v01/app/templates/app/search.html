@@ -1,6 +1,7 @@
 ﻿{% extends "app/layout.html" %}
-
 {% load staticfiles %}
+{% load widget_tweaks %}
+{% load append_ast_if_req %}
 
 {% block content %}
 <div class="wrapper-trans">
@@ -10,15 +11,31 @@
     <div class="col">
         <h1 class="text-center">Search</h1>
     </div>
-    
 </div>
 
 <div class="row">
     <div class="col-sm-12 col-md-4">
+        <!-- Search Form -->
         <form method="GET">
             {% csrf_token %}
-            {{ filter.as_p }}
-            <p>{{ form.fieldname.errors.as_text }}</p>
+
+            {% for hidden in filter.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in filter.visible_fields %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field | append_ast_if_req }}</label>
+
+
+                    {{ field|add_class:'form-control' }}
+
+                    {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
             <button class="btn btn-primary" type="submit">
                 <i class="fas fa-search navbar-fas"></i>Search
             </button>

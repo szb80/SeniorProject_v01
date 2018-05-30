@@ -3,7 +3,7 @@ feeds
 forms
 views
 geos
-admin
+serializers
 geometry
 default_app_config
 shortcuts
@@ -13,7 +13,7 @@ utils
 geoip2
 ptr
 geoip
-serializers
+admin
 measure
 sitemaps
 management

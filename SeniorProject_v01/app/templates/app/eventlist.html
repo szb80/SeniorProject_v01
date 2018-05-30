@@ -1,31 +1,40 @@
 ﻿{% extends "app/layout.html" %}
-
 {% load staticfiles %}
-
 {% block content %}
 
 <div class="wrapper-trans">
+    <a href="/event/4" class="js-popup-link">bring up a popup</a>
+    <div id="popup"></div>
+</div>
+
 
     {% if eventlist %}
     <ul>
     {% for event in eventlist %}
-        <li>{{ event.name }} - <a class="btn btn-primary" id="about-btn" href="/event/{{event.id}}" role="button">Link</a></li>
-        <li><button id="about-btn">Click</button></li>
+        <li>{{ event.name }} - <a class="btn btn-primary" href="/event/{{event.id}}" role="button">Link</a></li>
     {% endfor %}
     </ul>
     {% else %}
     <p>No events are available.</p>
     {% endif %}
-
 </div>
 {% endblock %}
 
 {% block scripts %}
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
     $("#about-btn").click(function (event) {
         alert("You clicked the button using JQuery!");
     });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(
+    function(){
+  $('.js-popup-link').click(function(e){
+    e.preventDefault()
+    $('#popup').dialog({modal: true}).dialog('open').load(this.href)
+  })
 });
 </script>
 

@@ -31,6 +31,7 @@ class searchform(forms.ModelForm):
 
 
 class createform(forms.ModelForm):
+    required_css_class = 'required'
     class Meta:
         model = Event
         fields = ['name',

@@ -6,8 +6,8 @@ functions
 forms
 operations
 lookups
-aggregates
-search
 fields
+search
+aggregates
 indexes
 utils

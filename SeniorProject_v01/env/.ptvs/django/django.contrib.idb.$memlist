@@ -1,13 +1,13 @@
 flatpages
 messages
-syndication
+contenttypes
 gis
 sitemaps
 admin
 staticfiles
-contenttypes
-auth
 humanize
+auth
+syndication
 admindocs
 redirects
 sites

@@ -4,13 +4,13 @@ adapter
 forms
 app_settings
 views
-urls
+providers
 default_app_config
 fields
 helpers
 tests
 signals
-providers
+urls
 templatetags
 admin
 migrations

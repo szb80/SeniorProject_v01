@@ -35,7 +35,7 @@ SQLITE_DROP_TABLE
 SQLITE_ANALYZE
 SQLITE_CREATE_TRIGGER
 SQLITE_DROP_TEMP_INDEX
-TimeFromTicks
+SQLITE_ATTACH
 enable_shared_cache
 complete_statement
 register_adapter
@@ -73,6 +73,6 @@ Error
 SQLITE_OK
 SQLITE_DELETE
 datetime
-SQLITE_ATTACH
+TimeFromTicks
 SQLITE_CREATE_TEMP_VIEW
 register_converter

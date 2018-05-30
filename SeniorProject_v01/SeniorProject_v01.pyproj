@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>SeniorProject_v01</Name>
     <RootNamespace>SeniorProject_v01</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -49,6 +49,9 @@
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\templatetags\append_ast_if_req.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\templatetags\in_group.py">
@@ -115,6 +118,7 @@
     <Content Include="app\static\app\img\search_02.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover2.jpg" />
+    <Content Include="app\static\app\scripts\bootstrap.bundle.4.min.js" />
     <Content Include="app\static\app\scripts\bootstrap.min.4.js" />
     <Content Include="app\static\app\scripts\daypilot-all.min2.js" />
     <Content Include="app\static\app\scripts\jquery-3.3.1.min.js" />
@@ -176,6 +180,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>env1</Id>
+      <Version>3.6</Version>
+      <Description>env1 (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.6</Version>
