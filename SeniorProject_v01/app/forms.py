@@ -41,6 +41,12 @@ class createform(forms.ModelForm):
                   'date_end',
                   'street_address',
                   'city',
+                  'zipcode',
                   'district',
                   'payment_url',
+                  'primary_contact_ID',
                   ]
+        widgets = {
+            'date_start': SelectDateWidget(),
+            'date_end': SelectDateWidget(),
+                   }

@@ -167,8 +167,15 @@ def search(request, month=None, year=None):
     # Renders the filter events page
     assert isinstance(request, HttpRequest)
 
+        # if date range is not valid, set to current month
+    if not validateMonthYear(month, year):
+        month, year = setCurrentMonthYear()
+
+    month = request.GET.get('month')
+    year = request.GET.get('year')
+
     params = searchform()
-    month_table = buildCalendar(request)  # default current month
+    month_table = buildCalendar(request, month, year)  # default current month
     event_list = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
 
     if request.method == "GET":

@@ -1,48 +1,41 @@
 ﻿{% extends "app/layout.html" %}
 
 {% load staticfiles %}
+{% load widget_tweaks %}
+{% load append_ast_if_req %}
 
 {% block content %}
 
 <div class="wrapper-trans">
-<h1>Create a New Event</h1>
-{% csrf_token %}
-{{ form }}
 
-<!-- 
-<form method="post">
-    {{ form.non_field_errors }}
-    <div class="row">
-        <div class="col-md-6">
-            {{ form.name.errors }}
-            <label for=" {{ form.name.id_for_label }}">Pet Name</label>
-            {{ form.name }}
-        </div>
-
-        <div class="col-md-6">
-            {{ form.category.errors }}
-            <label for=" {{ form.category.id_for_label }}">Pet Category</label>
-            {{ form.category }}
-        </div>
-    </div>
-        <div class="row">
-        <div class="col-md-6">
-            {{ form.size.errors }}
-            <label for=" {{ form.size.id_for_label }}">Pet Size</label>
-            {{ form.size }}
-        </div>
-
-        <div class="col-md-6">
-            {{ form.maintenance.errors }}
-            <label for=" {{ form.maintenance.id_for_label }}">Pet Maintenance (1-3)</label>
-            {{ form.maintenance }}
-        </div>
-    </div>
-        <div class="row">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
+    <h1>Create a New Event</h1>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form method="POST">
+            {% csrf_token %}
     
-    </form>
-        -->
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field | append_ast_if_req }}</label>
+
+
+                        {{ field|add_class:'form-control' }}
+
+                        {% for error in field.errors %}
+                            <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col"></div>
 </div>
 {% endblock %}

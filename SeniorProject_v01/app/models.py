@@ -82,7 +82,7 @@ class Event(models.Model):
     payment_url = models.URLField(default = '');
     primary_contact_ID = models.ForeignKey(Person);
     creation_date = models.DateTimeField(default = datetime.now);
-    """ creation_user = models.ForeignKey(User); -------------------------------------------------- """
+    """creation_user = models.ForeignKey(User);"""
 
     def publish(self):
         self.creation_date = datetime.now();
