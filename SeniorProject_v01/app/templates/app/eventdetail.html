@@ -7,20 +7,24 @@
     <div class="row row-stripped color-bg">
 
         <div class="col-2 text-right">
-				        <time datetime="2018-10-29" class="time">
+				        <div class="time">
                             {% if event.date_start.day == event.date_end.day %}
-							    <span class="day align-middle">{{ event.date_start.day}}</span>
+							    <div class="bk-day">{{ event.date_start.day}}</div>
                             {% else %}
-                                <span class="day-multiple align-middle">{{ event.date_start.day}} - {{ event.date_end.day}}</span>
+                                <div class="bk-day-multiple">{{ event.date_start.day}} - {{ event.date_end.day}}</div>
                             {% endif %}
-							<span class="month">{{ event.date_start|date:"M" }}</span>
-						</time>
+							<div class="bk-month">{{ event.date_start|date:"M" }}</div>
+						</div>
 	    </div>
 			<div class="col-md-10">
 				<div class="text-uppercase"><strong>{{ event.name }}</strong></div>
 				<ul class="list-inline">
-				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
-					<li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+                    {% if event.date_start.day == event.date_end.day %}
+				        <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}}</li>
+					{% else %}
+				        <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
+                    {% endif %}
+                    <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
 					<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
 				</ul>
 				<p><strong>Description: </strong>{{ event.description }}</p>

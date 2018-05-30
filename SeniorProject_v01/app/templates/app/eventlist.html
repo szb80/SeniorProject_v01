@@ -1,23 +1,32 @@
-﻿<!DOCTYPE html>
+﻿{% extends "app/layout.html" %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="wrapper-trans">
 
     {% if eventlist %}
     <ul>
     {% for event in eventlist %}
-        <li><a href="/event/{{event.id}}">{{ event.name }}</a></li>
+        <li>{{ event.name }} - <a class="btn btn-primary" id="about-btn" href="/event/{{event.id}}" role="button">Link</a></li>
+        <li><button id="about-btn">Click</button></li>
     {% endfor %}
     </ul>
     {% else %}
     <p>No events are available.</p>
     {% endif %}
 
+</div>
+{% endblock %}
 
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+    $("#about-btn").click(function (event) {
+        alert("You clicked the button using JQuery!");
+    });
+});
+</script>
 
-</body>
-</html>
+{% endblock %}

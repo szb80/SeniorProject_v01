@@ -117,6 +117,9 @@
     <Content Include="app\static\app\img\tlusa_homepage_cover2.jpg" />
     <Content Include="app\static\app\scripts\bootstrap.min.4.js" />
     <Content Include="app\static\app\scripts\daypilot-all.min2.js" />
+    <Content Include="app\static\app\scripts\jquery-3.3.1.min.js" />
+    <Content Include="app\static\app\scripts\jquery-ui.1.12.1.min.js" />
+    <Content Include="app\static\app\scripts\site.js" />
     <Content Include="app\templates\app\authentication_error.html" />
     <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\create.html" />

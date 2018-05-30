@@ -140,32 +140,19 @@ input[type="checkbox"].input-validation-error {
 }
 
 .event-inner {
-    width: 100%;
-    height: 100%;
     overflow: hidden;
-    line-height: 16px;
-    font-family: 'Roboto', sans-serif;
-    /* background: #03a9f3 !important; */
-    color: #100000 !important;
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    padding: 5px 0px !important;
-    border-radius: 1rem;
-    border-top: 1px solid #9acfea;
-    border-bottom: 1px solid #9acfea;
+    border-radius: 0.75rem;
     background-image: linear-gradient(to bottom, #00aaff 0px, #b9def0 100%);
     background-repeat: repeat-x;
-    /* color: #31708f; */
-    border-width: 1px;
+    line-height: 1.25;
+    padding: 0 0 0 0.25rem;
 }
 
-.eventTitle a {
-    font-family: 'Roboto', sans-serif;
-    color: #333 !important;
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    padding: 5px 0px !important;
-}
+    .event-inner a {
+        color: #333;
+        font-size: 0.75rem;
+        padding: 5px 0px;
+    }
 
 .tr {
     display: table-row;
@@ -182,16 +169,15 @@ input[type="checkbox"].input-validation-error {
 .oafcal th {
     text-align: center;
     width: 128px;
-    font-family: 'Roboto', sans-serif;
     color: #FFF;
-    font-size: 14px !important;
-    font-weight: 500 !important;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* CALEDAR HEADER */
 
 .calHeader {
-    background-color: #f8f9fa !important;
+    background-color: #f8f9fa;
     color: #000;
     border-radius: 6px 6px 0 0;
     box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
@@ -211,62 +197,18 @@ input[type="checkbox"].input-validation-error {
 
     .calHeader td {
         white-space: nowrap;
-        padding: 15px 10px 0px
+        padding: 1rem;
     }
 
 .header-title h2 {
     white-space: nowrap;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 100;
     margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;
     color: black;
 }
 
-.default {
-    border: 1px solid;
-}
-
-.button {
-    position: relative;
-    display: inline-block;
-    padding: 0 .6em;
-    overflow: hidden;
-    height: 1.9em;
-    line-height: 1.9em;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.button-prev {
-}
-
-.corner-left {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-.corner-right {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-
-.left-arrow {
-    margin: 0 .2em;
-    font-size: 1em;
-    line-height: 23px;
-    vertical-align: baseline;
-}
-
-.right-arrow {
-    margin: 0 .2em;
-    font-size: 1em;
-    line-height: 23px;
-    vertical-align: baseline;
-}
-
 .header-right {
-    opacity: 0.9;
     width: 25%;
     text-align: right;
 }
@@ -286,7 +228,6 @@ input[type="checkbox"].input-validation-error {
 th.month {
     text-align: center;
     font-size: 25px;
-    font-family: 'Roboto', sans-serif;
     color: #333;
 }
 
@@ -310,8 +251,6 @@ th.month {
 
 .day-header {
     width: 20px;
-    /* text-align: right; */
-    /* padding-left: 50px; */
     color: rgb(76, 56, 67);
     border-radius: 6px;
     margin-left: auto;
@@ -322,7 +261,6 @@ th.month {
 
 .event-list {
     list-style: none;
-    font-family: 'Lato', sans-serif;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -364,27 +302,6 @@ th.month {
     overflow-y: hidden;
 }
 
-.row {
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-left: 10px;
-    font-size: 80%;
-}
-
-.glyphicon-size {
-    font-size: 14vw;
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 13px;
-    padding-bottom: 20px;
-}
-
 .eventDate-one {
     margin-right: -15px;
     margin-left: -15px;
@@ -399,14 +316,6 @@ th.month {
     padding-left: 30px;
     padding-top: 10px;
     font-size: 80%
-}
-
-.time {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: 0px;
 }
 
 /*************Event Details Calendar**********************/
@@ -452,51 +361,35 @@ th.month {
 
 .time {
     display: inline-block;
-    width: 100%;
     color: rgb(255, 255, 255);
     background-color: #ab0101;
     padding: 5px;
     text-align: center;
     text-transform: uppercase;
-    width: 120px;
-    /* height: 120px; */
+    width: 6rem;
     padding: 0px;
     margin: 0px;
-    /* float: left; */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-span.day {
-    /* color: black; */
+.bk-day {
+    text-align: center;
+    background-color: black;
     font-size: 5rem;
-    padding: 0 0;
-    display: block;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
-span.day-multiple {
-    /* color: black; */
-    font-size: 32;
-    display: block;
-}
-
-span {
+.bk-day-multiple {
+    text-align: center;
     background-color: black;
-    /* color: white; */
-    /* padding-bottom: 0; */
-    /* font-size: 2em; */
-    /* width: 120px; */
+    font-size: 1.5rem;
+    display: block;
+    vertical-align: middle;
+    padding: 2.5rem 0;
 }
 
-    span.month {
-        font-size: 20;
-        background-color: #ab0101;
-    }
-
-span {
-    background-color: black;
-    /* color: white; */
-    /* padding-bottom: 0; */
-    /* font-size: 2em; */
-    /* width: 120px; */
+.bk-month {
+    font-size: 1.5rem;
 }

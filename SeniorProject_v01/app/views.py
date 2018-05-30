@@ -43,12 +43,11 @@ def setCurrentMonthYear():
     # with values of the current month and year
     return int(datetime.now().month), int(datetime.now().year)
 
-
+ 
 def buildCalendar(request, month=None, year=None):
     # generates a calendar object with the passed event dictionary
     # accepts a queryset of events
     # returns an instance of TemplatedCalendar() HTMLCalendar
-    assert isinstance(request, HttpRequest)
 
     calendar = TemplatedCalendar()
     calendar.setfirstweekday(6)

@@ -12,20 +12,10 @@
             </td>
             <!-- MONTH NAVIGATION LINKS IN HEADER CORNER -->
             <td class="header-right">
-                {% with params=request.GET.urlencode %}
                 <!-- --------------------------- PREVIOUS MONTH -------------------------------- -->
-                <a href="?month={{ monthMM }}&year={{ yearMM }}">
-                    <div class="button button-prev default corner-left" unselectable="on">
-                        <div class="left-arrow">Previous <</div>
-                    </div>
-                </a>
+                <a class="btn btn-primary" href="?month={{ monthMM }}&year={{ yearMM }}" role="button"><i class="fas fa-chevron-circle-left"></i></a>
                 <!-- --------------------------- NEXT MONTH -------------------------------- -->
-                <a href="?month={{ monthPP }}&year={{ yearPP }}">
-                    <div class="button button-next default corner-right" unselectable="on">
-                        <div class="right-arrow">> Next</div>
-                    </div>
-                </a>
-                {% endwith %}
+                <a class="btn btn-primary" href="?month={{ monthPP }}&year={{ yearPP }}" role="button"><i class="fas fa-chevron-circle-right"></i></a>
             </td>
         </tr>
     </tbody>
