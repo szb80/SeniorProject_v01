@@ -7,14 +7,14 @@
     <div class="row row-stripped color-bg">
 
         <div class="col-2 text-right">
-				        <div class="time">
-                            {% if event.date_start.day == event.date_end.day %}
-							    <div class="bk-day">{{ event.date_start.day}}</div>
-                            {% else %}
-                                <div class="bk-day-multiple">{{ event.date_start.day}} - {{ event.date_end.day}}</div>
-                            {% endif %}
-							<div class="bk-month">{{ event.date_start|date:"M" }}</div>
-						</div>
+		    <div class="time">
+                {% if event.date_start.day == event.date_end.day %}
+				    <div class="bk-day">{{ event.date_start.day}}</div>
+                {% else %}
+                    <div class="bk-day-multiple">{{ event.date_start.day}} - {{ event.date_end.day}}</div>
+                {% endif %}
+			    <div class="bk-month">{{ event.date_start|date:"M" }}</div>
+		    </div>
 	    </div>
 
 		<div class="col-md-10">
@@ -32,7 +32,8 @@
             <p><strong>Category: </strong>{{ event.event_type}}</p>
             <p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p>
             <p><strong>Payment: </strong><a href="{{ event.payment_link}}">{{ event.payment_link }}</a></p>
-            <p><strong>Address: </strong>{{ event.address }}</p>
+            <p><strong>Address: </strong>{{ event.address }} <br /><i class="far fa-compass"></i> <a href="{{ url_directions }}" target="_blank"><strong>Get Directions</strong></a></p>
+
 		</div>
 
         <div id="map"></div>

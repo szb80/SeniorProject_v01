@@ -227,15 +227,15 @@ def events(request, month=None, year=None):
 def eventdetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
 
-
-    map_url = "&key={}".format(settings.GOOGLE_MAPS_API)
-
-
+    url = 'https://www.google.com/maps/dir/?api=1&destination='
+    place = event.address
+    place = place.replace(" ", "+")
+    url += place
 
     return render(request, 'app/eventdetail.html',
                   {
                       'event': event,
-
+                      'url_directions': url,
                   }
                   )
 

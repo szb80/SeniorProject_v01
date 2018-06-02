@@ -3988,3 +3988,136 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-06-01T23:17:12: [ERROR] urllib3._collections.RecentlyUsedContainer.RecentlyUsedContainer: Unknown has no name
 2018-06-01T23:17:12: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\urllib3"
 2018-06-01T23:17:14: Deleting 0 files
+
+2018-06-02T13:49:18: Start analysis
+2018-06-02T13:49:18: IncludeModulesFromModulePath = win32com
+2018-06-02T13:49:20: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones because easy_timezones.middleware needs updating
+2018-06-02T13:49:21: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip because pygeoip.const needs updating
+2018-06-02T13:49:21: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz because pytz.exceptions needs updating
+2018-06-02T13:49:21: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel because wheel.archive needs updating
+2018-06-02T13:49:21: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel because wheel.test.test_basic needs updating
+2018-06-02T13:49:21: Deleting 6 files
+2018-06-02T13:49:21: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\pytz\pytz.exceptions.idb"
+2018-06-02T13:49:21: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\pytz\pytz.idb"
+2018-06-02T13:49:21: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\pytz\pytz.lazy.idb"
+2018-06-02T13:49:21: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\pytz\pytz.reference.idb"
+2018-06-02T13:49:21: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\pytz\pytz.tzfile.idb"
+2018-06-02T13:49:21: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\pytz\pytz.tzinfo.idb"
+2018-06-02T13:49:21: astropy.CallDepth = 0
+2018-06-02T13:49:21: delphixpy.CallDepth = 0
+2018-06-02T13:49:21: matplotlib.CallDepth = 3
+2018-06-02T13:49:21: pandas.CallDepth = 0
+2018-06-02T13:49:21: sympy.CallDepth = 0
+2018-06-02T13:49:21: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones" with 7 files
+2018-06-02T13:49:21: Parsing complete
+2018-06-02T13:49:21: Analyzing "easy_timezones.middleware" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\middleware.py")
+2018-06-02T13:49:21: Analyzing "easy_timezones.signals" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\signals.py")
+2018-06-02T13:49:21: Analyzing "easy_timezones.tests" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\tests.py")
+2018-06-02T13:49:21: Analyzing "easy_timezones.urls" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\urls.py")
+2018-06-02T13:49:21: Analyzing "easy_timezones.utils" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\utils.py")
+2018-06-02T13:49:21: Analyzing "easy_timezones.views" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\views.py")
+2018-06-02T13:49:21: Analyzing "easy_timezones" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones\__init__.py")
+2018-06-02T13:49:21: Starting analysis of 7 modules
+2018-06-02T13:49:23: Analysis complete
+2018-06-02T13:49:23: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones"
+2018-06-02T13:49:23: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\easy_timezones"
+2018-06-02T13:49:23: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip" with 4 files
+2018-06-02T13:49:23: Parsing complete
+2018-06-02T13:49:23: Analyzing "pygeoip.const" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip\const.py")
+2018-06-02T13:49:23: Analyzing "pygeoip.timezone" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip\timezone.py")
+2018-06-02T13:49:23: Analyzing "pygeoip.util" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip\util.py")
+2018-06-02T13:49:23: Analyzing "pygeoip" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip\__init__.py")
+2018-06-02T13:49:23: Starting analysis of 4 modules
+2018-06-02T13:49:24: Analysis complete
+2018-06-02T13:49:24: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip"
+2018-06-02T13:49:24: [ERROR] pygeoip.GeoIP.GeoIP: Unknown has no name
+2018-06-02T13:49:24: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pygeoip"
+2018-06-02T13:49:24: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz" with 6 files
+2018-06-02T13:49:24: Parsing complete
+2018-06-02T13:49:24: Analyzing "pytz.exceptions" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz\exceptions.py")
+2018-06-02T13:49:24: Analyzing "pytz.lazy" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz\lazy.py")
+2018-06-02T13:49:24: Analyzing "pytz.reference" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz\reference.py")
+2018-06-02T13:49:24: Analyzing "pytz.tzfile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz\tzfile.py")
+2018-06-02T13:49:24: Analyzing "pytz.tzinfo" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz\tzinfo.py")
+2018-06-02T13:49:24: Analyzing "pytz" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz\__init__.py")
+2018-06-02T13:49:24: Starting analysis of 6 modules
+2018-06-02T13:49:25: Analysis complete
+2018-06-02T13:49:25: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz"
+2018-06-02T13:49:25: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\pytz"
+2018-06-02T13:49:25: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel" with 18 files
+2018-06-02T13:49:25: Parsing complete
+2018-06-02T13:49:25: Analyzing "wheel.archive" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\archive.py")
+2018-06-02T13:49:25: Analyzing "wheel.bdist_wheel" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\bdist_wheel.py")
+2018-06-02T13:49:25: Analyzing "wheel.decorator" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\decorator.py")
+2018-06-02T13:49:25: Analyzing "wheel.egg2wheel" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\egg2wheel.py")
+2018-06-02T13:49:25: Analyzing "wheel.install" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\install.py")
+2018-06-02T13:49:25: Analyzing "wheel.metadata" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\metadata.py")
+2018-06-02T13:49:25: Analyzing "wheel.paths" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\paths.py")
+2018-06-02T13:49:25: Analyzing "wheel.pep425tags" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\pep425tags.py")
+2018-06-02T13:49:25: Analyzing "wheel.pkginfo" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\pkginfo.py")
+2018-06-02T13:49:25: Analyzing "wheel.util" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\util.py")
+2018-06-02T13:49:25: Analyzing "wheel.wininst2wheel" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\wininst2wheel.py")
+2018-06-02T13:49:25: Analyzing "wheel" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\__init__.py")
+2018-06-02T13:49:25: Analyzing "wheel.__main__" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\__main__.py")
+2018-06-02T13:49:25: Analyzing "wheel.signatures.djbec" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\signatures\djbec.py")
+2018-06-02T13:49:25: Analyzing "wheel.signatures.ed25519py" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\signatures\ed25519py.py")
+2018-06-02T13:49:25: Analyzing "wheel.signatures.keys" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\signatures\keys.py")
+2018-06-02T13:49:25: Analyzing "wheel.signatures" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\signatures\__init__.py")
+2018-06-02T13:49:25: Analyzing "wheel.tool" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\tool\__init__.py")
+2018-06-02T13:49:25: Starting analysis of 18 modules
+2018-06-02T13:49:27: Analysis complete
+2018-06-02T13:49:27: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel"
+2018-06-02T13:49:27: [ERROR] wheel.util.native: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.util.native: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.util.native: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.util.native: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.util.open_for_csv: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.util.save_config_path: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.bdist_wheel.bdist_wheel.bdist_wheel: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.metadata.pkginfo_to_metadata: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.metadata.pkginfo_to_metadata: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.metadata.pkginfo_to_dict: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.install.WheelFile.WheelFile: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.archive.archive_wheelfile: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.archive.archive_wheelfile: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.archive.make_wheelfile_inner: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.pkginfo.write_pkg_info: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.pkginfo.write_pkg_info: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.pkginfo.read_pkg_info: Unknown has no name
+2018-06-02T13:49:27: [ERROR] wheel.pkginfo.read_pkg_info: Unknown has no name
+2018-06-02T13:49:27: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel"
+2018-06-02T13:49:27: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel" with 10 files
+2018-06-02T13:49:27: Parsing complete
+2018-06-02T13:49:27: Analyzing "wheel.test.test_basic" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_basic.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_install" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_install.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_keys" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_keys.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_paths" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_paths.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_ranking" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_ranking.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_signatures" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_signatures.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_tagopt" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_tagopt.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_tool" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_tool.py")
+2018-06-02T13:49:27: Analyzing "wheel.test.test_wheelfile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\test_wheelfile.py")
+2018-06-02T13:49:27: Analyzing "wheel.test" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel\test\__init__.py")
+2018-06-02T13:49:27: Starting analysis of 10 modules
+2018-06-02T13:49:28: Analysis complete
+2018-06-02T13:49:28: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel"
+2018-06-02T13:49:28: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\wheel"
+2018-06-02T13:49:31: Deleting 0 files
+
+2018-06-02T14:08:53: Start analysis
+2018-06-02T14:08:53: IncludeModulesFromModulePath = win32com
+2018-06-02T14:08:56: Deleting 7 files
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.idb"
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.middleware.idb"
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.signals.idb"
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.tests.idb"
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.urls.idb"
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.utils.idb"
+2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.views.idb"

@@ -1,9 +1,11 @@
 _std_string
 memorized_ttinfo
+timedelta
+tz
 os
-memorized_timedelta
 _byte_string
 build_tzinfo
+StringIO
 StaticTzInfo
 pprint
 datetime
@@ -11,6 +13,6 @@ memorized_datetime
 calcsize
 base
 unpack
-tz
+memorized_timedelta
 DstTzInfo
 _NULL

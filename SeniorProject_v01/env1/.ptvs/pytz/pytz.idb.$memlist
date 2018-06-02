@@ -1,10 +1,12 @@
+gettext
 ascii
 common_timezones
 InvalidTimeError
 VERSION
 _UTC
 HOUR
-datetime
+OLSON_VERSION
+_byte_string
 reference
 NonExistentTimeError
 __all__
@@ -25,8 +27,8 @@ timezone
 utc
 resource_exists
 unicode
-OLSON_VERSION
 unpickler
+datetime
 ZERO
 sys
 tzinfo
@@ -36,7 +38,6 @@ tzfile
 AmbiguousTimeError
 os
 build_tzinfo
-BaseTzInfo
 __version__
 UTC
 all_timezones
