@@ -33,8 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app',
-    'address',
     'widget_tweaks',
+    'googlemaps',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #----------DELETE AFTER TESTING---------
-    
-
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -80,6 +78,9 @@ TEMPLATES = [
 
 LOGIN_REDIRECT_URL = '/events'
 WSGI_APPLICATION = 'SeniorProject_v01.wsgi.application'
+
+GOOGLE_MAPS_API = 'AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

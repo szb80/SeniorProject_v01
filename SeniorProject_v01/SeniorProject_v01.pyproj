@@ -31,18 +31,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app\django-address-master\address\admin.py" />
-    <Compile Include="app\django-address-master\address\apps.py" />
-    <Compile Include="app\django-address-master\address\forms.py" />
-    <Compile Include="app\django-address-master\address\migrations\0001_initial.py" />
-    <Compile Include="app\django-address-master\address\migrations\0002_auto_20160213_1726.py" />
-    <Compile Include="app\django-address-master\address\migrations\__init__.py" />
-    <Compile Include="app\django-address-master\address\models.py" />
-    <Compile Include="app\django-address-master\address\tests\test_forms.py" />
-    <Compile Include="app\django-address-master\address\tests\test_models.py" />
-    <Compile Include="app\django-address-master\address\tests\__init__.py" />
-    <Compile Include="app\django-address-master\address\__init__.py" />
-    <Compile Include="app\django-address-master\setup.py" />
     <Compile Include="app\filters.py">
       <SubType>Code</SubType>
     </Compile>
@@ -79,14 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
-    <Folder Include="app\django-address-master\" />
-    <Folder Include="app\django-address-master\address\" />
-    <Folder Include="app\django-address-master\address\migrations\" />
-    <Folder Include="app\django-address-master\address\static\" />
-    <Folder Include="app\django-address-master\address\static\address\" />
-    <Folder Include="app\django-address-master\address\static\address\js\" />
-    <Folder Include="app\django-address-master\address\static\js\" />
-    <Folder Include="app\django-address-master\address\tests\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\templates\tempocal\" />
     <Folder Include="app\templatetags\" />
@@ -101,13 +81,6 @@
     <Folder Include="SeniorProject_v01\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\django-address-master\.gitignore" />
-    <Content Include="app\django-address-master\address\static\address\js\address.js" />
-    <Content Include="app\django-address-master\address\static\js\jquery.geocomplete.min.js" />
-    <Content Include="app\django-address-master\COPYRIGHT.txt" />
-    <Content Include="app\django-address-master\MANIFEST.in" />
-    <Content Include="app\django-address-master\README.md" />
-    <Content Include="app\django-address-master\setup.cfg" />
     <Content Include="app\static\app\content\bootstrap.4.css" />
     <Content Include="app\static\app\content\bootstrap.min.4.css" />
     <Content Include="app\static\app\content\headerlogin.css" />
@@ -126,6 +99,7 @@
     <Content Include="app\static\app\scripts\site.js" />
     <Content Include="app\templates\app\authentication_error.html" />
     <Content Include="app\templates\app\calendar.html" />
+    <Content Include="app\templates\app\create2.html" />
     <Content Include="app\templates\app\create.html" />
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />

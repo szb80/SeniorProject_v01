@@ -2,11 +2,14 @@
 Definition of views.
 """
 
+import requests
+
 from django.views.generic.base import View
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import loader, RequestContext
 from django.views import generic
+from django.conf import settings
 from datetime import datetime, date
 from django.utils.timezone import get_current_timezone
 from django.db.models import Q
@@ -17,6 +20,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
 from app.forms import searchform, createform
+import googlemaps
 
 
 ###############################################################################
@@ -222,7 +226,18 @@ def events(request, month=None, year=None):
 
 def eventdetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    return render(request, 'app/eventdetail.html', {'event': event, })
+
+
+    map_url = "&key={}".format(settings.GOOGLE_MAPS_API)
+
+
+
+    return render(request, 'app/eventdetail.html',
+                  {
+                      'event': event,
+
+                  }
+                  )
 
 
 def search(request, month=None, year=None):
@@ -248,14 +263,29 @@ def search(request, month=None, year=None):
     )
 
 
+##############################################################################################################
 @login_required
 def create(request):
     # displays the "Create Event" page for users to create a new event
     if request.user.has_perm('app.event.add'):
+        gmaps = googlemaps.Client(key='AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8')
+
         if request.method == "POST":
             form = createform(request.POST)
             if form.is_valid():
                 form = form.save(commit=False)
+
+                # process geocode address
+                geocode_url = "https://maps.googleapis.com/maps/api/geocode/json?address={}".format(form.address)
+                geocode_url = geocode_url + "&key={}".format(settings.GOOGLE_MAPS_API)
+                results = requests.get(geocode_url)
+                results = results.json()
+                geocode_result = results['results'][0]
+                
+                form.coord_x = geocode_result.get('geometry').get('location').get('lat')
+                form.coord_y = geocode_result.get('geometry').get('location').get('lng')
+                google_location = geocode_result.get('place_id')
+
                 form.save()
                 return HttpResponseRedirect('/events')
             else:
@@ -308,3 +338,18 @@ def upcoming(request):
     template = loader.get_template('app/upcoming.html')
     context = { 'upcoming': upcoming, }
     return HttpResponse(template.render(context, request))
+
+
+def create2(request):
+    if request.method == "POST":
+        form = createform(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            return HttpResponseRedirect('/events')
+        else:
+            return HttpResponseRedirect('/error')
+
+    elif request.method == "GET":
+        form = createform()
+        return render(request, "app/create2.html", {'form': form})

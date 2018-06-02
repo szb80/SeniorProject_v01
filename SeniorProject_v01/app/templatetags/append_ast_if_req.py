@@ -5,6 +5,6 @@ register = template.Library()
 @register.filter
 def append_ast_if_req (field):
     if field.field.required:
-         return field.label + '*'
+         return field.label + ' *'
     else:
          return field.label

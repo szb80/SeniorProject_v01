@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^upcoming$', app.views.upcoming, name='upcoming events'),
     url(r'^eventlist$', app.views.eventlist, name='eventlist'),
     url(r'^loginfb$', app.views.loginfb, name='loginfb'),
+    url(r'^create2', app.views.create2, name='create2'),
 
     # USER MANAGEMENT URLS ###################################################
      url(r'^login/$',

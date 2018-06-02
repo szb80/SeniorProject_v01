@@ -16,23 +16,40 @@
 							<div class="bk-month">{{ event.date_start|date:"M" }}</div>
 						</div>
 	    </div>
-			<div class="col-md-10">
-				<div class="text-uppercase"><strong>{{ event.name }}</strong></div>
-				<ul class="list-inline">
-                    {% if event.date_start.day == event.date_end.day %}
-				        <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}}</li>
-					{% else %}
-				        <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
-                    {% endif %}
-                    <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
-					<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
-				</ul>
-				<p><strong>Description: </strong>{{ event.description }}</p>
-                <p><strong>Category: </strong>{{ event.event_type}}</p>
-                <p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p>
-                <p><strong>Payment: </strong><a href="{{ event.payment_link}}">{{ event.payment_link }}</a></p>
-			</div>
-                
+
+		<div class="col-md-10">
+			<div class="text-uppercase"><strong>{{ event.name }}</strong></div>
+			<ul class="list-inline">
+                {% if event.date_start.day == event.date_end.day %}
+				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}}</li>
+				{% else %}
+				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
+                {% endif %}
+                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+				<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
+			</ul>
+			<p><strong>Description: </strong>{{ event.description }}</p>
+            <p><strong>Category: </strong>{{ event.event_type}}</p>
+            <p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p>
+            <p><strong>Payment: </strong><a href="{{ event.payment_link}}">{{ event.payment_link }}</a></p>
+            <p><strong>Address: </strong>{{ event.address }}</p>
+		</div>
+
+        <div id="map"></div>
+
+<script>
+    function initMap() {
+        var location = {
+            lat: {{ event.coord_x }},
+            lng: {{ event.coord_y }}
+            };
+
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 14, center: location});
+
+      var marker = new google.maps.Marker( {position: location, map: map} );
+    }
+</script>
 
                     <!-- IMAGE TO MATCH EVENT TYPE ###################################################
                         <img src="{{ event.event_type_image }}">
@@ -42,4 +59,11 @@
                     
    </div>
 {% endblock %}
-                   
+
+{% block scripts %}
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8&callback=initMap">
+</script>
+
+
+{% endblock %}

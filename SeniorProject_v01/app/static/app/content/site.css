@@ -88,6 +88,13 @@ input[type="checkbox"].input-validation-error {
     color: red;
 }
 
+/* GOOGLE MAPS CSS */
+
+#map {
+    height: 20rem;
+    width: 100%;
+}
+
 /* CALENDAR CSS */
 
 .oafcal {

@@ -4,9 +4,8 @@ Definition of models.
 
 from django.db import models
 from django.contrib.auth.models import User
-""" import GoogleMaps address object from package: """
-from address.models import AddressField
 from datetime import datetime
+import googlemaps
 
 # Create your models here.
 
@@ -73,20 +72,23 @@ class Event(models.Model):
     event_type = models.ForeignKey(EventType)
     date_start = models.DateField(default = datetime.now)
     date_end = models.DateField(default = datetime.now)
-    street_address = models.CharField(default = '', max_length = 255)
-    city = models.CharField(default = '', max_length = 255)
+    """ street_address = models.CharField(default = '', max_length = 255) """
+    """ city = models.CharField(default = '', max_length = 255) """
     """ state_ID = models.ForeignKey(State); --------------------------------------------- """
-    zipcode = models.IntegerField(default = '')
-    address = AddressField(blank=True, null=True)
+    """zipcode = models.IntegerField(default = '') """
+    address = models.CharField(max_length = 500, default = '')
+    coord_x = models.CharField(max_length = 255, default = '', null=True, blank=True)
+    coord_y = models.CharField(max_length = 255, default = '', null=True, blank=True)
+    google_location = models.CharField(max_length = 300, default = '', null=True, blank=True)
     district = models.ForeignKey(District)
     payment_url = models.URLField(default = '')
     primary_contact_ID = models.ForeignKey(Person)
     creation_date = models.DateTimeField(default = datetime.now)
-    creation_user = models.ForeignKey(User)
+    creation_user = models.ForeignKey(User, null=True, blank=True)
 
     def publish(self):
         self.creation_date = datetime.now();
-        self.creation_user = models.ForeignKey(User);
+        self.creation_user = request.user
         self.save();
 
     def __str__(self):
@@ -117,3 +119,9 @@ class SearchEvent(models.Model):
     date_start = models.DateField(default = '', blank=True, null=True);
     district = models.ForeignKey(District, blank=True, null=True);
     primary_contact_ID = models.ForeignKey(Person, blank=True, null=True);
+
+
+
+
+class autofill(models.Model):
+    address = models.CharField(max_length=400)

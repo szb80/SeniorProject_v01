@@ -6,9 +6,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
-""" import GoogleMaps address object from package: """
-from address.models import AddressField
-from app.models import Event, SearchEvent, District
+from app.models import Event, SearchEvent, District, autofill
 import datetime
 
 class BootstrapAuthenticationForm(AuthenticationForm):
@@ -33,21 +31,38 @@ class searchform(forms.ModelForm):
 
 class createform(forms.ModelForm):
     required_css_class = 'required'
+
     class Meta:
         model = Event
         fields = ['name',
                   'description',
-                  'event_type',
+                  'address',
                   'date_start',
                   'date_end',
-                  'street_address',
-                  'city',
-                  'zipcode',
+                  #'street_address',
+                  #'city',
+                  #'zipcode',
+                  'event_type',
                   'district',
                   'payment_url',
                   'primary_contact_ID',
+                  'coord_x',
+                  'coord_y',
+                  'google_location',
                   ]
         widgets = {
             'date_start': SelectDateWidget(),
             'date_end': SelectDateWidget(),
                    }
+
+    def __init__(self, *args, **kwargs):
+        super(createform, self).__init__(*args, **kwargs)
+        self.fields['address'].widget.attrs = {'id': 'locationTextField',}
+        self.fields['coord_x'].widget = forms.HiddenInput()
+        self.fields['coord_y'].widget = forms.HiddenInput()
+        self.fields['google_location'].widget = forms.HiddenInput()
+
+class autofillform(forms.ModelForm):
+    class Meta:
+        model = autofill
+        fields = ['address']
