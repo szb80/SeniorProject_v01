@@ -68,21 +68,21 @@ class EventType(models.Model):
 
 
 class Event(models.Model):
-    name = models.CharField(max_length = 255);
-    description = models.TextField(default = '');
-    event_type = models.ForeignKey(EventType);
-    date_start = models.DateField(default = datetime.now);
-    date_end = models.DateField(default = datetime.now);
-    street_address = models.CharField(default = '', max_length = 255);
-    city = models.CharField(default = '', max_length = 255);
+    name = models.CharField(max_length = 255)
+    description = models.TextField(default = '')
+    event_type = models.ForeignKey(EventType)
+    date_start = models.DateField(default = datetime.now)
+    date_end = models.DateField(default = datetime.now)
+    street_address = models.CharField(default = '', max_length = 255)
+    city = models.CharField(default = '', max_length = 255)
     """ state_ID = models.ForeignKey(State); --------------------------------------------- """
-    zipcode = models.IntegerField(default = '');
-    """ address = AddressField(blank=True, null=True); ---------------------------------------------------------------- """
-    district = models.ForeignKey(District);
-    payment_url = models.URLField(default = '');
-    primary_contact_ID = models.ForeignKey(Person);
-    creation_date = models.DateTimeField(default = datetime.now);
-    """creation_user = models.ForeignKey(User);"""
+    zipcode = models.IntegerField(default = '')
+    address = AddressField(blank=True, null=True)
+    district = models.ForeignKey(District)
+    payment_url = models.URLField(default = '')
+    primary_contact_ID = models.ForeignKey(Person)
+    creation_date = models.DateTimeField(default = datetime.now)
+    creation_user = models.ForeignKey(User)
 
     def publish(self):
         self.creation_date = datetime.now();
@@ -114,6 +114,6 @@ class SearchEvent(models.Model):
     name = models.CharField(max_length = 255, blank=True, null=True);
     description = models.CharField(max_length=255, default = '', blank=True, null=True);
     event_type = models.ForeignKey(EventType, blank=True, null=True);
-    date_start = models.DateField(blank=True, null=True);
-    district = models.ForeignKey(District, blank=False);
+    date_start = models.DateField(default = '', blank=True, null=True);
+    district = models.ForeignKey(District, blank=True, null=True);
     primary_contact_ID = models.ForeignKey(Person, blank=True, null=True);

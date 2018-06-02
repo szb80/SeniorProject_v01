@@ -27,7 +27,8 @@ class searchform(forms.ModelForm):
     class Meta:
         model = SearchEvent
         fields = ['name', 'description', 'event_type', 'date_start', 'district', ]
-        widgets = {'date_start': SelectDateWidget()}
+        widgets = {'date_start': SelectDateWidget(empty_label=("Select Year", "Select Month", "Select Day"))}
+
 
 
 class createform(forms.ModelForm):

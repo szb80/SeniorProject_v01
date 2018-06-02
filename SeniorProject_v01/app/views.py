@@ -43,26 +43,96 @@ def setCurrentMonthYear():
     # with values of the current month and year
     return int(datetime.now().month), int(datetime.now().year)
 
- 
-def buildCalendar(request, month=None, year=None):
-    # generates a calendar object with the passed event dictionary
-    # accepts a queryset of events
+
+def buildCalendar(request, month=None, year=None, params=None):
+    # generates a calendar object
     # returns an instance of TemplatedCalendar() HTMLCalendar
 
-    calendar = TemplatedCalendar()
-    calendar.setfirstweekday(6)
+    # default to current month, then overwrite if request is different
+    setmonth = datetime.now().month
+    setyear = datetime.now().year
 
-    # if date range is not valid, set to current month #####################################################################
-    if not validateMonthYear(month, year):
-        month, year = setCurrentMonthYear()
+    # check if request parameters are valid and set local variables
+    if validateMonthYear(request.GET.get('month'), request.GET.get('year')):
+        setmonth = request.GET.get('month')
+        setyear = request.GET.get('year')
+    elif validateMonthYear(month, year):
+        setmonth = month
+        setyear = year
+
+    # if search for month, make calendar for that month
+    if 'date_start_month' in request.GET and request.GET['date_start_month'] is not 0:
+        setmonth = request.GET.get('date_start_month')
+
+    # if search includes year, make calendar for that year
+    if 'date_start_year' in request.GET and request.GET['date_start_year'] is not 0:
+        setyear = request.GET.get('date_start_year')
+
+    # create calendar instance and perform initial formatting
+    calendar = TemplatedCalendar()
+    calendar.setfirstweekday(6) # start on sunday
     
+    # no searchform provided, create dict with date to render
+    if not params:
+        params = {'month': setmonth,
+                  'year': setyear,
+                  }
+
+    # build calendar with cleaned date
     month_table = calendar.formatmonth(
-        int(year),
-        int(month), 
-        Event.objects.filter(date_start__range=(get_month_day_range(date(int(year), int(month), 1))))
+        int(setyear),
+        int(setmonth), 
+        getEvents(request, params),
         )
 
     return month_table
+
+
+def getEvents(request, params=None):
+    # receives request
+    # returns QuerySet of Events matching date and parameters
+
+    # get date of interest
+    if params:
+        month = params['month']
+        year = params['year']
+
+    # default to all events in given month
+    # initialize eventList before applying any filtering logic
+    eventList = Event.objects.filter(date_start__range=(get_month_day_range(date(int(year), int(month), 1))))
+
+    # if no search filters provided, return month from request
+    if not params:
+        return eventList
+
+    # if request is GET from the search page, apply filtering on parameters
+    if request.method == "GET":
+        if params:
+            if 'district' in request.GET and request.GET['district']:  # REQUIRED FIELD
+                q = request.GET['district']
+                eventList = eventList.filter(district__exact=q)
+
+            if 'event_type' in request.GET and request.GET['event_type']:
+                q = request.GET['event_type']
+                eventList = eventList.filter(event_type__exact=q)
+
+            if 'date_start_month' in request.GET and request.GET['date_start_month'] is not '0':
+                if request.GET.get('date_start_day') is not '0':
+                    if request.GET.get('date_start_year') is not '0':
+                        search_date = date(int(request.GET.get('date_start_year')), 
+                                            int(request.GET.get('date_start_month')),
+                                            int(request.GET.get('date_start_day')))
+                        eventList = eventList.filter(date_start__contains=search_date)
+
+            if 'name' in request.GET and request.GET['name']:
+                q = request.GET['name']
+                eventList = eventList.filter(name__icontains=q)
+
+            if 'description' in request.GET and request.GET['description']:
+                q = request.GET['description']
+                eventList = eventList.filter(description__icontains=q)
+
+        return eventList
 
 
 ###############################################################################
@@ -141,19 +211,11 @@ def events(request, month=None, year=None):
     """ displays a calendar of events and defaults to current month """
     assert isinstance(request, HttpRequest)
 
-    # if date range is not valid, set to current month
-    if not validateMonthYear(month, year):
-        month, year = setCurrentMonthYear()
-
-    month = request.GET.get('month')
-    year = request.GET.get('year')
-    
     return render(request,
         'app/events.html', 
         {
             'title': 'Events',
-            'month_table': buildCalendar(request, month, year), 
-            'events': events,
+            'month_table': buildCalendar(request), 
         }
     )
 
@@ -167,47 +229,13 @@ def search(request, month=None, year=None):
     # Renders the filter events page
     assert isinstance(request, HttpRequest)
 
-        # if date range is not valid, set to current month
-    if not validateMonthYear(month, year):
-        month, year = setCurrentMonthYear()
-
-    month = request.GET.get('month')
-    year = request.GET.get('year')
-
-    params = searchform()
-    month_table = buildCalendar(request, month, year)  # default current month
-    event_list = Event.objects.filter(date_start__range=(get_month_day_range(datetime.now())))
-
     if request.method == "GET":
         params = searchform(request.GET)
-        if params.is_valid():
-            if 'district' in request.GET and request.GET['district']:  # REQUIRED FIELD
-                q = request.GET['district']
-                event_list = Event.objects.filter(district__exact=q)
+        month_table = buildCalendar(request, params)
 
-            if 'event_type' in request.GET and request.GET['event_type']:
-                q = request.GET['event_type']
-                event_list = event_list.filter(event_type__exact=q)
-
-            if 'date_start_month' in request.GET and request.GET['date_start_month']:
-                if request.GET.get('date_start_month') is not '0':
-                    search_date = date(int(request.GET.get('date_start_year')), 
-                                        int(request.GET.get('date_start_month')),
-                                        int(request.GET.get('date_start_day')))
-                    event_list = Event.objects.filter(date_start__contains=search_date)
-
-            if 'name' in request.GET and request.GET['name']:
-                q = request.GET['name']
-                event_list = event_list.filter(name__icontains=q)
-
-            if 'description' in request.GET and request.GET['description']:
-                q = request.GET['description']
-                event_list = event_list.filter(description__icontains=q)
-
-        month_table = buildCalendar(event_list)
-
-        #else: # searchform is invalid
-            #return HttpResponseRedirect('/error')l
+    else: # searchform is invalid or not submitted yet
+        params = searchform()
+        month_table = buildCalendar(request)  # default current month
 
     return render(
         request, 
@@ -222,6 +250,7 @@ def search(request, month=None, year=None):
 
 @login_required
 def create(request):
+    # displays the "Create Event" page for users to create a new event
     if request.user.has_perm('app.event.add'):
         if request.method == "POST":
             form = createform(request.POST)
@@ -246,7 +275,6 @@ def create(request):
                 'error_msg': 'You do not have permission to access this page.',
             }
         )
-
 
 
 def register(request):
