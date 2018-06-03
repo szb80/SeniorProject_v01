@@ -61,6 +61,7 @@ class District(models.Model):
 class EventType(models.Model):
     name = models.CharField(max_length = 255, default = '');
     description = models.TextField(default = '');
+    icon = models.FileField(null=True, blank=True)
     
     def __str__(self):
         return self.name;
@@ -68,27 +69,25 @@ class EventType(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length = 255)
-    description = models.TextField(default = '')
+    description = models.TextField(default = 'Description not provided')
     event_type = models.ForeignKey(EventType)
     date_start = models.DateField(default = datetime.now)
     date_end = models.DateField(default = datetime.now)
-    """ street_address = models.CharField(default = '', max_length = 255) """
-    """ city = models.CharField(default = '', max_length = 255) """
-    """ state_ID = models.ForeignKey(State); --------------------------------------------- """
-    """zipcode = models.IntegerField(default = '') """
-    address = models.CharField(max_length = 500, default = '')
+    time_start = models.TimeField(null=True, blank=True)
+    time_end = models.TimeField(null=True, blank=True)
+    address = models.CharField(max_length = 500, default = 'Address not provided')
     coord_x = models.CharField(max_length = 255, default = '', null=True, blank=True)
     coord_y = models.CharField(max_length = 255, default = '', null=True, blank=True)
     google_location = models.CharField(max_length = 300, default = '', null=True, blank=True)
     district = models.ForeignKey(District)
-    payment_url = models.URLField(default = '')
-    primary_contact_ID = models.ForeignKey(Person)
+    payment_url = models.URLField(default = 'Payment link not provided')
+    primary_contact_ID = models.ForeignKey(Person, default=0)
     creation_date = models.DateTimeField(default = datetime.now)
     creation_user = models.ForeignKey(User, null=True, blank=True)
 
     def publish(self):
         self.creation_date = datetime.now();
-        self.creation_user = request.user
+        self.creation_user = request.user.id
         self.save();
 
     def __str__(self):
@@ -97,19 +96,6 @@ class Event(models.Model):
     def get_absolute_url(self):
         url = '/event/' + str(self.id)
         return u'<a href="%s">%s</a>' % (url, str(self.name))
-
-
-class EventQuerySet(models.QuerySet):
-    def district(self, district):
-        return self.filter(district__eq=district)
-
-
-class EventManager(models.Manager):
-    def get_queryset(self):
-        return DocumentQuerySet(self.model, using=self._db)  # Important!
-
-    def district(self, district):
-        return self.get_queryset().district(district)
 
 
 class SearchEvent(models.Model):
@@ -121,6 +107,10 @@ class SearchEvent(models.Model):
     primary_contact_ID = models.ForeignKey(Person, blank=True, null=True);
 
 
+class ListEvent(models.Model):
+    event_type = models.ForeignKey(EventType, blank=True, null=True);
+    date_start = models.DateField(default = '', blank=True, null=True);
+    district = models.ForeignKey(District, blank=True, null=True);
 
 
 class autofill(models.Model):

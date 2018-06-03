@@ -4121,3 +4121,154 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.urls.idb"
 2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.utils.idb"
 2018-06-02T14:08:56: Deleting "C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\easy_timezones\easy_timezones.views.idb"
+
+2018-06-02T21:29:45: Start analysis
+2018-06-02T21:29:45: IncludeModulesFromModulePath = win32com
+2018-06-02T21:29:48: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL because PIL._imaging needs updating
+2018-06-02T21:29:48: Deleting 0 files
+2018-06-02T21:29:48: Scraping PIL._imaging
+2018-06-02T21:29:48: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._imaging c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._imaging
+2018-06-02T21:29:48: Scraping PIL._imagingcms
+2018-06-02T21:29:48: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._imagingcms c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._imagingcms
+2018-06-02T21:29:48: Scraping PIL._imagingft
+2018-06-02T21:29:48: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._imagingft c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._imagingft
+2018-06-02T21:29:49: Scraping PIL._imagingmath
+2018-06-02T21:29:49: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._imagingmath c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._imagingmath
+2018-06-02T21:29:49: Scraping PIL._imagingmorph
+2018-06-02T21:29:49: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._imagingmorph c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._imagingmorph
+2018-06-02T21:29:49: Scraping PIL._imagingtk
+2018-06-02T21:29:49: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._imagingtk c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._imagingtk
+2018-06-02T21:29:50: Scraping PIL._webp
+2018-06-02T21:29:50: Command: C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\Scripts\python.exe "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\Python\Core\ExtensionScraper.py" scrape PIL._webp c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages C:\Users\Neo\source\repos\SeniorProject_v01\SeniorProject_v01\env1\.ptvs\PIL\PIL._webp
+2018-06-02T21:29:50: Scraped 7 files
+2018-06-02T21:29:50: astropy.CallDepth = 0
+2018-06-02T21:29:50: delphixpy.CallDepth = 0
+2018-06-02T21:29:50: matplotlib.CallDepth = 3
+2018-06-02T21:29:50: pandas.CallDepth = 0
+2018-06-02T21:29:50: sympy.CallDepth = 0
+2018-06-02T21:29:50: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL" with 90 files
+2018-06-02T21:29:50: Parsing complete
+2018-06-02T21:29:50: Analyzing "PIL.BdfFontFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\BdfFontFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.BmpImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\BmpImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.BufrStubImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\BufrStubImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.ContainerIO" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ContainerIO.py")
+2018-06-02T21:29:50: Analyzing "PIL.CurImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\CurImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.DcxImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\DcxImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.DdsImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\DdsImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.EpsImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\EpsImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.ExifTags" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ExifTags.py")
+2018-06-02T21:29:50: Analyzing "PIL.features" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\features.py")
+2018-06-02T21:29:50: Analyzing "PIL.FitsStubImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\FitsStubImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.FliImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\FliImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.FontFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\FontFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.FpxImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\FpxImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.FtexImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\FtexImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.GbrImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\GbrImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.GdImageFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\GdImageFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.GifImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\GifImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.GimpGradientFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\GimpGradientFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.GimpPaletteFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\GimpPaletteFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.GribStubImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\GribStubImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.Hdf5StubImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\Hdf5StubImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.IcnsImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\IcnsImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.IcoImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\IcoImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.Image" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\Image.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageChops" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageChops.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageCms" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageCms.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageColor" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageColor.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageDraw" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageDraw.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageDraw2" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageDraw2.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageEnhance" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageEnhance.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageFilter" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageFilter.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageFont" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageFont.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageGrab" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageGrab.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageMath" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageMath.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageMode" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageMode.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageMorph" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageMorph.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageOps" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageOps.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImagePalette" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImagePalette.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImagePath" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImagePath.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageQt" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageQt.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageSequence" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageSequence.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageShow" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageShow.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageStat" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageStat.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageTk" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageTk.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageTransform" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageTransform.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImageWin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImageWin.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.ImtImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\ImtImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.IptcImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\IptcImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.Jpeg2KImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\Jpeg2KImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.JpegImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\JpegImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.JpegPresets" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\JpegPresets.py")
+2018-06-02T21:29:50: Analyzing "PIL.McIdasImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\McIdasImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.MicImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\MicImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.MpegImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\MpegImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.MpoImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\MpoImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.MspImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\MspImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.OleFileIO" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\OleFileIO.py")
+2018-06-02T21:29:50: Analyzing "PIL.PaletteFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PaletteFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.PalmImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PalmImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PcdImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PcdImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PcfFontFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PcfFontFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.PcxImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PcxImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PdfImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PdfImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PixarImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PixarImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PngImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PngImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PpmImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PpmImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PsdImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PsdImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.PSDraw" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PSDraw.py")
+2018-06-02T21:29:50: Analyzing "PIL.PyAccess" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\PyAccess.py")
+2018-06-02T21:29:50: Analyzing "PIL.SgiImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\SgiImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.SpiderImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\SpiderImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.SunImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\SunImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.TarIO" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\TarIO.py")
+2018-06-02T21:29:50: Analyzing "PIL.TgaImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\TgaImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.TiffImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\TiffImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.TiffTags" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\TiffTags.py")
+2018-06-02T21:29:50: Analyzing "PIL.version" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\version.py")
+2018-06-02T21:29:50: Analyzing "PIL.WalImageFile" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\WalImageFile.py")
+2018-06-02T21:29:50: Analyzing "PIL.WebPImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\WebPImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.WmfImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\WmfImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.XbmImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\XbmImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.XpmImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\XpmImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL.XVThumbImagePlugin" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\XVThumbImagePlugin.py")
+2018-06-02T21:29:50: Analyzing "PIL._binary" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\_binary.py")
+2018-06-02T21:29:50: Analyzing "PIL._tkinter_finder" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\_tkinter_finder.py")
+2018-06-02T21:29:50: Analyzing "PIL._util" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\_util.py")
+2018-06-02T21:29:50: Analyzing "PIL" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL\__init__.py")
+2018-06-02T21:29:50: Starting analysis of 90 modules
+2018-06-02T21:29:56: Analysis complete
+2018-06-02T21:29:56: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL"
+2018-06-02T21:29:57: [ERROR] PIL.TiffImagePlugin.AppendingTiffWriter.AppendingTiffWriter: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.TiffImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.TiffImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.TiffImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.TiffImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.TiffImagePlugin.ImageFileDirectory_v2.ImageFileDirectory_v2: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.ImageFont.load: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.ImageFont.FreeTypeFont.FreeTypeFont: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.ImageFont.ImageFont.ImageFont: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.PdfImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.PdfImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.PdfImagePlugin._endobj: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.PdfImagePlugin._obj: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.PdfImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.PdfImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._write_single_frame: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._write_local_header: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._write_multiple_frames: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.GifImagePlugin._write_frame_data: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.WebPImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.WebPImagePlugin._save_all: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.WebPImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.WebPImagePlugin._save: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.ImageShow.which: Unknown has no name
+2018-06-02T21:29:57: [ERROR] PIL.Image.Image.Image: Unknown has no name
+2018-06-02T21:29:57: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\PIL"
+2018-06-02T21:29:59: Deleting 0 files

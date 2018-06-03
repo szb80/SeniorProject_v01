@@ -65,6 +65,23 @@ input[type="checkbox"].input-validation-error {
     padding: 0;
 }
 
+.event-type-icon {
+    height: 2.5rem;
+}
+
+.align-middle {
+    vertical-align: middle !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.event-fas {
+    vertical-align: baseline;
+    height: 0.95rem;
+}
+
 /* BOOTSTRAP OVERRIDES */
 .alert-box {
     padding: 2rem 0;

@@ -3,10 +3,6 @@
 {% block content %}
 
 <div class="wrapper-trans">
-    <a href="/event/4" class="js-popup-link">bring up a popup</a>
-    <div id="popup"></div>
-</div>
-
 
     {% if eventlist %}
     <ul>
@@ -18,24 +14,9 @@
     <p>No events are available.</p>
     {% endif %}
 </div>
+
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript">
-    $(document).ready(function () {
-    $("#about-btn").click(function (event) {
-        alert("You clicked the button using JQuery!");
-    });
-});
-</script>
-<script type="text/javascript">
-    $(document).ready(
-    function(){
-  $('.js-popup-link').click(function(e){
-    e.preventDefault()
-    $('#popup').dialog({modal: true}).dialog('open').load(this.href)
-  })
-});
-</script>
 
 {% endblock %}

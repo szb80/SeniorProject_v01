@@ -2,7 +2,7 @@
 Definition of views.
 """
 
-import requests
+import requests, json
 
 from django.views.generic.base import View
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
-from app.forms import searchform, createform
+from app.forms import searchform, createform, listform
 import googlemaps
 
 
@@ -224,6 +224,44 @@ def events(request, month=None, year=None):
     )
 
 
+
+def upcoming(request):
+    """Displays all upcoming Events after the current date"""
+    upcoming = Event.objects.filter(date_start__gte=datetime.now()).order_by('date_start')
+
+    if request.method == "GET":
+        filters = listform(request.GET)
+        
+        if 'district' in request.GET and request.GET['district']:
+            district = request.GET['district']
+            upcoming = upcoming.filter(district__exact=district)
+        if 'event_type' in request.GET and request.GET['event_type']:
+            event_type = request.GET['event_type']
+            upcoming = upcoming.filter(event_type__exact=event_type)
+
+        eventList = [dict(id=e.pk, name=e.name) for e in upcoming]
+
+        #return HttpResponse(
+        #    json.dumps(eventList),
+        #    content_type='application/json',
+        #)
+        
+
+    else: # searchform is invalid or not submitted yet
+        filters = listform()
+        
+
+    return render(
+        request, 
+        'app/upcoming.html', 
+        {
+            'title':'Upcoming Events',
+            'upcoming': upcoming,
+            'filters': filters,
+        }
+    )
+
+
 def eventdetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
 
@@ -331,13 +369,6 @@ def eventlist(request):
     context = { 'eventlist': eventlist, }
     return HttpResponse(template.render(context, request))
 
-
-def upcoming(request):
-    """Displays all upcoming Events after the current date"""
-    upcoming = Event.objects.filter(date_start__gte=datetime.now()).order_by('date_start')
-    template = loader.get_template('app/upcoming.html')
-    context = { 'upcoming': upcoming, }
-    return HttpResponse(template.render(context, request))
 
 
 def create2(request):

@@ -68,6 +68,7 @@
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
+    <Folder Include="app\static\app\img\icons\" />
     <Folder Include="app\templates\tempocal\" />
     <Folder Include="app\templatetags\" />
     <Folder Include="app\static\" />
@@ -87,6 +88,12 @@
     <Content Include="app\static\app\img\calendar_01.jpg" />
     <Content Include="app\static\app\img\calendar_02.jpg" />
     <Content Include="app\static\app\img\fb1.png" />
+    <Content Include="app\static\app\img\icons\backpack.svg" />
+    <Content Include="app\static\app\img\icons\camping.svg" />
+    <Content Include="app\static\app\img\icons\community.svg" />
+    <Content Include="app\static\app\img\icons\national.svg" />
+    <Content Include="app\static\app\img\icons\regional.svg" />
+    <Content Include="app\static\app\img\icons\training.svg" />
     <Content Include="app\static\app\img\search_01.jpg" />
     <Content Include="app\static\app\img\search_02.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover.jpg" />

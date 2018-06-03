@@ -2,38 +2,110 @@
 
 {% load staticfiles %}
 {% load truncatesmart %}
+{% load widget_tweaks %}
 
 {% block content %}
 
-<h2>Upcoming Events</h2>
-<h3>{{ message }}</h3>
+<div class="wrapper-trans">
 
-    {% if upcoming %}
-    <table>
-        <thead>
-            <td><h3>Title</h3></td>
-            <td><h3>Category</h3></td>
-            <td><h3>Description</h3></td>
-            <td><h3>Start Date</h3></td>
-            <td><h3>End Date</h3></td>
-            <td><h3>Location</h3></td>
-            <td><h3>Registration</h3></td>
-        </thead>
-    {% for event in upcoming %}
-        <tr>
-            <td><a href="/event/{{event.id}}">{{ event.name }}</a></td>
-            <td>{{ event.event_type }}</td>
-            <!-- NOT BUILDING CORRECT DETAIL URLS ########################################################## -->
-            <td>{{ event.description|truncatesmart:90 }} <a href="/event/{{event.id}}">(more)</a></td>
-            <td>{{ event.date_start }}</td>
-            <td>{{ event.date_end }}</td>
-            <td>{{ event.street_address }}</td> <!-- #################################################3 -->
-            <td><a href="{{ event.payment_url }}">Registration Link</a></td>
-        </tr>
-    {% endfor %}
-    </table>
-{% else %}
-    <p>No events are available.</p>
-{% endif %}
+    <h1>Upcoming Events</h1>
+    <p></p>
 
+    <form method="GET" id="program-listing">
+        {% csrf_token %}
+
+        {% for field in filters.visible_fields %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field }}</label>
+
+                {% for error in field.errors %}
+                    <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <button class="btn btn-primary" type="submit">
+            <i class="fas fa-search navbar-fas"></i>Search
+        </button>
+    </form>
+    <a href="upcoming" class="btn btn-primary"><i class="fas fa-times-circle navbar-fas"></i>Reset</a>
+
+
+        {% if upcoming %}
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <th><h3>Title</h3></th>
+                <th><h3>Category</h3></th>
+                <th><h3>Description</h3></th>
+                <th><h3>Date</h3></th>
+                <th><h3>Time</h3></th>
+                <th><h3>Location</h3></th>
+            </thead>
+
+        {% for event in upcoming %}
+            <tr>
+                <td class="align-middle align-center"><a href="/event/{{event.id}}">{{ event.name }}</a></td>
+
+                <td class="align-middle align-center">
+                    {% if event.event_type.id == 6 %}
+                        <img src="{% static 'app/img/icons/national.svg' %}" class="event-type-icon" />
+                    {% elif event.event_type.id == 5 %}
+                        <img src="{% static 'app/img/icons/regional.svg' %}" class="event-type-icon" />
+                    {% elif event.event_type.id == 4 %}
+                        <img src="{% static 'app/img/icons/community.svg' %}" class="event-type-icon" />
+                    {% elif event.event_type.id == 3 %}
+                        <img src="{% static 'app/img/icons/training.svg' %}" class="event-type-icon" />
+                    {% elif event.event_type.id == 2 %}
+                        <img src="{% static 'app/img/icons/backpack.svg' %}" class="event-type-icon" />
+                    {% elif event.event_type.id == 1 %}
+                        <img src="{% static 'app/img/icons/camping.svg' %}" class="event-type-icon" />
+                    {% else %}
+                        <i class="far fa-question-circle"></i>
+                    {% endif %}
+
+                    <br />{{ event.event_type }}
+                </td>
+
+                <td class="align-middle">{{ event.description|truncatesmart:160 }} <a href="/event/{{event.id}}">(more)</a></td>
+                
+                {% if event.date_start.day == event.date_end.day %}
+				    <td class="align-middle align-center"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start }}</td>
+				{% else %}
+				    <td class="align-middle align-center"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start }} - {{ event.date_end }}</td>
+                {% endif %}
+                
+                <td>{{ event.start_time }}</td>
+
+                <td class="align-middle align-center">{{ event.district }}</td>
+
+            </tr>
+        {% endfor %}
+        </table>
+
+    {% else %}
+        <p>No events are available.</p>
+    {% endif %}
+
+</div>
+
+<script>
+    // note: this line only works in the template
+upcoming_link= "{% url 'upcoming' %}";
+
+$('#program-listing').on("change", 'select[name=district]', function(){
+    pgm = '#' + $(this).parents(".program-info").attr("id");
+    url = upcoming_link + '?district='+ $(pgm + ' select[name=district]').val() + '&eventtype='+ $(this).val();
+    // 'data' is what is returned from the view class
+    $.getJSON(url, function(data) {
+        options = ""
+        $.each(data, function () {
+            options += "<option value='" + this.id + "'>" + this.value + "</option>";
+        });
+        blank_option = "<option value=''>--Select--</option>"
+        $(pgm + ' select[name=major]').find('option').remove().end().append($(blank_option + options));
+    })
+});
+
+
+</script>
 {% endblock %}

@@ -27,13 +27,64 @@
                 {% endif %}
                 <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
 				<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
-			</ul>
-			<p><strong>Description: </strong>{{ event.description }}</p>
-            <p><strong>Category: </strong>{{ event.event_type}}</p>
-            <p><strong>Primary Contact: </strong>{{ event.primary_contact_ID}}</p>
-            <p><strong>Payment: </strong><a href="{{ event.payment_link}}">{{ event.payment_link }}</a></p>
-            <p><strong>Address: </strong>{{ event.address }} <br /><i class="far fa-compass"></i> <a href="{{ url_directions }}" target="_blank"><strong>Get Directions</strong></a></p>
+                <li class="list-inline-item">
+                    {% if event.event_type.id == 6 %}
+                        <img src="{% static 'app/img/icons/national.svg' %}" class="event-fas" />
+                    {% elif event.event_type.id == 5 %}
+                        <img src="{% static 'app/img/icons/regional.svg' %}" class="event-fas" />
+                    {% elif event.event_type.id == 4 %}
+                        <img src="{% static 'app/img/icons/community.svg' %}" class="event-fas" />
+                    {% elif event.event_type.id == 3 %}
+                        <img src="{% static 'app/img/icons/training.svg' %}" class="event-fas" />
+                    {% elif event.event_type.id == 2 %}
+                        <img src="{% static 'app/img/icons/backpack.svg' %}" class="event-fas" />
+                    {% elif event.event_type.id == 1 %}
+                        <img src="{% static 'app/img/icons/camping.svg' %}" class="event-fas" />
+                    {% else %}
+                        <i class="far fa-question-circle"></i>
+                    {% endif %}
 
+                    <strong>Category: </strong>{{ event.event_type}}
+                </li>
+
+			</ul>
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <strong>Description: </strong>
+                    </td>
+                    <td>
+                        {{ event.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Primary Contact: </strong>
+                    </td>
+                    <td>
+                        {{ event.primary_contact_ID}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Payment: </strong>
+                    </td>
+                    <td>
+                        <a href="{{ event.payment_link}}">{{ event.payment_link }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Address: </strong>
+                        
+                    </td>
+                    <td>
+                        {{ event.address }}
+                        <br /><i class="far fa-compass"></i> <a href="{{ url_directions }}" target="_blank"><strong>Get Directions</strong></a>
+                    </td>
+
+            </table>
 		</div>
 
         <div id="map"></div>
@@ -58,7 +109,7 @@
                         -->
         
                     
-   </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

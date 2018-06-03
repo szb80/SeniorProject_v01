@@ -6,7 +6,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
-from app.models import Event, SearchEvent, District, autofill
+from app.models import Event, SearchEvent, ListEvent, District
 import datetime
 
 class BootstrapAuthenticationForm(AuthenticationForm):
@@ -26,7 +26,6 @@ class searchform(forms.ModelForm):
         model = SearchEvent
         fields = ['name', 'description', 'event_type', 'date_start', 'district', ]
         widgets = {'date_start': SelectDateWidget(empty_label=("Select Year", "Select Month", "Select Day"))}
-
 
 
 class createform(forms.ModelForm):
@@ -62,7 +61,8 @@ class createform(forms.ModelForm):
         self.fields['coord_y'].widget = forms.HiddenInput()
         self.fields['google_location'].widget = forms.HiddenInput()
 
-class autofillform(forms.ModelForm):
+class listform(forms.ModelForm):
     class Meta:
-        model = autofill
-        fields = ['address']
+        model = ListEvent
+        fields = ['event_type', 'date_start', 'district', ]
+
