@@ -26,20 +26,20 @@ import googlemaps
 ###############################################################################
 # UTILITY FUNCTIONS
 ###############################################################################
-
 def validateMonthYear(month, year):
     # checks if a month and year are valid
     # returns boolean True is they are valid
     try:
         # is month in a valid range?
-        if int(month) not in range(0, 13):
+        if int(month) not in range(1, 13):
             return False  # nope!
         # is year in a valid range?
-        if int(year) not in range(2000, 2501):
+        if int(year) not in range(1999, 2501):
             return False  # nope!
+        else:
+            return True
     except TypeError:  # catch non-int type exceptions
         return False
-    return True  # passes all tests, is valid
 
 
 def setCurrentMonthYear():
@@ -137,7 +137,6 @@ def getEvents(request, params=None):
                 eventList = eventList.filter(description__icontains=q)
 
         return eventList
-
 
 ###############################################################################
 # LOGIN VIEWS
@@ -283,11 +282,11 @@ def search(request, month=None, year=None):
     assert isinstance(request, HttpRequest)
 
     if request.method == "GET":
-        params = searchform(request.GET)
-        month_table = buildCalendar(request, params)
+        searchParams = searchform(request.GET)
+        month_table = buildCalendar(request, searchParams)
 
     else: # searchform is invalid or not submitted yet
-        params = searchform()
+        searchParams = searchform()
         month_table = buildCalendar(request)  # default current month
 
     return render(
@@ -295,7 +294,7 @@ def search(request, month=None, year=None):
         'app/search.html', 
         {
             'title':'Search Events',
-            'filter': params,
+            'filter': searchParams,
             'month_table': month_table,
         }
     )

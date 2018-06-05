@@ -64,5 +64,5 @@ class createform(forms.ModelForm):
 class listform(forms.ModelForm):
     class Meta:
         model = ListEvent
-        fields = ['event_type', 'date_start', 'district', ]
+        fields = ['event_type', 'district', ]
 
