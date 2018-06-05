@@ -65,11 +65,11 @@ def buildCalendar(request, month=None, year=None, params=None):
         setyear = year
 
     # if search for month, make calendar for that month
-    if 'date_start_month' in request.GET and request.GET['date_start_month'] is not 0:
+    if 'date_start_month' in request.GET and request.GET['date_start_month'] is not '0':
         setmonth = request.GET.get('date_start_month')
 
     # if search includes year, make calendar for that year
-    if 'date_start_year' in request.GET and request.GET['date_start_year'] is not 0:
+    if 'date_start_year' in request.GET and request.GET['date_start_year'] is not '0':
         setyear = request.GET.get('date_start_year')
 
     # create calendar instance and perform initial formatting
