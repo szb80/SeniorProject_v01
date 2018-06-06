@@ -3,6 +3,9 @@ from django.conf.urls import include, url
 import django.contrib.auth.views
 from django.contrib.auth import views as auth_views
 
+import app.views as core_views
+
+
 import app.forms
 import app.views
 
@@ -19,6 +22,8 @@ urlpatterns = [
     url(r'^create$', app.views.create, name='create'),
     url(r'^error$', app.views.error, name='error'),
 
+    url(r'^signup/$', app.views.signup, name='signup'),
+
     # TESTING URLS ###########################################################
     url(r'^upcoming$', app.views.upcoming, name='upcoming'),
     url(r'^eventlist$', app.views.eventlist, name='eventlist'),
@@ -26,6 +31,8 @@ urlpatterns = [
     url(r'^create2', app.views.create2, name='create2'),
 
     # USER MANAGEMENT URLS ###################################################
+
+    
      url(r'^login/$',
         django.contrib.auth.views.login,
         {

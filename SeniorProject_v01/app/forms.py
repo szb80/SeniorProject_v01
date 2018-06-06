@@ -3,11 +3,19 @@ Definition of forms.
 """
 
 from django import forms
+import SeniorProject_v01
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 from app.models import Event, SearchEvent, ListEvent, District
 import datetime
+
+
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+import django.contrib.auth.forms
+from django.contrib.auth.models import User
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
@@ -65,4 +73,16 @@ class listform(forms.ModelForm):
     class Meta:
         model = ListEvent
         fields = ['event_type', 'district', ]
+
+
+
+class SignUpForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+
 

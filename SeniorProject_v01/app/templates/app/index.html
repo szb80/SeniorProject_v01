@@ -12,6 +12,14 @@
         <p></p>
         <p class="centered">You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
     {% endif %}
+    
+    {% if messages %}
+    <p class="messages">
+    {% for message in messages %}
+    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+    </p>
+{% endif %}
 </div>
 
 <div class="row">

@@ -42,6 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #----------DELETE AFTER TESTING---------
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'moraleshugo19@gmail.com'
+EMAIL_HOST_PASSWORD = 'Dinuba2018'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@fpu.com>'
+
+
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

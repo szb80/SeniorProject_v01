@@ -1,12 +1,14 @@
 """
 Definition of views.
 """
+from django.contrib import messages
+
 
 import requests, json
 
 from django.views.generic.base import View
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render, render_to_response
+from django.shortcuts import get_object_or_404, render, render_to_response, redirect
 from django.template import loader, RequestContext
 from django.views import generic
 from django.conf import settings
@@ -21,6 +23,9 @@ from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
 from app.forms import searchform, createform, listform
 import googlemaps
+
+from app.forms import SignUpForm
+from django.contrib.auth.forms import UserCreationForm
 
 
 ###############################################################################
@@ -156,7 +161,7 @@ def loginfb(request):
     )
 
 
-def login(request):
+def login(request,user):
     assert isinstance(request, HttpRequest)
 
     if request.method == 'POST':
@@ -383,3 +388,20 @@ def create2(request):
     elif request.method == "GET":
         form = createform()
         return render(request, "app/create2.html", {'form': form})
+
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            messages.success(request, 'Successful Signup..')
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'app/user_registration.html', {'form': form})
