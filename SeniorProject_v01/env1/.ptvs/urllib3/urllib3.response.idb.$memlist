@@ -12,7 +12,7 @@ is_fp_closed
 IncompleteRead
 InvalidHeader
 zlib
-_get_decoder
+GzipDecoderState
 absolute_import
 contextmanager
 logging
@@ -22,7 +22,8 @@ BodyNotHttplibCompatible
 SocketError
 ResponseNotChunked
 log
+HTTPResponse
 ProtocolError
 basestring
-HTTPResponse
+_get_decoder
 io

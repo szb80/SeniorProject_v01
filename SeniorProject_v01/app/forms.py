@@ -37,7 +37,7 @@ class searchform(forms.ModelForm):
 
 
 class createform(forms.ModelForm):
-    required_css_class = 'required'
+    required_css_class = ' required'
 
     class Meta:
         model = Event
@@ -46,9 +46,6 @@ class createform(forms.ModelForm):
                   'address',
                   'date_start',
                   'date_end',
-                  #'street_address',
-                  #'city',
-                  #'zipcode',
                   'event_type',
                   'district',
                   'payment_url',
@@ -69,16 +66,16 @@ class createform(forms.ModelForm):
         self.fields['coord_y'].widget = forms.HiddenInput()
         self.fields['google_location'].widget = forms.HiddenInput()
 
+
 class listform(forms.ModelForm):
     class Meta:
         model = ListEvent
         fields = ['event_type', 'district', ]
 
 
-
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    first_name = forms.CharField(max_length=100, required=False, help_text='Optional.')
+    last_name = forms.CharField(max_length=100, required=False, help_text='Optional.')
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
     class Meta:

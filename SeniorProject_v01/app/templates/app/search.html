@@ -1,10 +1,9 @@
-﻿{% extends "app/layout.html" %}
+﻿{% extends "app/wrapper.html" %}
 {% load staticfiles %}
 {% load widget_tweaks %}
 {% load append_ast_if_req %}
 
-{% block content %}
-<div class="wrapper-trans">
+{% block wrapper %}
 
 {% if request.user.is_authenticated %}
 <div class="row">
@@ -53,5 +52,5 @@
     {% include "app/authentication_error.html" %}
 </div>
 {% endif %}
-</div>
+
 {% endblock %}

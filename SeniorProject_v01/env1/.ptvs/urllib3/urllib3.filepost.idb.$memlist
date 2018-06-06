@@ -1,12 +1,13 @@
 writer
+choose_boundary
 six
-uuid4
-encode_multipart_formdata
+os
 absolute_import
 b
-choose_boundary
+iter_field_objects
 codecs
 RequestField
+binascii
 BytesIO
 iter_fields
-iter_field_objects
+encode_multipart_formdata

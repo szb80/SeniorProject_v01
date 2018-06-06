@@ -3,7 +3,6 @@ Definition of views.
 """
 from django.contrib import messages
 
-
 import requests, json
 
 from django.views.generic.base import View
@@ -22,6 +21,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, District, SearchEvent
 from .utils import TemplatedCalendar, get_month_day_range
 from app.forms import searchform, createform, listform
+from app.templatetags import in_group
 import googlemaps
 
 from app.forms import SignUpForm
@@ -309,7 +309,7 @@ def search(request, month=None, year=None):
 @login_required
 def create(request):
     # displays the "Create Event" page for users to create a new event
-    if request.user.has_perm('app.event.add'):
+    if request.user.groups.filter(name="DistrictAdmin").count():
         gmaps = googlemaps.Client(key='AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8')
 
         if request.method == "POST":

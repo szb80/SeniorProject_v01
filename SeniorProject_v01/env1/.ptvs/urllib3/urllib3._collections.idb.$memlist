@@ -7,6 +7,7 @@ iterkeys
 RecentlyUsedContainer
 _Null
 RLock
-MutableMapping
 itervalues
+MutableMapping
 OrderedDict
+InvalidHeader

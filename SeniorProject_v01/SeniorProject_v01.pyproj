@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>SeniorProject_v01</Name>
     <RootNamespace>SeniorProject_v01</RootNamespace>
-    <InterpreterId>MSBuild|env2|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -94,6 +94,7 @@
     <Content Include="app\static\app\img\icons\national.svg" />
     <Content Include="app\static\app\img\icons\regional.svg" />
     <Content Include="app\static\app\img\icons\training.svg" />
+    <Content Include="app\static\app\img\list.jpg" />
     <Content Include="app\static\app\img\search_01.jpg" />
     <Content Include="app\static\app\img\search_02.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover.jpg" />
@@ -117,6 +118,7 @@
     <Content Include="app\templates\app\events.html" />
     <Content Include="app\templates\app\login-fb.html" />
     <Content Include="app\templates\app\login - Copy.html" />
+    <Content Include="app\templates\app\wrapper.html" />
     <Content Include="app\templates\tempocal\day.html" />
     <Content Include="app\templates\tempocal\emptymonth.html" />
     <Content Include="app\templates\tempocal\month.html" />

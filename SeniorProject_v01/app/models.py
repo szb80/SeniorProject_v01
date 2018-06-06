@@ -44,6 +44,7 @@ class Person(models.Model):
 
 class Region(models.Model):
     region_name = models.CharField(max_length=255, default = '');
+    abbreviation = models.CharField(max_length=6, default = '')
 
     def __str__(self):
         return self.region_name;
@@ -69,7 +70,7 @@ class EventType(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length = 255)
-    description = models.TextField(default = 'Description not provided')
+    description = models.TextField(help_text='Enter a description of the event.')
     event_type = models.ForeignKey(EventType)
     date_start = models.DateField(default = datetime.now)
     date_end = models.DateField(default = datetime.now)
@@ -80,7 +81,7 @@ class Event(models.Model):
     coord_y = models.CharField(max_length = 255, default = '', null=True, blank=True)
     google_location = models.CharField(max_length = 300, default = '', null=True, blank=True)
     district = models.ForeignKey(District)
-    payment_url = models.URLField(default = 'Payment link not provided')
+    payment_url = models.URLField(default = 'https://www.')
     primary_contact_ID = models.ForeignKey(Person, default=0)
     creation_date = models.DateTimeField(default = datetime.now)
     creation_user = models.ForeignKey(User, null=True, blank=True)
