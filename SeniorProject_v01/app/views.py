@@ -143,8 +143,9 @@ def getEvents(request, params=None):
 
         return eventList
 
+
 ###############################################################################
-# LOGIN VIEWS
+# LOGIN AND SIGNUP VIEWS
 ###############################################################################
 
 def loginfb(request):
@@ -174,6 +175,22 @@ def login(request,user):
                 login(request, user) # the user is now logged in
 
         return HttpResponseRedirect('/events')
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            messages.success(request, 'Successful Signup..')
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'app/user_registration.html', {'form': form})
 
 
 ###############################################################################
@@ -277,7 +294,7 @@ def eventdetail(request, event_id):
     return render(request, 'app/eventdetail.html',
                   {
                       'event': event,
-                      'url_directions': url,
+                      'url': url,
                   }
                   )
 
@@ -335,7 +352,13 @@ def create(request):
 
         elif request.method == "GET":
             form = createform()
-            return render(request, "app/create.html", {'form': form})
+            return render(request,
+                          "app/create.html",
+                          {
+                              'title': 'Create a new event',
+                              'form': form
+                              }
+                          )
     else:
         return render(
             request,
@@ -374,12 +397,37 @@ def eventlist(request):
     return HttpResponse(template.render(context, request))
 
 
-
 def create2(request):
+    # displays the "Create Event" page for users to create a new event
+    gmaps = googlemaps.Client(key='AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8')
+
     if request.method == "POST":
         form = createform(request.POST)
         if form.is_valid():
             form = form.save(commit=False)
+
+            # process geocode address
+            geocode_url = "https://maps.googleapis.com/maps/api/geocode/json?address={}".format(form.address)
+            geocode_url = geocode_url + "&key={}".format(settings.GOOGLE_MAPS_API)
+            results = requests.get(geocode_url)
+            results = results.json()
+            geocode_result = results['results'][0]
+            # process geocode coordinates
+            form.coord_x = geocode_result.get('geometry').get('location').get('lat')
+            form.coord_y = geocode_result.get('geometry').get('location').get('lng')
+            google_location = geocode_result.get('place_id')
+
+            # set event district based on user profile
+            form.district = request.user.profile.get_district()
+
+            type = 0
+            if 'primary_contact_info_type1' in request.GET and request.GET['primary_contact_info_type1']:
+                type = 1
+            elif 'primary_contact_info_type2' in request.GET and request.GET['primary_contact_info_type2']:
+                type = 2
+
+            form.primary_contact_info_type = type
+
             form.save()
             return HttpResponseRedirect('/events')
         else:
@@ -387,21 +435,10 @@ def create2(request):
 
     elif request.method == "GET":
         form = createform()
-        return render(request, "app/create2.html", {'form': form})
-
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            messages.success(request, 'Successful Signup..')
-            return redirect('home')
-    else:
-        form = SignUpForm()
-    return render(request, 'app/user_registration.html', {'form': form})
+        return render(request,
+                      "app/create2.html",
+                      {
+                          'form': form,
+                          'user': request.user,
+                       }
+                      )

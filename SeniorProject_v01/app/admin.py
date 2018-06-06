@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import EventType, Region, District, Troop, Person, Event, State
+from .models import EventType, Region, District, Troop, Profile, Event, State
 
 
 admin.site.register(State);
@@ -11,6 +11,6 @@ admin.site.register(EventType);
 
 admin.site.register(Troop);
 
-admin.site.register(Person);
+admin.site.register(Profile);
 
 admin.site.register(Event);
