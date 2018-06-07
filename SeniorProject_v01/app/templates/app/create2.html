@@ -6,6 +6,7 @@
 
 {% block head %}
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    {{ form.media }}
 {% endblock %}
 
 
@@ -39,16 +40,32 @@
                     <span class="help-block">{{ error }}</span>
                 </div>
 
-                <div class="form-group">
-                    <label for=" {{ form.date_start.id_for_label }}">{{ form.date_start | append_ast_if_req }}:</label>
-                    {{ form.date_start|add_class:'form-control' }}
-                    <span class="help-block">{{ error }}</span>
-                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for=" {{ form.date_start.id_for_label }}">{{ form.date_start | append_ast_if_req }}:</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
+                                </div>
+                                {{ form.date_start|add_class:'form-control' }}
+                            </div>
+                            <span class="help-block">{{ error }}</span>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for=" {{ form.date_end.id_for_label }}">{{ form.date_end | append_ast_if_req }}:</label>
-                    {{ form.date_end|add_class:'form-control' }}
-                    <span class="help-block">{{ error }}</span>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for=" {{ form.date_end.id_for_label }}">{{ form.date_end | append_ast_if_req }}:</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
+                                </div>
+                                {{ form.date_end|add_class:'form-control' }}
+                            </div>
+                            <span class="help-block">{{ error }}</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -64,7 +81,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for=" {{ form.primary_contact_name.id_for_label }}">{{ form.primary_contact_name | append_ast_if_req }}:</label>
+                    <label for="{{ form.primary_contact_name.id_for_label }}">{{ form.primary_contact_name | append_ast_if_req }}:</label>
                     {{ form.primary_contact_name|add_class:'form-control' }}
                     <span class="help-block">{{ error }}</span>
                 </div>
@@ -100,8 +117,8 @@
 
 {% endblock %}
 
-{% block scripts %}
 
+{% block scripts %}
 <!-- autocomplete on type in search box -->
 <script>
     function init() {

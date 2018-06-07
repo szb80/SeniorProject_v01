@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404, render, render_to_response, redi
 from django.template import loader, RequestContext
 from django.views import generic
 from django.conf import settings
-from datetime import datetime, date
+from datetime import datetime, date, time
 from django.utils.timezone import get_current_timezone
 from django.db.models import Q
 from django.contrib.auth.models import User
@@ -420,12 +420,12 @@ def create2(request):
             # set event district based on user profile
             form.district = request.user.profile.get_district()
 
+            # interpret and assign primary contact info type
             type = 0
             if 'primary_contact_info_type1' in request.GET and request.GET['primary_contact_info_type1']:
                 type = 1
             elif 'primary_contact_info_type2' in request.GET and request.GET['primary_contact_info_type2']:
                 type = 2
-
             form.primary_contact_info_type = type
 
             form.save()
@@ -438,6 +438,7 @@ def create2(request):
         return render(request,
                       "app/create2.html",
                       {
+                          'title': 'Create a new event',
                           'form': form,
                           'user': request.user,
                        }

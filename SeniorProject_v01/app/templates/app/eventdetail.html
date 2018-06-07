@@ -25,7 +25,7 @@
 				{% else %}
 				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
                 {% endif %}
-                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> {{ event.date_start.hour }}:{{ event.date_start.minute }} - {{ event.date_end.hour }}:{{ event.date_end.minute }}</li>
 				<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
                 <li class="list-inline-item">
                     {% if event.event_type.id == 6 %}
@@ -46,7 +46,6 @@
 
                     <strong>Category: </strong>{{ event.event_type}}
                 </li>
-
 			</ul>
 
             <table class="table">
@@ -63,7 +62,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Contact Information: 
+                    <th scope="row">Contact Information: </th>
                     <td>
                         {% if event.primary_contact_info_type == 1 %}
                             <i class="fas fa-envelope"></i> 
@@ -74,9 +73,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">>Payment: </th>
+                    <th scope="row">Payment: </th>
                     <td>
-                        <a href="{{ event.payment_link}}">{{ event.payment_link }}</a>
+                        <a href="{{ event.payment_url }}">{{ event.payment_url }}</a>
                     </td>
                 </tr>
                 <tr>

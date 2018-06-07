@@ -1,21 +1,19 @@
 """
 Definition of forms.
 """
+import SeniorProject_v01
+import datetime
+import django.contrib.auth.forms
 
 from django import forms
-import SeniorProject_v01
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
 from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
+
 from app.models import Event, SearchEvent, ListEvent, District
-import datetime
+from datetimewidget.widgets import DateTimeWidget
 
-
-
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-import django.contrib.auth.forms
-from django.contrib.auth.models import User
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
@@ -54,9 +52,16 @@ class createform(forms.ModelForm):
                   'coord_y',
                   'google_location',
                   ]
+        
+        dateTimeOptions = {
+            'format': 'mm/dd/yyyy HH:ii P',
+            'autoclose': True,
+            'showMeridian' : True
+        }
+
         widgets = {
-            'date_start': SelectDateWidget(),
-            'date_end': SelectDateWidget(),
+            'date_start': DateTimeWidget(options = dateTimeOptions),
+            'date_end': DateTimeWidget(options = dateTimeOptions),
                    }
 
     def __init__(self, *args, **kwargs):

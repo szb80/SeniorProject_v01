@@ -48,6 +48,9 @@
     <Compile Include="app\templatetags\relative_url.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\select_time_widget.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\templatetags\truncatesmart.py">
       <SubType>Code</SubType>
     </Compile>
@@ -105,6 +108,7 @@
     <Content Include="app\static\app\scripts\jquery-3.3.1.min.js" />
     <Content Include="app\static\app\scripts\jquery-ui.1.12.1.min.js" />
     <Content Include="app\static\app\scripts\site.js" />
+    <Content Include="app\templates\app\admin_troop.html" />
     <Content Include="app\templates\app\authentication_error.html" />
     <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\create2.html" />

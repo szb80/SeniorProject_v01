@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'app',
     'widget_tweaks',
     'googlemaps',
+    'datetimewidget',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',

@@ -5262,3 +5262,22 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-06-05T17:48:06: [ERROR] urllib3._collections.RecentlyUsedContainer.RecentlyUsedContainer: Unknown has no name
 2018-06-05T17:48:06: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\urllib3"
 2018-06-05T17:48:11: Deleting 0 files
+
+2018-06-06T20:51:56: Start analysis
+2018-06-06T20:51:57: IncludeModulesFromModulePath = win32com
+2018-06-06T20:52:02: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\datetimewidget because datetimewidget.widgets needs updating
+2018-06-06T20:52:03: Deleting 0 files
+2018-06-06T20:52:03: astropy.CallDepth = 0
+2018-06-06T20:52:03: delphixpy.CallDepth = 0
+2018-06-06T20:52:03: matplotlib.CallDepth = 3
+2018-06-06T20:52:03: pandas.CallDepth = 0
+2018-06-06T20:52:03: sympy.CallDepth = 0
+2018-06-06T20:52:03: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\datetimewidget" with 2 files
+2018-06-06T20:52:03: Parsing complete
+2018-06-06T20:52:03: Analyzing "datetimewidget.widgets" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\datetimewidget\widgets.py")
+2018-06-06T20:52:03: Analyzing "datetimewidget" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\datetimewidget\__init__.py")
+2018-06-06T20:52:03: Starting analysis of 2 modules
+2018-06-06T20:52:06: Analysis complete
+2018-06-06T20:52:06: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\datetimewidget"
+2018-06-06T20:52:06: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env1\lib\site-packages\datetimewidget"
+2018-06-06T20:52:12: Deleting 0 files
