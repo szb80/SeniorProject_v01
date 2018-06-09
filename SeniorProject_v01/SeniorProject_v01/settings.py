@@ -46,10 +46,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During devel
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'moraleshugo19@gmail.com'
-EMAIL_HOST_PASSWORD = 'Dinuba2018'
+EMAIL_HOST_USER = 'tlusa.events@gmail.com'
+EMAIL_HOST_PASSWORD = '[QuY)%A4*/#<2RjT@E>p[3Lv'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@fpu.com>'
 
 
 

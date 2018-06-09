@@ -76,13 +76,62 @@ class listform(forms.ModelForm):
 
 
 
-class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+# SIGN UP FORM ################################################################################
 
+class SignupForm(UserCreationForm):
+    username = forms.CharField(max_length=254,
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'Username'}))
+    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.',
+                                 widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'First Name'}))
+    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.',
+                                 widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'Last Name'}))
+    email = forms.EmailField(max_length=254,  required=True,
+                              widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'Email address'}))
+    password1 = forms.CharField(label=_("Password"),
+                               widget=forms.PasswordInput({
+                                   'class': 'form-control',
+                                   'placeholder':'Create password'}))
+    password2 = forms.CharField(label=_("Password"),
+                               widget=forms.PasswordInput({
+                                   'class': 'form-control',
+                                   'placeholder':'Repeat password'}))
+
+ 
+
+
+   
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+
+        def clean_email(self):
+                # Get the email
+                email = self.cleaned_data.get('email')
+
+                # Check to see if any users already exist with this email as a username.
+                try:
+                    match = User.objects.get(email=email)
+                except User.DoesNotExist:
+                    # Unable to find a user, this is fine
+                    return email
+
+                # A user was found with this as a username, raise an error.
+                raise forms.ValidationError('This email address is already in use.')
+
+
+   
+    
+
+
+    
+    
 
 

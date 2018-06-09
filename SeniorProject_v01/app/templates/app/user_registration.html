@@ -1,18 +1,83 @@
-﻿{% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <div>
-        {{ field.label_tag }}<br>
-        {{ field }}
-     
+﻿{% extends "app/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+
+<hr>
+{% if user.is_authenticated%}
+
+{%else%}
+<div class="login-form">
+	
+	<form method="post" class="form-horizontal">
+    <h2>Create Account</h2>
+            {% csrf_token %}
+        {{ form.non_field_errors }}
+
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        {{form.username}}
+         {{form.username.errors}}
+    </div> <!-- form-group// -->
+        <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        {{form.first_name}}
+        {{form.first_name.errors}}
+    </div> <!-- form-group// -->
+        <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        {{form.last_name}}
+        {{form.last_name.errors}}
+    </div> <!-- form-group// -->
+        
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            
+		 </div>
+
+        {{form.email}}
+        {{form.email.errors}}
+    </div> <!-- form-group// -->
+    
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{form.password1}}
+        {{form.password1.errors}}
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{form.password2}}
+        {{form.password2.errors}}
+    </div> <!-- form-group// -->
+        {% if form.errors %}
+            
+        {% endif %}
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
         {% endfor %}
-      </div>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+    </div> <!-- form-group// -->  
+       
+        <div class="or-seperator"><i>OR</i></div>
+    <p class="text-center">Have an account? <a href="{% url 'login' %}">Log In</a> </p>                                                                 
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div> 
+{% endif %}
 
 {% endblock %}

@@ -5,21 +5,27 @@
 
 <div class="jumbotron">
     <h1>Welcome to the Trail Life USA<br />Online Adventure Finder</h1>
+
+
     {% if request.user.is_authenticated %}
         <p></p>
         <h3 class="centered">Welcome back, {{ request.user.username.capitalize }}!</h3>
-    {% else %}
+    {% elif messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Successful Registration!</strong> Your account has been created. Please <a href="/login" class="alert-link">login</a> to continue.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        {% endfor %}
+        
+    {%else%}
         <p></p>
         <p class="centered">You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
     {% endif %}
     
-    {% if messages %}
-    <p class="messages">
-    {% for message in messages %}
-    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-    </p>
-{% endif %}
+    
 </div>
 
 <div class="row">
