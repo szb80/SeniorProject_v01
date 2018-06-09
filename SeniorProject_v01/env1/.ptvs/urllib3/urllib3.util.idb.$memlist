@@ -15,7 +15,7 @@ resolve_ssl_version
 IS_PYOPENSSL
 absolute_import
 __all__
-selectors
+queue
 make_headers
 HAS_SNI
 Url

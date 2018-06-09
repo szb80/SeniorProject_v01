@@ -25,7 +25,7 @@
 				{% else %}
 				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
                 {% endif %}
-                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> {{ event.date_start.hour }}:{{ event.date_start.minute }} - {{ event.date_end.hour }}:{{ event.date_end.minute }}</li>
 				<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
                 <li class="list-inline-item">
                     {% if event.event_type.id == 6 %}
@@ -46,42 +46,43 @@
 
                     <strong>Category: </strong>{{ event.event_type}}
                 </li>
-
 			</ul>
 
             <table class="table">
                 <tr>
-                    <td>
-                        <strong>Description: </strong>
-                    </td>
+                    <th scope="row">Description: </th>
                     <td>
                         {{ event.description }}
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">Primary Contact: 
                     <td>
-                        <strong>Primary Contact: </strong>
-                    </td>
-                    <td>
-                        {{ event.primary_contact_ID}}
+                        {{ event.primary_contact_name}}
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">Contact Information: </th>
                     <td>
-                        <strong>Payment: </strong>
-                    </td>
-                    <td>
-                        <a href="{{ event.payment_link}}">{{ event.payment_link }}</a>
+                        {% if event.primary_contact_info_type == 1 %}
+                            <i class="fas fa-envelope"></i> 
+                        {% elif event.primary_contact_info_type == 0 %}
+                            <i class="fas fa-phone"></i> 
+                        {% endif %}
+                        {{ event.primary_contact_info }}
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">Payment: </th>
                     <td>
-                        <strong>Address: </strong>
-                        
+                        <a href="{{ event.payment_url }}">{{ event.payment_url }}</a>
                     </td>
+                </tr>
+                <tr>
+                    <th scope="row">Address: </th>
                     <td>
                         {{ event.address }}
-                        <br /><i class="far fa-compass"></i> <a href="{{ url_directions }}" target="_blank"><strong>Get Directions</strong></a>
+                        <br /><i class="far fa-compass"></i> <a href="{{ url }}" target="_blank"><strong>Get Directions</strong></a>
                     </td>
 
             </table>

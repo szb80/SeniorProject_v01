@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.4.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/headerlogin.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -41,14 +42,10 @@
                         </div>
                       </li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i class="fas fa-search navbar-fas"></i>Search</a></li>
-
                     <!-- CHECK IF USER HAS PERMISSIONS BEFORE LINKING TO CREATE EVENT PAGE -->
-                    {% if user.is_authenticated %}
-                        {% if request.user|in_group:"DistrictAdmin" %} 
-                        <li class="nav-link"><a href="{% url 'create' %}"><i class="fas fa-plus-circle navbar-fas"></i>Create</a></li>
-                        {% endif %}
+                    {% if user.is_authenticated and request.user|in_group:"DistrictAdmin" %} 
+                        <li class="nav-item"><a class="nav-link" href="{% url 'create' %}"><i class="fas fa-plus-circle navbar-fas"></i>Create</a></li>
                     {% endif %}
-
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -60,8 +57,8 @@
                         </div>
                     </li>
 			    {% else %}
-			        <li class="nav-link"><a href="{% url 'signup' %}"><i class="fas fa-user-plus navbar-fas"></i>Sign Up</a></li class="nav-link">
-			        <li class="nav-link"><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt navbar-fas"></i>Login</a></li>
+			        <li class="nav-link"><a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus navbar-fas"></i>Sign Up</a></liclass="nav-link">
+			        <li class="nav-link"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt navbar-fas"></i>Login</a></li>
                 {% endif %}
                 </ul>
             </div>
@@ -69,6 +66,7 @@
     </nav> <!-- end navbar -->
 
     <div class="container">
+
         <!-- MAIN CONTENT BLOCK HERE -->
         {% block content %}
         {% endblock %}
@@ -83,7 +81,8 @@
         </footer>
     </div>
 
-    <script src="{% static 'app/scripts/jquery-3.3.1.min.js' %}"></script>
+    <!-- <script src="{% static 'app/scripts/jquery-3.3.1.min.js' %}"></script>-->
+    
     <script src="{% static 'app/scripts/bootstrap.bundle.4.min.js' %}"></script>
     <script src="{% static 'app/scripts/jquery-ui.1.12.1.min.js' %}"></script>
     <script src="{% static 'app/scripts/respond.js' %}"></script>

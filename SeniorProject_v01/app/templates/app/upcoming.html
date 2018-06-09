@@ -1,13 +1,14 @@
-﻿{% extends "app/layout.html" %}
+﻿{% extends "app/wrapper.html" %}
 
 {% load staticfiles %}
 {% load truncatesmart %}
 {% load widget_tweaks %}
 
-{% block content %}
+{% block wrapper %}
 
-<div class="wrapper-trans">
-
+<!-- check user authentication and display proper page -->
+{% if request.user.is_authenticated %}
+    <!-- if user is logged in, load events -->
     <h1>Upcoming Events</h1>
     <p></p>
 
@@ -35,7 +36,6 @@
             </div>
         </div>
     </form>
-
 
     {% if upcoming %}
     <table class="table table-striped table-hover">
@@ -92,7 +92,13 @@
         <p>No events are available.</p>
     {% endif %}
 
-</div>
+<!-- else display error -->
+{% else %}
+    <div class="col-md-12">
+        {% include "app/authentication_error.html" %}
+    </div>
+{% endif %}
+
 
 <script>
     // note: this line only works in the template
@@ -111,7 +117,5 @@ $('#program-listing').on("change", 'select[name=district]', function(){
         $(pgm + ' select[name=major]').find('option').remove().end().append($(blank_option + options));
     })
 });
-
-
 </script>
 {% endblock %}

@@ -1,21 +1,19 @@
 """
 Definition of forms.
 """
+import SeniorProject_v01
+import datetime
+import django.contrib.auth.forms
 
 from django import forms
-import SeniorProject_v01
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
 from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
+
 from app.models import Event, SearchEvent, ListEvent, District
-import datetime
+from datetimewidget.widgets import DateTimeWidget
 
-
-
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-import django.contrib.auth.forms
-from django.contrib.auth.models import User
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""
@@ -37,7 +35,7 @@ class searchform(forms.ModelForm):
 
 
 class createform(forms.ModelForm):
-    required_css_class = 'required'
+    required_css_class = ' required'
 
     class Meta:
         model = Event
@@ -46,20 +44,24 @@ class createform(forms.ModelForm):
                   'address',
                   'date_start',
                   'date_end',
-                  #'street_address',
-                  #'city',
-                  #'zipcode',
                   'event_type',
-                  'district',
                   'payment_url',
-                  'primary_contact_ID',
+                  'primary_contact_name',
+                  'primary_contact_info',
                   'coord_x',
                   'coord_y',
                   'google_location',
                   ]
+        
+        dateTimeOptions = {
+            'format': 'mm/dd/yyyy HH:ii P',
+            'autoclose': True,
+            'showMeridian' : True
+        }
+
         widgets = {
-            'date_start': SelectDateWidget(),
-            'date_end': SelectDateWidget(),
+            'date_start': DateTimeWidget(options = dateTimeOptions),
+            'date_end': DateTimeWidget(options = dateTimeOptions),
                    }
 
     def __init__(self, *args, **kwargs):
@@ -68,6 +70,7 @@ class createform(forms.ModelForm):
         self.fields['coord_x'].widget = forms.HiddenInput()
         self.fields['coord_y'].widget = forms.HiddenInput()
         self.fields['google_location'].widget = forms.HiddenInput()
+
 
 class listform(forms.ModelForm):
     class Meta:

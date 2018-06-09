@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>SeniorProject_v01</Name>
     <RootNamespace>SeniorProject_v01</RootNamespace>
-    <InterpreterId>MSBuild|env2|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -48,14 +48,14 @@
     <Compile Include="app\templatetags\relative_url.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\select_time_widget.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\templatetags\truncatesmart.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\templatetags\__init__.py" />
     <Compile Include="app\tests.py" />
-    <Compile Include="app\tokens.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="app\utils.py">
       <SubType>Code</SubType>
     </Compile>
@@ -72,7 +72,6 @@
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\static\app\img\icons\" />
-    <Folder Include="app\templates\registration\" />
     <Folder Include="app\templates\tempocal\" />
     <Folder Include="app\templatetags\" />
     <Folder Include="app\static\" />
@@ -98,6 +97,7 @@
     <Content Include="app\static\app\img\icons\national.svg" />
     <Content Include="app\static\app\img\icons\regional.svg" />
     <Content Include="app\static\app\img\icons\training.svg" />
+    <Content Include="app\static\app\img\list.jpg" />
     <Content Include="app\static\app\img\search_01.jpg" />
     <Content Include="app\static\app\img\search_02.jpg" />
     <Content Include="app\static\app\img\tlusa_homepage_cover.jpg" />
@@ -108,7 +108,7 @@
     <Content Include="app\static\app\scripts\jquery-3.3.1.min.js" />
     <Content Include="app\static\app\scripts\jquery-ui.1.12.1.min.js" />
     <Content Include="app\static\app\scripts\site.js" />
-    <Content Include="app\templates\app\acc_active_email.html" />
+    <Content Include="app\templates\app\admin_troop.html" />
     <Content Include="app\templates\app\authentication_error.html" />
     <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\create2.html" />
@@ -116,21 +116,13 @@
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />
     <Content Include="app\templates\app\search.html" />
-    <Content Include="app\templates\app\invalid_activation.html" />
-    <Content Include="app\templates\app\successful_confirmation.html" />
-    <Content Include="app\templates\app\user_confirmation.html" />
     <Content Include="app\templates\app\user_registration.html" />
     <Content Include="app\templates\app\upcoming.html" />
     <Content Include="app\templates\app\eventlist.html" />
     <Content Include="app\templates\app\events.html" />
     <Content Include="app\templates\app\login-fb.html" />
     <Content Include="app\templates\app\login - Copy.html" />
-    <Content Include="app\templates\registration\password_reset_confirm.html" />
-    <Content Include="app\templates\registration\password_reset_email.html" />
-    <Content Include="app\templates\registration\password_reset_done.html" />
-    <Content Include="app\templates\registration\password_reset_complete.html" />
-    <Content Include="app\templates\registration\password_reset_form.html" />
-    <Content Include="app\templates\registration\password_reset_subject.txt" />
+    <Content Include="app\templates\app\wrapper.html" />
     <Content Include="app\templates\tempocal\day.html" />
     <Content Include="app\templates\tempocal\emptymonth.html" />
     <Content Include="app\templates\tempocal\month.html" />
