@@ -52,4 +52,3 @@ constant_time_compare
 mixins
 settings
 base_user
-tests

@@ -2,9 +2,10 @@ HTTPError
 RetryError
 RequestException
 Timeout
+RequestsDependencyWarning
 InvalidSchema
 MissingSchema
-RequestsWarning
+UnrewindableBodyError
 ChunkedEncodingError
 SSLError
 URLRequired
@@ -13,6 +14,7 @@ TooManyRedirects
 ConnectionError
 FileModeWarning
 ProxyError
+RequestsWarning
 InvalidURL
 ConnectTimeout
 StreamConsumedError

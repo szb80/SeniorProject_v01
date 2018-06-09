@@ -5,3 +5,4 @@ HTTPAdapter
 functools
 CacheController
 CallbackFileWrapper
+zlib

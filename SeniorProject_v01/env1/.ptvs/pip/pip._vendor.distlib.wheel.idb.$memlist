@@ -11,11 +11,12 @@ SHEBANG_PYTHON
 _derive_abi
 IMP_PREFIX
 ABI
-logging
+FileOperator
 ARCH
 DistlibException
 Metadata
 Wheel
+WHEEL_METADATA_FILENAME
 METADATA_FILENAME
 base64
 filter
@@ -40,7 +41,7 @@ VER_SUFFIX
 sys
 Cache
 posixpath
-FileOperator
+logging
 NAME_VERSION_RE
 read_exports
 SHEBANG_DETAIL_RE

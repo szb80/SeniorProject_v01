@@ -3,13 +3,11 @@ toPython_re
 supported_languages
 PickerWidgetMixin
 BOOTSTRAP_INPUT_TEMPLATE
-forms
 dateConversiontoJavascript
 TimeInput
 DateTimeInput
 __author__
 dateConversiontoPython
-MultiWidget
 DateTimeWidget
 string_types
 datetime

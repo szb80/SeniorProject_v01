@@ -3,7 +3,7 @@ postgresql_psycopg2
 dummy
 sqlite3
 postgresql
-mysql
 oracle
+mysql
 base
 utils

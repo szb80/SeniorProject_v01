@@ -30,11 +30,11 @@ Binary
 OperationalError
 adapt
 DateFromTicks
-SQLITE_DROP_TABLE
+SQLITE_CREATE_VIEW
 SQLITE_ANALYZE
 SQLITE_CREATE_TRIGGER
 SQLITE_DROP_TEMP_INDEX
-SQLITE_ATTACH
+TimeFromTicks
 enable_shared_cache
 memoryview
 complete_statement
@@ -68,7 +68,7 @@ PrepareProtocol
 SQLITE_CREATE_TEMP_TABLE
 SQLITE_INSERT
 Row
-SQLITE_CREATE_VIEW
+SQLITE_DROP_TABLE
 SQLITE_REINDEX
 ProgrammingError
 Error
@@ -77,6 +77,6 @@ int
 SQLITE_OK
 SQLITE_DELETE
 datetime
-TimeFromTicks
+SQLITE_ATTACH
 SQLITE_CREATE_TEMP_VIEW
 register_converter

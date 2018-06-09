@@ -1,4 +1,5 @@
-absolute_import
-urllib3
+unprefixed_mod
+package
+mod
 sys
-chardet
+vendored_package

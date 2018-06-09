@@ -6,6 +6,7 @@ HTML_CONTENT_TYPE
 threading
 URLError
 logger
+MetadataInvalidError
 string_types
 NAME_VERSION_RE
 HASHER_HASH
@@ -42,9 +43,9 @@ url2pathname
 DependencyFinder
 locate
 HTTPError
-parse_credentials
-posixpath
 get_project_data
+posixpath
+parse_credentials
 JSONLocator
 split_filename
 PyPIRPCLocator

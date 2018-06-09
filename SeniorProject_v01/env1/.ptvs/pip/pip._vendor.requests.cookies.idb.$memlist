@@ -1,7 +1,7 @@
 time
 CookieConflictError
 remove_cookie_by_name
-morsel_to_cookie
+to_native_string
 copy
 urlparse
 collections
@@ -11,6 +11,7 @@ RequestsCookieJar
 get_cookie_header
 merge_cookies
 cookielib
+morsel_to_cookie
 Morsel
 create_cookie
 MockResponse

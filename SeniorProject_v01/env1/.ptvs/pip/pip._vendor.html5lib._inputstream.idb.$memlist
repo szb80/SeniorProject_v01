@@ -6,7 +6,6 @@ codecs
 unicode_literals
 webencodings
 BytesIO
-ReparseException
 EncodingBytes
 asciiLettersBytes
 HTMLInputStream
@@ -28,6 +27,7 @@ invalid_unicode_re
 invalid_unicode_no_surrogate
 EncodingParser
 absolute_import
+_ReparseException
 ascii_punctuation_re
 ContentAttrParser
 StringIO

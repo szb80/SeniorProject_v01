@@ -4,13 +4,14 @@ numeric_types
 cookielib
 bytes
 Morsel
-quote
 urlparse
+quote
 proxy_bypass
+integer_types
 builtin_str
 StringIO
-urljoin
-OrderedDict
+proxy_bypass_environment
+getproxies_environment
 getproxies
 sys
 urlencode
@@ -23,6 +24,8 @@ str
 parse_http_list
 json
 basestring
+OrderedDict
+urljoin
 is_py2
 urlunparse
 urldefrag

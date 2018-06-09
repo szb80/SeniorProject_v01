@@ -3,7 +3,7 @@ os_release_info
 _DISTRO_RELEASE_BASENAME_PATTERN
 NORMALIZED_OS_ID
 os_release_attr
-distro_release_info
+_DISTRO_RELEASE_IGNORE_BASENAMES
 codename
 lsb_release_attr
 like
@@ -12,6 +12,7 @@ _distro
 _OS_RELEASE_BASENAME
 minor_version
 version_parts
+cached_property
 NORMALIZED_LSB_ID
 shlex
 NORMALIZED_DISTRO_ID
@@ -20,7 +21,7 @@ main
 info
 subprocess
 LinuxDistribution
-_DISTRO_RELEASE_IGNORE_BASENAMES
+distro_release_info
 _DISTRO_RELEASE_CONTENT_REVERSED_PATTERN
 linux_distribution
 sys
@@ -30,6 +31,7 @@ logging
 id
 major_version
 os
+argparse
 build_number
 json
 distro_release_attr

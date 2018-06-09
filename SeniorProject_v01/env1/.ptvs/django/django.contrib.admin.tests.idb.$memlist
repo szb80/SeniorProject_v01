@@ -1,5 +1,4 @@
 AdminSeleniumTestCase
-modify_settings
 _
 MiddlewareMixin
 SeleniumTestCase

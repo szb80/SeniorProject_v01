@@ -1,5 +1,5 @@
 division
-HTMLParser
+adjustForeignAttributesMap
 unicode_literals
 adjustSVGAttributes
 namespaces
@@ -7,7 +7,6 @@ specialElements
 adjust_attributes
 types
 impliedTagToken
-ReparseException
 treebuilders
 parseFragment
 adjustMathMLAttributes
@@ -18,9 +17,8 @@ _inputstream
 ParseError
 OrderedDict
 spaceCharacters
-PY3
 cdataElements
-adjustForeignAttributesMap
+HTMLParser
 htmlIntegrationPointElements
 rcdataElements
 tagTokenTypes
@@ -30,6 +28,7 @@ with_metaclass
 _tokenizer
 Marker
 mathmlTextIntegrationPointElements
+_ReparseException
 parse
 E
 headingElements

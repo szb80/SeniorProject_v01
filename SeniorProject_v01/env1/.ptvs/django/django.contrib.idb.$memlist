@@ -1,8 +1,8 @@
 messages
-contenttypes
 syndication
+contenttypes
 gis
-sitemaps
+sites
 admin
 staticfiles
 flatpages
@@ -10,6 +10,6 @@ auth
 humanize
 admindocs
 redirects
-sites
+sitemaps
 sessions
 postgres

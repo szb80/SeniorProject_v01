@@ -1,5 +1,5 @@
 ResponseError
-ConnectTimeout
+get_encoding_from_headers
 PoolManager
 SSLError
 socket
@@ -16,15 +16,14 @@ Response
 _ProxyError
 InvalidSchema
 RetryError
-ConnectionError
 CaseInsensitiveDict
 ProxyError
 urlparse
 urldefragauth
 extract_cookies_to_jar
 DEFAULT_POOL_TIMEOUT
+ConnectTimeout
 ConnectTimeoutError
-get_encoding_from_headers
 DEFAULT_CA_BUNDLE_PATH
 prepend_scheme_if_needed
 NewConnectionError
@@ -38,7 +37,7 @@ ProtocolError
 HTTPAdapter
 SOCKSProxyManager
 TimeoutSauce
-to_native_string
+ConnectionError
 MaxRetryError
 DEFAULT_RETRIES
 DEFAULT_POOLSIZE
