@@ -18,7 +18,13 @@
 	    </div>
 
 		<div class="col-md-10">
-			<div class="text-uppercase"><strong>{{ event.name }}</strong></div>
+			<div class="text-uppercase">
+                <strong>{{ event.name }}</strong>
+                <!-- if user is admin, give edit option -->
+                {% if userperms > 1 %}
+                <a class="btn btn-primary" href="{% url 'editevent' pk=event.id %}" role="button"><i class="fas fa-edit"></i> Edit</a>
+                {% endif %}
+            </div>
 			<ul class="list-inline">
                 {% if event.date_start.day == event.date_end.day %}
 				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}}</li>

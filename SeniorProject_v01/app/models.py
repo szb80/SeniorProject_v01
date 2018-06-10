@@ -12,6 +12,14 @@ import googlemaps
 
 # Create your models here.
 
+class PermissionLevel(models.Model):
+    level = models.IntegerField()
+    level_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return str(self.level) + ' - ' + self.level_name
+
+
 class State(models.Model):
     state_name = models.CharField(max_length = 100, default = '')
     abbreviation = models.CharField(max_length = 2, default = '')
@@ -51,13 +59,18 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     address = models.CharField(max_length = 500, default = '', null=True, blank=True)
     troop_number = models.ForeignKey(Troop, default=0, null=True, blank=True)
+    permissions = models.ForeignKey(PermissionLevel, default=0)
     
     def __str__(self):
-        return str(self.troop_number)
+        return str(self.user.username)
 
     def get_district(self):
         d = District.objects.get(pk=self.troop_number.district_id)
         return d
+
+    def get_permissions(self):
+        p = PermissionLevel.objects.get(pk=self.permissions.level)
+        return p.level
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -98,7 +111,7 @@ class Event(models.Model):
 
     def publish(self):
         self.creation_date = datetime.now();
-        self.creation_user = request.user.id
+        self.creation_user = request.user
         self.save();
 
     def __str__(self):

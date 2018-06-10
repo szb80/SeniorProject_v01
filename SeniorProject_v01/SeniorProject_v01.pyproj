@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>SeniorProject_v01</Name>
     <RootNamespace>SeniorProject_v01</RootNamespace>
-    <InterpreterId>MSBuild|env2|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env3|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,9 +46,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\templatetags\relative_url.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="app\select_time_widget.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\templatetags\truncatesmart.py">
@@ -108,14 +105,18 @@
     <Content Include="app\static\app\scripts\jquery-3.3.1.min.js" />
     <Content Include="app\static\app\scripts\jquery-ui.1.12.1.min.js" />
     <Content Include="app\static\app\scripts\site.js" />
+    <Content Include="app\templates\app\acc_active_email.html" />
     <Content Include="app\templates\app\admin_troop.html" />
     <Content Include="app\templates\app\authentication_error.html" />
-    <Content Include="app\templates\app\calendar.html" />
     <Content Include="app\templates\app\create2.html" />
     <Content Include="app\templates\app\create.html" />
+    <Content Include="app\templates\app\event_form.html" />
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />
+    <Content Include="app\templates\app\invalid_activation.html" />
     <Content Include="app\templates\app\search.html" />
+    <Content Include="app\templates\app\successful_confirmation.html" />
+    <Content Include="app\templates\app\user_confirmation.html" />
     <Content Include="app\templates\app\user_registration.html" />
     <Content Include="app\templates\app\upcoming.html" />
     <Content Include="app\templates\app\eventlist.html" />
@@ -156,7 +157,6 @@
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
-    <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
@@ -186,10 +186,10 @@
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
       <Architecture>X64</Architecture>
     </Interpreter>
-    <Interpreter Include="env\">
-      <Id>env</Id>
+    <Interpreter Include="env3\">
+      <Id>env3</Id>
       <Version>3.6</Version>
-      <Description>env (Python 3.6 (64-bit))</Description>
+      <Description>env3 (Python 3.6 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

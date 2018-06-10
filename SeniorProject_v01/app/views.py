@@ -5,11 +5,13 @@ from django.contrib import messages
 
 import requests, json
 
+from django.core.urlresolvers import reverse
 from django.views.generic.base import View
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response, redirect
 from django.template import loader, RequestContext
 from django.views import generic
+from django.views.generic import UpdateView
 from django.conf import settings
 from datetime import datetime, date, time
 from django.utils.timezone import get_current_timezone
@@ -26,7 +28,6 @@ import googlemaps
 
 from app.forms import SignupForm
 from django.contrib.auth.forms import UserCreationForm
-
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -271,16 +272,9 @@ def upcoming(request):
 
         eventList = [dict(id=e.pk, name=e.name) for e in upcoming]
 
-        #return HttpResponse(
-        #    json.dumps(eventList),
-        #    content_type='application/json',
-        #)
-        
-
     else: # searchform is invalid or not submitted yet
         filters = listform()
         
-
     return render(
         request, 
         'app/upcoming.html', 
@@ -300,12 +294,35 @@ def eventdetail(request, event_id):
     place = place.replace(" ", "+")
     url += place
 
-    return render(request, 'app/eventdetail.html',
+    return render(request,
+                  'app/eventdetail.html',
                   {
                       'event': event,
                       'url': url,
+                      'userperms': request.user.profile.get_permissions()
                   }
                   )
+
+
+class EditEvent(UpdateView):
+    model = Event
+    fields = ['name',
+                'description',
+                'address',
+                'date_start',
+                'date_end',
+                'event_type',
+                'payment_url',
+                'primary_contact_name',
+                'primary_contact_info',
+                'coord_x',
+                'coord_y',
+                'google_location',
+                ]
+    def get_success_url(self):
+        return reverse('eventdetail', kwargs={
+            'event_id': self.object.pk,
+        })
 
 
 def search(request, month=None, year=None):
@@ -381,19 +398,6 @@ def create(request):
         )
 
 
-def register(request):
-    """Renders the home page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/index.html',
-        {
-            'title':'Register a new account',
-            'year':datetime.now().year,
-        }
-    )
-
-
 ###############################################################################
 # TEST VIEWS
 ###############################################################################
@@ -447,15 +451,13 @@ def create2(request):
         return render(request, "app/create2.html", {'form': form})
 
 
-
-
-
+###############################################################################
+# USER ACCOUNTS VIEWS
+###############################################################################
 
 def signup(request):
     if request.user.is_authenticated:
         return redirect('/home')
-
-   
 
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -482,8 +484,6 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'app/user_registration.html', {'form': form})
-
-
 
 
 def clean_email(self):
@@ -515,3 +515,4 @@ def activate(request, uidb64, token):
         return render(request, 'app/successful_confirmation.html')
     else:
         return render(request, 'app/invalid_activation.html')
+
