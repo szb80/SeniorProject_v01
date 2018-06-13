@@ -63,14 +63,36 @@ class Profile(models.Model):
     
     def __str__(self):
         return str(self.user.username)
+    
+    def get_troop(self):
+        try:
+            t = Troop.objects.get(troop_number=self.troop_number.troop_number)
+            return t.troop_number
+        except AttributeError:
+            return 'profile.gettroop error'
 
     def get_district(self):
-        d = District.objects.get(pk=self.troop_number.district_id)
-        return d
+        try:
+            t = Troop.objects.get(troop_number=self.troop_number.troop_number)
+            d = District.objects.get(district_name=t.district)
+            return d
+        except:
+            return 'profile.getdistrict error'
+
+    def get_district_pk(self):
+        try:
+            t = Troop.objects.get(troop_number=self.troop_number.troop_number)
+            d = District.objects.get(district_name=t.district)
+            return int(d.pk)
+        except:
+            return 'profile.getdistrictpk error'
 
     def get_permissions(self):
-        p = PermissionLevel.objects.get(pk=self.permissions.level)
-        return p.level
+        try:
+            p = PermissionLevel.objects.get(level=self.permissions.level)
+            return p.level
+        except:
+            return 0
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -101,7 +123,7 @@ class Event(models.Model):
     coord_x = models.CharField(max_length = 255, default = '', null=True, blank=True)
     coord_y = models.CharField(max_length = 255, default = '', null=True, blank=True)
     google_location = models.CharField(max_length = 300, default = '', null=True, blank=True)
-    district = models.ForeignKey(District)
+    district = models.ForeignKey(District, default = '0', null=True, blank=True)
     payment_url = models.URLField(default = 'https://www.', null=True, blank=True)
     primary_contact_name = models.CharField(max_length=255, default='')
     primary_contact_info = models.CharField(max_length=255, default='', help_text='(123) 333-4445')
@@ -109,17 +131,23 @@ class Event(models.Model):
     creation_date = models.DateTimeField(default = datetime.now)
     creation_user = models.ForeignKey(User, null=True, blank=True)
 
-    def publish(self):
-        self.creation_date = datetime.now();
-        self.creation_user = request.user
-        self.save();
-
     def __str__(self):
         return self.name;
 
     def get_absolute_url(self):
         url = '/event/' + str(self.id)
         return u'<a href="%s">%s</a>' % (url, str(self.name))
+
+    def get_troop(self):
+        u = self.creation_user
+        t = Troop.objects.get(troop_number=u.profile.get_troop())
+        return t.troop_number
+
+        try:
+            t = Troop.objects.get(troop_number=self.creation_user.profile.troop_number.troop_number)
+            return t.troop_number
+        except:
+            return 'event.gettroop error'
 
 
 class SearchEvent(models.Model):

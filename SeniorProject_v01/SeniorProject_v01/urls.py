@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^events', app.views.events, name='events'),
     url(r'^search$', app.views.search, name='search'),
     url(r'^event/(?P<event_id>[0-9]+)/$', app.views.eventdetail, name='eventdetail'),
+    url(r'^upcoming$', app.views.upcoming, name='upcoming'),    
     url(r'^event/edit/(?P<pk>\d+)/$', app.views.EditEvent.as_view(), name='editevent'),
     url(r'^create$', app.views.create, name='create'),
     url(r'^error$', app.views.error, name='error'),
@@ -39,10 +40,10 @@ urlpatterns = [
 
 
     # TESTING URLS ###########################################################
-    url(r'^upcoming$', app.views.upcoming, name='upcoming'),
+  
     url(r'^eventlist$', app.views.eventlist, name='eventlist'),
-    url(r'^loginfb$', app.views.loginfb, name='loginfb'),
-    url(r'^create2', app.views.create2, name='create2'),
+    url(r'^test', app.views.test, name='test'),
+
 
 
     # USER MANAGEMENT URLS ###################################################

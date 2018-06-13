@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 
 footer {
     text-align: center;
-    color: #FFF; 
+    color: #FFF;
 }
 
 .form-control:disabled, .form-control[readonly] {
@@ -61,6 +61,7 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
+/* BOOTSTRAP OVERRIDES */
 .jumbotron {
     background-color: transparent;
     padding: 0;
@@ -87,7 +88,6 @@ input[type="checkbox"].input-validation-error {
     height: 0.95rem;
 }
 
-/* BOOTSTRAP OVERRIDES */
 .alert-box {
     padding: 2rem 0;
 }
@@ -110,8 +110,20 @@ input[type="checkbox"].input-validation-error {
     color: red;
 }
 
-/* GOOGLE MAPS CSS */
+/* Bootstrap Dropdown Hover */
+.dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* GOOGLE MAPS CSS */
 #map {
     height: 20rem;
     width: 100%;
@@ -427,7 +439,6 @@ th.month {
 .bk-month {
     font-size: 1.5rem;
 }
-
 
 /*******REGISTRATION PAGE CSS***********/
 .divider-text {

@@ -43,7 +43,7 @@
                       </li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i class="fas fa-search navbar-fas"></i>Search</a></li>
                     <!-- CHECK IF USER HAS PERMISSIONS BEFORE LINKING TO CREATE EVENT PAGE -->
-                    {% if user.is_authenticated and request.user|in_group:"DistrictAdmin" %} 
+                    {% if user.is_authenticated and request.user.profile.get_permissions > 1 %} 
                         <li class="nav-item"><a class="nav-link" href="{% url 'create' %}"><i class="fas fa-plus-circle navbar-fas"></i>Create</a></li>
                     {% endif %}
                 </ul>

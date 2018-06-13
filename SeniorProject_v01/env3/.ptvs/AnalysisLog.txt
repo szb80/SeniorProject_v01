@@ -4097,3 +4097,59 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extens
 2018-06-09T23:06:13: Start analysis
 2018-06-09T23:06:14: IncludeModulesFromModulePath = win32com
 2018-06-09T23:06:18: Deleting 0 files
+
+2018-06-10T23:31:49: Start analysis
+2018-06-10T23:31:49: IncludeModulesFromModulePath = win32com
+2018-06-10T23:31:54: Deleting 0 files
+
+2018-06-12T16:54:13: Start analysis
+2018-06-12T16:54:14: IncludeModulesFromModulePath = win32com
+2018-06-12T16:54:19: Deleting 2 files
+2018-06-12T16:54:19: Deleting "C:\Users\Neo\Source\Repos\SeniorProject_v01\SeniorProject_v01\env3\.ptvs\datetimewidget\datetimewidget.idb"
+2018-06-12T16:54:19: Deleting "C:\Users\Neo\Source\Repos\SeniorProject_v01\SeniorProject_v01\env3\.ptvs\datetimewidget\datetimewidget.widgets.idb"
+
+2018-06-12T16:54:43: Start analysis
+2018-06-12T16:54:43: IncludeModulesFromModulePath = win32com
+2018-06-12T16:54:47: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\datetimewidget because datetimewidget.widgets needs updating
+2018-06-12T16:54:49: Deleting 0 files
+2018-06-12T16:54:49: astropy.CallDepth = 0
+2018-06-12T16:54:49: delphixpy.CallDepth = 0
+2018-06-12T16:54:49: matplotlib.CallDepth = 3
+2018-06-12T16:54:49: pandas.CallDepth = 0
+2018-06-12T16:54:49: sympy.CallDepth = 0
+2018-06-12T16:54:49: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\datetimewidget" with 2 files
+2018-06-12T16:54:49: Parsing complete
+2018-06-12T16:54:49: Analyzing "datetimewidget.widgets" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\datetimewidget\widgets.py")
+2018-06-12T16:54:49: Analyzing "datetimewidget" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\datetimewidget\__init__.py")
+2018-06-12T16:54:49: Starting analysis of 2 modules
+2018-06-12T16:54:52: Analysis complete
+2018-06-12T16:54:52: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\datetimewidget"
+2018-06-12T16:54:52: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\datetimewidget"
+2018-06-12T16:54:58: Deleting 0 files
+
+2018-06-12T17:16:45: Start analysis
+2018-06-12T17:16:46: IncludeModulesFromModulePath = win32com
+2018-06-12T17:16:51: Deleting 2 files
+2018-06-12T17:16:51: Deleting "C:\Users\Neo\Source\Repos\SeniorProject_v01\SeniorProject_v01\env3\.ptvs\datetimewidget\datetimewidget.idb"
+2018-06-12T17:16:51: Deleting "C:\Users\Neo\Source\Repos\SeniorProject_v01\SeniorProject_v01\env3\.ptvs\datetimewidget\datetimewidget.widgets.idb"
+
+2018-06-12T17:17:14: Start analysis
+2018-06-12T17:17:14: IncludeModulesFromModulePath = win32com
+2018-06-12T17:17:18: Including c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus because bootstrap_datepicker_plus.DatePickerBaseInput needs updating
+2018-06-12T17:17:19: Deleting 0 files
+2018-06-12T17:17:19: astropy.CallDepth = 0
+2018-06-12T17:17:19: delphixpy.CallDepth = 0
+2018-06-12T17:17:19: matplotlib.CallDepth = 3
+2018-06-12T17:17:19: pandas.CallDepth = 0
+2018-06-12T17:17:19: sympy.CallDepth = 0
+2018-06-12T17:17:19: Start group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus" with 4 files
+2018-06-12T17:17:20: Parsing complete
+2018-06-12T17:17:20: Analyzing "bootstrap_datepicker_plus.DatePickerBaseInput" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus\DatePickerBaseInput.py")
+2018-06-12T17:17:20: Analyzing "bootstrap_datepicker_plus.DateTimeBaseInputEx" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus\DateTimeBaseInputEx.py")
+2018-06-12T17:17:20: Analyzing "bootstrap_datepicker_plus.widgets" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus\widgets.py")
+2018-06-12T17:17:20: Analyzing "bootstrap_datepicker_plus" ("c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus\__init__.py")
+2018-06-12T17:17:20: Starting analysis of 4 modules
+2018-06-12T17:17:21: Analysis complete
+2018-06-12T17:17:21: Saving group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus"
+2018-06-12T17:17:21: End of group "c:\users\neo\source\repos\seniorproject_v01\seniorproject_v01\env3\lib\site-packages\bootstrap_datepicker_plus"
+2018-06-12T17:17:26: Deleting 0 files

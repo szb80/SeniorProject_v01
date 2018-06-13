@@ -108,14 +108,15 @@
     <Content Include="app\templates\app\acc_active_email.html" />
     <Content Include="app\templates\app\admin_troop.html" />
     <Content Include="app\templates\app\authentication_error.html" />
-    <Content Include="app\templates\app\create2.html" />
     <Content Include="app\templates\app\create.html" />
+    <Content Include="app\templates\app\create1.html" />
     <Content Include="app\templates\app\event_form.html" />
     <Content Include="app\templates\app\error.html" />
     <Content Include="app\templates\app\eventdetail.html" />
     <Content Include="app\templates\app\invalid_activation.html" />
     <Content Include="app\templates\app\search.html" />
     <Content Include="app\templates\app\successful_confirmation.html" />
+    <Content Include="app\templates\app\testpage.html" />
     <Content Include="app\templates\app\user_confirmation.html" />
     <Content Include="app\templates\app\user_registration.html" />
     <Content Include="app\templates\app\upcoming.html" />

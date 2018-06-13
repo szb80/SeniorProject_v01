@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'app',
     'widget_tweaks',
     'googlemaps',
-    'datetimewidget',
+    'bootstrap_datepicker_plus',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',

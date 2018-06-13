@@ -20,19 +20,23 @@
 		<div class="col-md-10">
 			<div class="text-uppercase">
                 <strong>{{ event.name }}</strong>
-                <!-- if user is admin, give edit option -->
-                {% if userperms > 1 %}
+                <!-- if user is district admin or higher, give edit option -->
+                {% if permissions > 2 %}
+                <a class="btn btn-primary" href="{% url 'editevent' pk=event.id %}" role="button"><i class="fas fa-edit"></i> Edit</a>
+                {% elif event_troop == user_troop %}
                 <a class="btn btn-primary" href="{% url 'editevent' pk=event.id %}" role="button"><i class="fas fa-edit"></i> Edit</a>
                 {% endif %}
             </div>
 			<ul class="list-inline">
                 {% if event.date_start.day == event.date_end.day %}
-				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}}</li>
+				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start|date:'l F jS, Y' }}</li>
 				{% else %}
-				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start}} - {{ event.date_end }}</li>
+				    <li class="list-inline-item"><i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ event.date_start|date:'M jS' }} - {{ event.date_end|date:'M jS, Y' }}</li>
                 {% endif %}
-                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> {{ event.date_start.hour }}:{{ event.date_start.minute }} - {{ event.date_end.hour }}:{{ event.date_end.minute }}</li>
-				<li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district}}</li>
+                <li class="list-inline-item"><i class="fas fa-clock" aria-hidden="true"></i> {{ event.date_start|date:'g:i A' }} - {{ event.date_end|date:'g:i A' }}</li>
+			</ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><i class="fas fa-location-arrow" aria-hidden="true"></i><strong> District: </strong> {{ event.district }}</li>
                 <li class="list-inline-item">
                     {% if event.event_type.id == 6 %}
                         <img src="{% static 'app/img/icons/national.svg' %}" class="event-fas" />
@@ -110,12 +114,6 @@
     }
 </script>
 
-                    <!-- IMAGE TO MATCH EVENT TYPE ###################################################
-                        <img src="{{ event.event_type_image }}">
-
-                        -->
-        
-                    
 </div>
 {% endblock %}
 

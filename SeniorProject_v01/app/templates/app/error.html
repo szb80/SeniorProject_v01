@@ -3,9 +3,11 @@
 {% block wrapper %}
 
 <div class="jumbotron">
-    <h1 class="display-2 text-danger"><i class="fas fa-exclamation-triangle fa-sm text-danger"></i> {{ error_code }}</h1>
+    <h1 class="display-2 text-danger"><i class="fas fa-exclamation-triangle fa-sm text-danger"></i> {{ error_code }} Error</h1>
     <p>&nbsp;</p>
-    <p class="text-center lead">Sorry about that!<br />{{ error_msg }}</p>
+    <h1 class="text-center">Sorry about that!</h1>
+    <p class="text-center h4">{{ error_msg }}</p>
+    <p>&nbsp;</p>
 </div>
 
 {% endblock %}

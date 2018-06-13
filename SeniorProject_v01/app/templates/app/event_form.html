@@ -11,13 +11,12 @@
 
 {% block wrapper %}
 
-    <h1>TEST a New Event</h1>
+    <h1 class="text-uppercase">Create a New Event</h1>
     <div class="row justify-content-center">
         <div class="col-8">
-
-<form method="POST">
+            <form method="POST">
             {% csrf_token %}
-
+    
                 {% for hidden in form.hidden_fields %}
                     {{ hidden }}
                 {% endfor %}
@@ -40,17 +39,23 @@
                     <span class="help-block">{{ error }}</span>
                 </div>
 
+                <!-- if user is district or site admin, let them select a district -->
+                {% if permissions >= 0 %}
+                <div class="form-group">
+                    <label for=" {{ form.district.id_for_label }}">{{ form.district | append_ast_if_req }}:</label>
+                    {{ form.district|add_class:'form-control' }}
+                    <span class="help-block">{{ error }}</span>
+                </div>
+                {% endif %}
+
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label for=" {{ form.date_start.id_for_label }}">{{ form.date_start | append_ast_if_req }}:</label>
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
-                                </div>
                                 {{ form.date_start|add_class:'form-control' }}
+                                <span class="help-block">{{ error }}</span>
                             </div>
-                            <span class="help-block">{{ error }}</span>
                         </div>
                     </div>
 
@@ -58,12 +63,9 @@
                         <div class="form-group">
                             <label for=" {{ form.date_end.id_for_label }}">{{ form.date_end | append_ast_if_req }}:</label>
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
-                                </div>
                                 {{ form.date_end|add_class:'form-control' }}
+                                <span class="help-block">{{ error }}</span>
                             </div>
-                            <span class="help-block">{{ error }}</span>
                         </div>
                     </div>
                 </div>
@@ -86,7 +88,6 @@
                     <span class="help-block">{{ error }}</span>
                 </div>
 
-    <!--
                 <div class="form-group">
                     <label>Contact Type:</label>
                     <div class="form-check">
@@ -100,7 +101,6 @@
                         <label class="form-check-label" for="primary_contact_info_type1">Phone</label>
                     </div>
                 </div>
--->
 
                 <div class="form-group">
                     <label for=" {{ form.primary_contact_info.id_for_label }}">Contact Information:</label>
@@ -113,10 +113,12 @@
         </div>
     </div>
 
+
     <div class="col">
     </div>
 
 {% endblock %}
+
 
 {% block scripts %}
 <!-- autocomplete on type in search box -->

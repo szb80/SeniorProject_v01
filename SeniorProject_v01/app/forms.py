@@ -12,7 +12,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.utils.translation import ugettext_lazy as _
 
 from app.models import Event, SearchEvent, ListEvent, District
-from datetimewidget.widgets import DateTimeWidget
+from bootstrap_datepicker_plus import DateTimePickerInput
 
 
 class BootstrapAuthenticationForm(AuthenticationForm):
@@ -42,6 +42,7 @@ class createform(forms.ModelForm):
         fields = ['name',
                   'description',
                   'address',
+                  'district',
                   'date_start',
                   'date_end',
                   'event_type',
@@ -51,25 +52,34 @@ class createform(forms.ModelForm):
                   'coord_x',
                   'coord_y',
                   'google_location',
+                  'creation_user',
+                  'creation_date',
                   ]
-        
-        dateTimeOptions = {
-            'format': 'mm/dd/yyyy HH:ii P',
-            'autoclose': True,
-            'showMeridian' : True
-        }
 
         widgets = {
-            'date_start': DateTimeWidget(options = dateTimeOptions),
-            'date_end': DateTimeWidget(options = dateTimeOptions),
+            'date_start': DateTimePickerInput(),
+            'date_end': DateTimePickerInput(),
                    }
 
     def __init__(self, *args, **kwargs):
+        district = kwargs.pop('district')
+        permissions = kwargs.pop('permissions')
+
         super(createform, self).__init__(*args, **kwargs)
+
         self.fields['address'].widget.attrs = {'id': 'locationTextField',}
         self.fields['coord_x'].widget = forms.HiddenInput()
         self.fields['coord_y'].widget = forms.HiddenInput()
         self.fields['google_location'].widget = forms.HiddenInput()
+        self.fields['creation_user'].widget = forms.HiddenInput()
+        self.fields['creation_date'].widget = forms.HiddenInput()
+
+        # check for district admin level or above
+        # if not, only show the user's current distrit
+        # set selected district to user's district
+        if permissions < 3:
+            self.fields['district'] = forms.ModelChoiceField(queryset=District.objects.filter(district_name=district))
+        self.initial['district'] = district
 
 
 class listform(forms.ModelForm):
@@ -106,10 +116,6 @@ class SignupForm(UserCreationForm):
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
                                    'placeholder':'Repeat password'}))
-
- 
-
-
    
     class Meta:
         model = User

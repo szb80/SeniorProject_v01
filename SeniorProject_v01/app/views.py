@@ -299,7 +299,9 @@ def eventdetail(request, event_id):
                   {
                       'event': event,
                       'url': url,
-                      'userperms': request.user.profile.get_permissions()
+                      'permissions': request.user.profile.get_permissions(),
+                      'event_troop': Event.objects.get(pk=event_id).get_troop(),
+                      'user_troop': request.user.profile.get_troop(),
                   }
                   )
 
@@ -352,40 +354,9 @@ def search(request, month=None, year=None):
 @login_required
 def create(request):
     # displays the "Create Event" page for users to create a new event
-    if request.user.groups.filter(name="DistrictAdmin").count():
-        gmaps = googlemaps.Client(key='AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8')
 
-        if request.method == "POST":
-            form = createform(request.POST)
-            if form.is_valid():
-                form = form.save(commit=False)
-
-                # process geocode address
-                geocode_url = "https://maps.googleapis.com/maps/api/geocode/json?address={}".format(form.address)
-                geocode_url = geocode_url + "&key={}".format(settings.GOOGLE_MAPS_API)
-                results = requests.get(geocode_url)
-                results = results.json()
-                geocode_result = results['results'][0]
-                
-                form.coord_x = geocode_result.get('geometry').get('location').get('lat')
-                form.coord_y = geocode_result.get('geometry').get('location').get('lng')
-                google_location = geocode_result.get('place_id')
-
-                form.save()
-                return HttpResponseRedirect('/events')
-            else:
-                return HttpResponseRedirect('/error')
-
-        elif request.method == "GET":
-            form = createform()
-            return render(request,
-                          "app/create.html",
-                          {
-                              'title': 'Create a new event',
-                              'form': form
-                              }
-                          )
-    else:
+    # deny all access to non-admins
+    if request.user.profile.get_permissions() <= 1:
         return render(
             request,
             'app/error.html',
@@ -393,29 +364,20 @@ def create(request):
                 'title': 'Error Page',
                 'year': datetime.now().year,
                 'error_code': 'Permission Denied',
-                'error_msg': 'You do not have permission to access this page.',
+                'error_msg': 'You are not authorized to create events. Only designated troop leaders may add events. Contact your Troopmaster if you have an activity you wish to add to the calendar.',
             }
         )
 
-
-###############################################################################
-# TEST VIEWS
-###############################################################################
-
-def eventlist(request):
-    """Displays all Events after the current date"""
-    eventlist = Event.objects.order_by('name')
-    template = loader.get_template('app/eventlist.html')
-    context = { 'eventlist': eventlist, }
-    return HttpResponse(template.render(context, request))
-
-
-def create2(request):
-    # displays the "Create Event" page for users to create a new event
+    # initialize google maps instance
     gmaps = googlemaps.Client(key='AIzaSyA0aaavBcFWIBvn3Tnu86BYOpKHqYVqKR8')
 
+    # pull permissions and districts for selected user
+    p = request.user.profile.get_permissions()
+    d = request.user.profile.get_district()
+
     if request.method == "POST":
-        form = createform(request.POST)
+        form = createform(request.POST, district=d, permissions=p)
+
         if form.is_valid():
             form = form.save(commit=False)
 
@@ -430,25 +392,46 @@ def create2(request):
             form.coord_y = geocode_result.get('geometry').get('location').get('lng')
             google_location = geocode_result.get('place_id')
 
-            # set event district based on user profile
-            form.district = request.user.profile.get_district()
-
             # interpret and assign primary contact info type
-            type = 0
-            if 'primary_contact_info_type1' in request.GET and request.GET['primary_contact_info_type1']:
+            type = 0  # default to none type
+            if 'primary_contact_info_type1' in request.POST and request.POST['primary_contact_info_type1']:
                 type = 1
-            elif 'primary_contact_info_type2' in request.GET and request.GET['primary_contact_info_type2']:
+            elif 'primary_contact_info_type2' in request.POST and request.POST['primary_contact_info_type2']:
                 type = 2
             form.primary_contact_info_type = type
 
+            # set owner to current user
+            form.creation_date = datetime.now();
+            form.creation_user = request.user
+
             form.save()
             return HttpResponseRedirect('/events')
+
+
+        #else: # unhandled form error
+        #    return render(
+        #        request,
+        #        'app/testpage.html',
+        #        {
+        #            'form': form,
+        #            'district': request.user.profile.get_district(),
+        #            'districtpk': request.user.profile.get_district_pk(),
+        #            'troop': request.user.profile.get_troop(),
+        #        }
+        #    )
+
         else:
             return HttpResponseRedirect('/error')
 
     elif request.method == "GET":
-        form = createform()
-        return render(request, "app/create2.html", {'form': form})
+        form = createform(district=d, permissions=p)
+        return render(request,
+                      "app/create.html",
+                      {
+                          'form': form,
+                          'permissions': request.user.profile.get_permissions(),
+                      }
+                      )
 
 
 ###############################################################################
@@ -515,4 +498,36 @@ def activate(request, uidb64, token):
         return render(request, 'app/successful_confirmation.html')
     else:
         return render(request, 'app/invalid_activation.html')
+
+
+
+###############################################################################
+# TEST VIEWS
+###############################################################################
+
+def eventlist(request):
+    """Displays all Events after the current date"""
+    eventlist = Event.objects.order_by('name')
+    template = loader.get_template('app/eventlist.html')
+    context = { 'eventlist': eventlist, }
+    return HttpResponse(template.render(context, request))
+
+
+def test(request):
+    """Renders the home page."""
+    assert isinstance(request, HttpRequest)
+    p = request.user.profile.get_permissions()
+
+    return render(
+        request,
+        'app/testpage.html',
+        {
+            'title':'Test Page',
+            'year':datetime.now().year,
+            'permissions': p,
+            'district': request.user.profile.get_district(),
+            'districtpk': request.user.profile.get_district_pk(),
+            'troop': request.user.profile.get_troop(),
+        }
+    )
 

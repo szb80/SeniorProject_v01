@@ -1,0 +1,38 @@
+﻿{% extends "app/wrapper.html" %}
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% load append_ast_if_req %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block wrapper %}
+<div class="col">
+    {% if troop %}
+    <h1>request user get-troop: {{ troop }}</h1>
+    {% endif %}
+
+    {% if district %}
+    <h1>request user get_district: {{ district }}</h1>
+    {% endif %}
+
+    {%if districtpk %}
+    <h1>request user get-district-pk: {{ districtpk }}</h1>
+    {% endif %}
+
+    {% if permissions %}
+    <h1>request user permissions:  {{ permissions }}</h1>
+    {% endif %}
+
+    <br />
+
+    {% if form %}
+    <h1>form_errors: {{ form.errors }}</h1>
+    <h3>form.district:  {{ form.district }}</h3>
+    {% endif %}
+
+</div>
+
+{% endblock %}
