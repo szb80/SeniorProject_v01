@@ -1,21 +1,20 @@
-html {
+body {
+    padding-top: 0rem;
+    color: black;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-body {
+#index {
     background: url('../img/tlusa_homepage_cover.jpg');
-    padding-top: 70px;
-    padding-bottom: 20px;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center center;
-    color: black;
-    font-family: 'Open Sans', sans-serif;
 }
 
-    body .wrapper-trans {
-        background-color: rgba(255,255,255,0.8);
-    }
+body .wrapper-trans {
+    background-color: rgba(0,0,0,0.1);
+}
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
@@ -23,11 +22,30 @@ h1, h2, h3, h4, h5, h6 {
 
 footer {
     text-align: center;
-    color: #FFF;
+    padding: 2rem 0;
 }
 
-.form-control:disabled, .form-control[readonly] {
-    background-color: white;
+h1, h2, h3, h4, h5, h6, title, .text-uppercase {
+    font-family: 'Roboto', sans-serif;
+}
+
+.red-gradient {
+    background: #0e356e;
+    background: -moz-linear-gradient(top, #79060D 0%,#490308 100%);
+    background: -webkit-linear-gradient(top, #79060D 0%,#490308 100%);
+    background: linear-gradient(to bottom, #79060D,#490308 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79060D', endColorstr='#490308',GradientType=0 );
+    position: relative;
+}
+
+/* override navbar color */
+.bg-light, .dropdown-menu {
+    background-color: #79060D !important;
+}
+
+.dropdown-item {
+    background-color: #79060D !important;
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -37,6 +55,10 @@ footer {
 }
 
 /* styles for validation helpers */
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
 .field-validation-error {
     color: #b94a48;
 }
@@ -71,6 +93,10 @@ input[type="checkbox"].input-validation-error {
     padding: 0;
 }
 
+.navbar-offset {
+    padding-top: 2.5rem;
+}
+
 .event-type-icon {
     height: 2.5rem;
 }
@@ -90,10 +116,6 @@ input[type="checkbox"].input-validation-error {
 
 .alert-box {
     padding: 2rem 0;
-}
-
-.centered {
-    text-align: center;
 }
 
 .errorlist {
@@ -139,7 +161,7 @@ input[type="checkbox"].input-validation-error {
         display: table-header-group;
         vertical-align: middle;
         border-color: inherit;
-        background-color: #9675ce;
+        background-color: #79060D;
     }
 
         .oafcal thead tr {
@@ -152,21 +174,24 @@ input[type="checkbox"].input-validation-error {
         display: table-row-group;
         vertical-align: middle;
         border-color: inherit;
-        background-color: #f8f9fa !important;
+        background-color: #fbfdfe !important;
         color: rgb(76, 56, 67);
         border-radius: 6px;
-        box-shadow: 0 1px 2px #C3C3C3;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        /*box-shadow: 0 1px 2px #C3C3C3;
         -webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
         -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
-        box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
+        box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)*/
     }
 
-.oafcalMonth {
-    max-width: 100%;
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
+    .oafcal .oafcalMonth {
+        max-width: 100%;
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
 
 .day-number {
     text-align: right;
@@ -223,10 +248,12 @@ input[type="checkbox"].input-validation-error {
 /* CALEDAR HEADER */
 
 .calHeader {
-    background-color: #f8f9fa;
+    background-color: #fbfdfe;
     color: #000;
     border-radius: 6px 6px 0 0;
-    box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
     .calHeader tbody {
@@ -392,11 +419,7 @@ th.month {
 }
 
 .color-bg {
-    background-color: rgba(245, 242, 242, 0.85);
-    border-top: 1px solid #ab0101;
-    border-bottom: 1px solid #ab0101;
-    /* background-color: #f8f9fa !important; */
-    border-left: 5px solid #ab0101;
+    border-left: 0.5rem solid #ab0101;
 }
 
 .badge {

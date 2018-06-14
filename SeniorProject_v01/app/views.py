@@ -200,7 +200,7 @@ def signup(request):
             return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'app/user_registration.html', {'form': form})
+    return render(request, 'app/user_registration.html', {'title': 'Sign up', 'form': form})
 
 
 ###############################################################################
@@ -214,7 +214,7 @@ def home(request):
         request,
         'app/index.html',
         {
-            'title':'Home Page',
+            'title':'Home',
             'year':datetime.now().year,
         }
     )
@@ -249,7 +249,7 @@ def events(request, month=None, year=None):
     return render(request,
         'app/events.html', 
         {
-            'title': 'Events',
+            'title': 'Calendar',
             'month_table': buildCalendar(request), 
         }
     )
@@ -297,6 +297,7 @@ def eventdetail(request, event_id):
     return render(request,
                   'app/eventdetail.html',
                   {
+                      'title': event.name,
                       'event': event,
                       'url': url,
                       'permissions': request.user.profile.get_permissions(),
@@ -343,7 +344,7 @@ def search(request, month=None, year=None):
         request, 
         'app/search.html', 
         {
-            'title':'Search Events',
+            'title':'Search',
             'filter': searchParams,
             'month_table': month_table,
         }
@@ -428,6 +429,7 @@ def create(request):
         return render(request,
                       "app/create.html",
                       {
+                          'title': 'Create New Event',
                           'form': form,
                           'permissions': request.user.profile.get_permissions(),
                       }

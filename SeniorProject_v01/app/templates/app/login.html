@@ -3,6 +3,8 @@
 
 {% block content %}
 
+<div class="navbar-offset"></div>
+
 {% if request.user.is_authenticated %}
 <div class="col">
     <h1>Welcome back, {{ request.user.username.capitalize }}!</h1>
@@ -38,11 +40,11 @@
             <p class="validation-summary-errors">Please enter a correct user name and password.</p>
         {% endif %}
 
-        <div class="clearfix centered">
+        <div class="clearfix text-center">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
         </div>
 
-        <div class="clearfix centered">
+        <div class="clearfix text-center">
             <a href="{% url 'password_reset' %}" class="pull-right">Forgot Password?</a>
         </div>
 

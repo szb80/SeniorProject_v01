@@ -1,8 +1,8 @@
-{% extends "app/wrapper.html" %}
+{% extends "app/layout.html" %}
 
 {% load staticfiles %}
 
-{% block wrapper %}
+{% block content %}
 <!-- check user authentication and display proper page -->
 {% if request.user.is_authenticated %}
     <!-- if user is logged in, load calendar -->
@@ -10,8 +10,10 @@
 
 <!-- else display error -->
 {% else %}
+<div class="navbar-offset"></div>
     <div class="col-md-12">
         {% include "app/authentication_error.html" %}
     </div>
+<div class="navbar-offset"></div>
 {% endif %}
 {% endblock %}

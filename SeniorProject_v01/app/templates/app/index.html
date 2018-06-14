@@ -1,15 +1,16 @@
-{% extends "app/layout.html" %}
+{% extends "app/layout_index.html" %}
 {% load staticfiles %}
 
 {% block content %}
 
+<div class="container navbar-offset">
 <div class="jumbotron">
-    <h1>Welcome to the Trail Life USA<br />Online Adventure Finder</h1>
-
+    <p>&nbsp;</p>
+    <p class="display-3 text-center">Welcome to the Trail Life USA<br />Online Adventure Finder</p>
 
     {% if request.user.is_authenticated %}
         <p></p>
-        <h3 class="centered">Welcome back, {{ request.user.username.capitalize }}!</h3>
+        <h4 class="text-center text-light">Welcome back, {{ request.user.username.capitalize }}!</h4>
     {% elif messages %}
         {% for message in messages %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -18,11 +19,11 @@
         <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        {% endfor %}
+    {% endfor %}
         
-    {%else%}
+    {% else %}
         <p></p>
-        <p class="centered">You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">register</a> to continue.</p>
+        <p class="text-center text-light">You must be a registered user to access this site.<br />Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'signup' %}">register</a> to continue.</p>
     {% endif %}
     
     
@@ -59,6 +60,7 @@
         </div>
     </div>
     <div class="col-sm-1"></div>
+</div>
 </div>
 
 {% endblock %}

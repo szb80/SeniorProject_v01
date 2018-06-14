@@ -1,4 +1,4 @@
-﻿{% extends "app/wrapper.html" %}
+﻿{% extends "app/layout.html" %}
 
 {% load staticfiles %}
 {% load widget_tweaks %}
@@ -9,7 +9,7 @@
     {{ form.media }}
 {% endblock %}
 
-{% block wrapper %}
+{% block content %}
 
     <h1 class="text-uppercase">Create a New Event</h1>
     <div class="row justify-content-center">

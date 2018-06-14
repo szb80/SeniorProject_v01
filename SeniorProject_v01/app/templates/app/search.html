@@ -1,9 +1,9 @@
-﻿{% extends "app/wrapper.html" %}
+﻿{% extends "app/layout.html" %}
 {% load staticfiles %}
 {% load widget_tweaks %}
 {% load append_ast_if_req %}
 
-{% block wrapper %}
+{% block content %}
 
 {% if request.user.is_authenticated %}
 <div class="row">

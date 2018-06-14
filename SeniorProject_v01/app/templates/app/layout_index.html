@@ -25,22 +25,24 @@
 
 </head>
 
-<body>
+<body id="index">
 
     <!-- insert navbar -->
     {% include 'app/navbar.html' %}
 
-    <div class="container navbar-offset">
+    <div class="container">
 
         <!-- MAIN CONTENT BLOCK HERE -->
         {% block content %}
         {% endblock %}
 
     </div>
-    
+
     <!-- insert footer -->
     {% include 'app/footer.html' %}
 
+    <!-- <script src="{% static 'app/scripts/jquery-3.3.1.min.js' %}"></script>-->
+    
     <script src="{% static 'app/scripts/bootstrap.bundle.4.min.js' %}"></script>
     <script src="{% static 'app/scripts/jquery-ui.1.12.1.min.js' %}"></script>
     <script src="{% static 'app/scripts/respond.js' %}"></script>
