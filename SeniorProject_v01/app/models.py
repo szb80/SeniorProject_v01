@@ -68,8 +68,8 @@ class Profile(models.Model):
         try:
             t = Troop.objects.get(troop_number=self.troop_number.troop_number)
             return t.troop_number
-        except AttributeError:
-            return 'profile.gettroop error'
+        except:
+            return Troop.objects.get(troop_number=0) #'profile.gettroop error'
 
     def get_district(self):
         try:
@@ -139,15 +139,15 @@ class Event(models.Model):
         return u'<a href="%s">%s</a>' % (url, str(self.name))
 
     def get_troop(self):
-        u = self.creation_user
-        t = Troop.objects.get(troop_number=u.profile.get_troop())
-        return t.troop_number
+        #u = self.creation_user
+        #t = Troop.objects.get(troop_number=u.profile.get_troop())
+        #return t.troop_number
 
         try:
             t = Troop.objects.get(troop_number=self.creation_user.profile.troop_number.troop_number)
             return t.troop_number
         except:
-            return 'event.gettroop error'
+            return Troop.objects.get(troop_number=0) #'event.gettroop error'
 
 
 class SearchEvent(models.Model):

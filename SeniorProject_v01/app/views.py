@@ -322,6 +322,32 @@ class EditEvent(UpdateView):
                 'coord_y',
                 'google_location',
                 ]
+
+    # test for user admin permissions
+    # return boolean for if user is admin or not
+    def get_admin_permissions(self, request):
+        try:
+            if request.user.profile.get_permissions() >= 2:
+                return True
+            return False
+        except AttributeError:  # catch AnonymousUser or user not logged in
+            return False
+
+    # override dispatch method and test for request.user permissions and redirect as appropriate
+    def dispatch(self, request, *args, **kwargs):
+        if not self.get_admin_permissions(request):
+            return render(
+                request,
+                'app/error.html',
+                {
+                    'title': 'Error Page',
+                    'year': datetime.now().year,
+                    'error_code': 'Permission Denied',
+                    'error_msg': 'You are not authorized to edit events. Only designated troop leaders may modify events. Contact your Troopmaster or the event contact if you see an error in a listing.',
+                }
+            )
+        return super(EditEvent, self).dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         return reverse('eventdetail', kwargs={
             'event_id': self.object.pk,
@@ -329,7 +355,8 @@ class EditEvent(UpdateView):
 
 
 def search(request, month=None, year=None):
-    # Renders the filter events page
+    # Renders the search events page
+
     assert isinstance(request, HttpRequest)
 
     if request.method == "GET":
@@ -351,13 +378,12 @@ def search(request, month=None, year=None):
     )
 
 
-##############################################################################################################
 @login_required
 def create(request):
     # displays the "Create Event" page for users to create a new event
 
     # deny all access to non-admins
-    if request.user.profile.get_permissions() <= 1:
+    if request.user.profile.get_permissions() < 2:
         return render(
             request,
             'app/error.html',
@@ -379,6 +405,7 @@ def create(request):
     if request.method == "POST":
         form = createform(request.POST, district=d, permissions=p)
 
+        # process form if valid
         if form.is_valid():
             form = form.save(commit=False)
 
@@ -409,7 +436,7 @@ def create(request):
             return HttpResponseRedirect('/events')
 
 
-        #else: # unhandled form error
+        #else: # unhandled form error - DEBUG ONLY
         #    return render(
         #        request,
         #        'app/testpage.html',
@@ -424,6 +451,7 @@ def create(request):
         else:
             return HttpResponseRedirect('/error')
 
+    # new form
     elif request.method == "GET":
         form = createform(district=d, permissions=p)
         return render(request,
@@ -519,6 +547,7 @@ def test(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     p = request.user.profile.get_permissions()
+    e = Event.objects.get(id=24)
 
     return render(
         request,
@@ -530,6 +559,8 @@ def test(request):
             'district': request.user.profile.get_district(),
             'districtpk': request.user.profile.get_district_pk(),
             'troop': request.user.profile.get_troop(),
+            'event': e,
+            'eventtroop': e.get_troop(),
         }
     )
 

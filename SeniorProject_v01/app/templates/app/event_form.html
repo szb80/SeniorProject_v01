@@ -11,7 +11,14 @@
 
 {% block content %}
 
-    <h1 class="text-uppercase">Create a New Event</h1>
+{% if permissions < 2 %}
+
+<h1>You do not have permission to view this page</h1>
+
+{% endif %}
+
+
+    <h1 class="text-uppercase">Modify Event</h1>
     <div class="row justify-content-center">
         <div class="col-8">
             <form method="POST">

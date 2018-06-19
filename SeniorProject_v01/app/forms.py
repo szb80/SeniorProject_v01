@@ -135,12 +135,3 @@ class SignupForm(UserCreationForm):
                 # A user was found with this as a username, raise an error.
                 raise forms.ValidationError('This email address is already in use.')
 
-
-   
-    
-
-
-    
-    
-
-

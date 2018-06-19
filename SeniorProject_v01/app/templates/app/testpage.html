@@ -1,4 +1,4 @@
-﻿{% extends "app/wrapper.html" %}
+﻿{% extends "app/layout.html" %}
 
 {% load staticfiles %}
 {% load widget_tweaks %}
@@ -8,7 +8,7 @@
 
 {% endblock %}
 
-{% block wrapper %}
+{% block content %}
 <div class="col">
     {% if troop %}
     <h1>request user get-troop: {{ troop }}</h1>
@@ -24,6 +24,14 @@
 
     {% if permissions %}
     <h1>request user permissions:  {{ permissions }}</h1>
+    {% endif %}
+
+    {% if event %}
+    <h1>event:  {{ event }}</h1>
+    {% endif %}
+
+    {% if eventtroop %}
+    <h1>event.get_troop:  {{ eventtroop }}</h1>
     {% endif %}
 
     <br />
