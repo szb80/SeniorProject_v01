@@ -88,7 +88,7 @@
     <Content Include="app\static\app\img\404.jpg" />
     <Content Include="app\static\app\img\calendar_01.jpg" />
     <Content Include="app\static\app\img\calendar_02.jpg" />
-    <Content Include="app\static\app\img\error.png" />
+    <Content Include="app\static\app\img\error2.png" />
     <Content Include="app\static\app\img\fb1.png" />
     <Content Include="app\static\app\img\icons\backpack.svg" />
     <Content Include="app\static\app\img\icons\camping.svg" />

@@ -1,13 +1,21 @@
 ﻿{% extends "app/layout.html" %}
 
+{% load staticfiles %}
+
 {% block content %}
 
 <div class="navbar-offset"></div>
 
-<div class="jumbotron">
+<div class="row">
+    <div class="col">
+        <div class="align-items-center">
+            <img src="{% static 'app/img/error2.png' %}" class="float-left" style="height:12rem;"/>
+            <h1 class="display-2 text-danger align-items-center"><i class="fas fa-exclamation-triangle fa-sm text-danger"></i> {{ error_code }} Error</h1>
+        </div>
+    </div>
+</div>
 
-    <h1 class="display-2 text-danger"><i class="fas fa-exclamation-triangle fa-sm text-danger"></i> {{ error_code }} Error</h1>
-    <p>&nbsp;</p>
+<div class="jumbotron">
     <h1 class="text-center">Sorry about that!</h1>
     <p class="text-center h4">{{ error_msg }}</p>
     <p>&nbsp;</p>

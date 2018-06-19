@@ -20,7 +20,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
-from .models import Event, District, SearchEvent
+from .models import Event, District, SearchEvent, Troop
 from .utils import TemplatedCalendar, get_month_day_range
 from app.forms import searchform, createform, listform
 from app.templatetags import in_group
@@ -286,6 +286,7 @@ def upcoming(request):
     )
 
 
+@login_required
 def eventdetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
 
@@ -293,6 +294,14 @@ def eventdetail(request, event_id):
     place = event.address
     place = place.replace(" ", "+")
     url += place
+    et = Event.objects.get(pk=event_id).get_troop()
+
+    try:
+        p = request.user.profile.get_permissions()
+        ut = request.user.profile.get_troop()
+    except AttributeError:  # catch AnonymousUser or user not logged in
+        p = 0
+        ut = Troop.objects.get(troop_number=0)
 
     return render(request,
                   'app/eventdetail.html',
@@ -300,9 +309,9 @@ def eventdetail(request, event_id):
                       'title': event.name,
                       'event': event,
                       'url': url,
-                      'permissions': request.user.profile.get_permissions(),
-                      'event_troop': Event.objects.get(pk=event_id).get_troop(),
-                      'user_troop': request.user.profile.get_troop(),
+                      'permissions': p,
+                      'event_troop': et,
+                      'user_troop': ut,
                   }
                   )
 
