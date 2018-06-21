@@ -429,6 +429,12 @@ def create(request):
             form.coord_y = geocode_result.get('geometry').get('location').get('lng')
             google_location = geocode_result.get('place_id')
 
+            if 'date_start' in request.POST and request.POST['date_start']:
+                form.date_start = datetime.strptime(request.POST['date_start'], "%m/%d/%Y %H:%M")
+
+            if 'date_end' in request.POST and request.POST['date_end']:
+                form.date_end = datetime.strptime(request.POST['date_end'], "%m/%d/%Y %H:%M")
+
             # interpret and assign primary contact info type
             type = 0  # default to none type
             if 'primary_contact_info_type1' in request.POST and request.POST['primary_contact_info_type1']:

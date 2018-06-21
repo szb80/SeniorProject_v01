@@ -1,0 +1,499 @@
+body {
+    padding-top: 0rem;
+    color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#index {
+    background: url('../img/tlusa_homepage_cover.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+body .wrapper-trans {
+    background-color: rgba(0,0,0,0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+h1, h2, h3, h4, h5, h6, title, .text-uppercase {
+    font-family: 'Roboto', sans-serif;
+}
+
+.red-gradient {
+    background: #0e356e;
+    background: -moz-linear-gradient(top, #79060D 0%,#490308 100%);
+    background: -webkit-linear-gradient(top, #79060D 0%,#490308 100%);
+    background: linear-gradient(to bottom, #79060D,#490308 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79060D', endColorstr='#490308',GradientType=0 );
+    position: relative;
+}
+
+/* override navbar color */
+.bg-light, .dropdown-menu {
+    background-color: #79060D !important;
+}
+
+.dropdown-item {
+    background-color: #79060D !important;
+    color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* styles for validation helpers */
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* BOOTSTRAP OVERRIDES */
+.jumbotron {
+    background-color: transparent;
+    padding: 0;
+}
+
+.container .jumbotron {
+    padding: 0;
+}
+
+.navbar-offset {
+    padding-top: 2.5rem;
+}
+
+.event-type-icon {
+    height: 2.5rem;
+}
+
+.align-middle {
+    vertical-align: middle !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.event-fas {
+    vertical-align: baseline;
+    height: 0.95rem;
+}
+
+.alert-box {
+    padding: 2rem 0;
+}
+
+.errorlist {
+    color: red;
+    list-style-type: none;
+}
+
+.navbar-fas {
+    margin-right: 0.35rem;
+}
+
+.required {
+    font-weight: bold;
+    color: red;
+}
+
+/* Bootstrap Dropdown Hover */
+.dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* GOOGLE MAPS CSS */
+#map {
+    height: 20rem;
+    width: 100%;
+}
+
+/* CALENDAR CSS */
+
+.oafcal {
+    width: 100%
+}
+
+    .oafcal thead {
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+        background-color: #79060D;
+    }
+
+        .oafcal thead tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+
+    .oafcal tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+        background-color: #fbfdfe !important;
+        color: rgb(76, 56, 67);
+        border-radius: 6px;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        /*box-shadow: 0 1px 2px #C3C3C3;
+        -webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+        -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+        box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18)*/
+    }
+
+    .oafcal .oafcalMonth {
+        max-width: 100%;
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+.day-number {
+    text-align: right;
+    padding-right: 2px;
+}
+
+.oafcal thead tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    width: 128px;
+}
+
+.oafcal td {
+    display: table-cell;
+    width: 128px;
+}
+
+.event-inner {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-image: linear-gradient(to bottom, #00aaff 0px, #b9def0 100%);
+    background-repeat: repeat-x;
+    line-height: 1.25;
+    padding: 0 0 0 0.25rem;
+}
+
+    .event-inner a {
+        color: #333;
+        font-size: 0.75rem;
+        padding: 5px 0px;
+    }
+
+.tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.td {
+    display: table-cell;
+    vertical-align: inherit;
+    width: 128px;
+}
+
+.oafcal th {
+    text-align: center;
+    width: 128px;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* CALEDAR HEADER */
+
+.calHeader {
+    background-color: #fbfdfe;
+    color: #000;
+    border-radius: 6px 6px 0 0;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+    .calHeader tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    .calHeader tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+
+    .calHeader td {
+        white-space: nowrap;
+        padding: 1rem;
+    }
+
+.header-title h2 {
+    white-space: nowrap;
+    font-size: 2rem;
+    font-weight: 100;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.header-right {
+    width: 25%;
+    text-align: right;
+}
+
+.header-left {
+    text-align: left;
+}
+
+.header-center {
+    text-align: center;
+}
+
+    .header-center month {
+        text-align: center;
+    }
+
+th.month {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+}
+
+.day-content {
+    clear: both;
+    padding: 2px 2px 1px;
+}
+
+.highlighted {
+    color: #000;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+}
+
+    .highlighted > day-number {
+        color: darkorange;
+    }
+
+.highlighted {
+    color: #000;
+}
+
+.day-header {
+    width: 20px;
+    color: rgb(76, 56, 67);
+    border-radius: 6px;
+    margin-left: auto;
+    top: 0px;
+}
+
+/*********Event Details Page*******************/
+
+.event-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+    .event-list > li {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 0px;
+    }
+
+    .event-list > li {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 5px rgb(51, 51, 51);
+        box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+        padding: 0px;
+        margin: 0px 0px 20px;
+    }
+
+        .event-list > li > time, .event-list > li > img {
+            float: left;
+            width: 120px;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+.info {
+    position: relative;
+    height: auto;
+    text-align: left;
+    padding-right: 40px;
+    padding-left: 10px;
+    background-color: rgb(245, 245, 245);
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.eventDate-one {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 30px;
+    padding-top: -10px;
+    font-size: 80%
+}
+
+.eventDate-two {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-size: 80%
+}
+
+/*************Event Details Calendar**********************/
+.text-uppercase {
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase !important;
+}
+
+.events-highlight day-content {
+    background-color: black;
+}
+
+.uppercase {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase !important;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    padding-top: 15px;
+    margin-bottom: 0;
+}
+
+.color-bg {
+    border-left: 0.5rem solid #ab0101;
+}
+
+.badge {
+    width: 60%;
+    border-radius: .25rem .25rem 0 0;
+    background-color: #ab0101;
+}
+
+.time {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    background-color: #ab0101;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 6rem;
+    padding: 0px;
+    margin: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.bk-day {
+    text-align: center;
+    background-color: black;
+    font-size: 5rem;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.bk-day-multiple {
+    text-align: center;
+    background-color: black;
+    font-size: 1.5rem;
+    display: block;
+    vertical-align: middle;
+    padding: 2.5rem 0;
+}
+
+.bk-month {
+    font-size: 1.5rem;
+}
+
+/*******REGISTRATION PAGE CSS***********/
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
+    }
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
