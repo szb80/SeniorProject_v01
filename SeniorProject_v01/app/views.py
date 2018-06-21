@@ -6,6 +6,7 @@ from django.contrib import messages
 import requests, json
 
 from django.core.urlresolvers import reverse
+from django.forms.models import modelform_factory
 from django.views.generic.base import View
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response, redirect
@@ -22,7 +23,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Event, District, SearchEvent, Troop
 from .utils import TemplatedCalendar, get_month_day_range
-from app.forms import searchform, createform, listform
+from app.forms import searchform, createform, editForm, listform
 from app.templatetags import in_group
 import googlemaps
 
@@ -36,6 +37,8 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
+
+from bootstrap_datepicker_plus import DateTimePickerInput
 
 
 ###############################################################################
@@ -316,53 +319,6 @@ def eventdetail(request, event_id):
                   )
 
 
-class EditEvent(UpdateView):
-    model = Event
-    fields = ['name',
-                'description',
-                'address',
-                'date_start',
-                'date_end',
-                'event_type',
-                'payment_url',
-                'primary_contact_name',
-                'primary_contact_info',
-                'coord_x',
-                'coord_y',
-                'google_location',
-                ]
-
-    # test for user admin permissions
-    # return boolean for if user is admin or not
-    def get_admin_permissions(self, request):
-        try:
-            if request.user.profile.get_permissions() >= 2:
-                return True
-            return False
-        except AttributeError:  # catch AnonymousUser or user not logged in
-            return False
-
-    # override dispatch method and test for request.user permissions and redirect as appropriate
-    def dispatch(self, request, *args, **kwargs):
-        if not self.get_admin_permissions(request):
-            return render(
-                request,
-                'app/error.html',
-                {
-                    'title': 'Error Page',
-                    'year': datetime.now().year,
-                    'error_code': 'Permission Denied',
-                    'error_msg': 'You are not authorized to edit events. Only designated troop leaders may modify events. Contact your Troopmaster or the event contact if you see an error in a listing.',
-                }
-            )
-        return super(EditEvent, self).dispatch(request, *args, **kwargs)
-
-    def get_success_url(self):
-        return reverse('eventdetail', kwargs={
-            'event_id': self.object.pk,
-        })
-
-
 def search(request, month=None, year=None):
     # Renders the search events page
 
@@ -477,6 +433,54 @@ def create(request):
                           'permissions': request.user.profile.get_permissions(),
                       }
                       )
+
+
+class EditEvent(UpdateView):
+    model = Event
+    #fields = ['name',
+    #            'description',
+    #            'address',
+    #            'event_type',
+    #            'payment_url',
+    #            'primary_contact_name',
+    #            'primary_contact_info',
+    #            'coord_x',
+    #            'coord_y',
+    #            'google_location',
+    #            ]
+    form_class = editForm
+    template_name = 'app/event_update.html'
+
+    # test for user admin permissions
+    # return boolean for if user is admin or not
+    def get_admin_permissions(self, request):
+        try:
+            if request.user.profile.get_permissions() >= 2:
+                return True
+            return False
+        except AttributeError:  # catch AnonymousUser or user not logged in
+            return False
+
+    # override dispatch method and test for request.user permissions and redirect as appropriate
+    def dispatch(self, request, *args, **kwargs):
+        if not self.get_admin_permissions(request):
+            return render(
+                request,
+                'app/error.html',
+                {
+                    'title': 'Error Page',
+                    'year': datetime.now().year,
+                    'error_code': 'Permission Denied',
+                    'error_msg': 'You are not authorized to edit events. Only designated troop leaders may modify events. Contact your Troopmaster or the event contact if you see an error in a listing.',
+                }
+            )
+
+        return super(EditEvent, self).dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('eventdetail', kwargs={
+            'event_id': self.object.pk,
+        })
 
 
 ###############################################################################

@@ -82,6 +82,27 @@ class createform(forms.ModelForm):
         self.initial['district'] = district
 
 
+class editForm(forms.ModelForm):
+    required_css_class = ' required'
+
+    class Meta:
+        model = Event
+        fields = ['name',
+                  'description',
+                  'address',
+                  'date_start',
+                  'date_end',
+                  'event_type',
+                  'payment_url',
+                  'primary_contact_name',
+                  'primary_contact_info',
+                  ]
+
+        widgets = {
+            'date_start': DateTimePickerInput(),
+            'date_end': DateTimePickerInput(),
+                   }
+
 class listform(forms.ModelForm):
     class Meta:
         model = ListEvent
