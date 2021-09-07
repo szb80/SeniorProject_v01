@@ -6,7 +6,7 @@ django-widget-tweaks==1.4.1
 googlemaps==2.5.1
 idna==2.6
 ipaddress==1.0.16
-Pillow==5.0.0
+Pillow==8.3.2
 pip==9.0.1
 pygeoip==0.3.2
 pytz==2016.6
